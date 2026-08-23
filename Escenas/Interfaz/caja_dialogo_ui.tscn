@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bl6ii0p555uyu"]
+
+[ext_resource type="Script" uid="uid://dbv1l8it2rg51" path="res://Escenas/Interfaz/caja_dialogo_ui.gd" id="1_pemok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dklp6"]
+bg_color = Color(0.011764706, 0, 0.6, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="CajaDialogoUI" type="CanvasLayer" unique_id=1103360831 groups=["HUD"]]
+layer = 10
+script = ExtResource("1_pemok")
+
+[node name="ContenedorDialogo" type="Control" parent="." unique_id=1277099080]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelFondo" type="Panel" parent="ContenedorDialogo" unique_id=917687139]
+custom_minimum_size = Vector2(800, 160)
+layout_mode = 0
+offset_left = 87.0
+offset_top = -182.0
+offset_right = 887.0
+offset_bottom = -22.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dklp6")
+
+[node name="MarginContainer" type="MarginContainer" parent="ContenedorDialogo/PanelFondo" unique_id=848912313]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorDialogo/PanelFondo/MarginContainer" unique_id=184023461]
+layout_mode = 2
+
+[node name="NombreLabel" type="Label" parent="ContenedorDialogo/PanelFondo/MarginContainer/VBoxContainer" unique_id=1811734939]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16733456, 0.16733462, 3.6098065e-08, 1)
+theme_override_font_sizes/font_size = 20
+text = "asd"
+
+[node name="HSeparator" type="HSeparator" parent="ContenedorDialogo/PanelFondo/MarginContainer/VBoxContainer" unique_id=1177930854]
+layout_mode = 2
+
+[node name="TextoLabel" type="RichTextLabel" parent="ContenedorDialogo/PanelFondo/MarginContainer/VBoxContainer" unique_id=1958564657]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true

@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cp0xyyop72gne" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Key4.png" id="9_gtxsi"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="10_ywnx0"]
 [ext_resource type="PackedScene" uid="uid://brws03t8ndtbg" path="res://Escenas/entonro/interactivos/puzle_antorchcha.tscn" id="11_ywnx0"]
-[ext_resource type="PackedScene" uid="uid://e6344bu41jsk" path="res://peronajes/npc/AldeanoViejito.tscn" id="12_re6v7"]
+[ext_resource type="PackedScene" uid="uid://e6344bu41jsk" path="res://Escenas/entonro/interactivos/npc_interactuable.tscn" id="12_re6v7"]
 [ext_resource type="PackedScene" uid="uid://d2l2v7xja058k" path="res://Escenas/entonro/interactivos/encounter_zone.tscn" id="13_51hg2"]
 [ext_resource type="PackedScene" uid="uid://6c00p4o0glck" path="res://Escenas/entonro/interactivos/zone_trigger.tscn" id="13_m0sv4"]
+[ext_resource type="PackedScene" uid="uid://1mxv7tmkrp17" path="res://peronajes/enemigos/bosses/jefe_base.tscn" id="14_51hg2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
 size = Vector3(100, 1, 100)
@@ -96,3 +97,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.446903, 2.0874293, -0.848
 
 [node name="NpcInteractuable" parent="." unique_id=2004120757 instance=ExtResource("12_re6v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.917041, 2.4304805, 0)
+tipo_npc = 2
+monedas_recompensa = 100
+
+[node name="JefeBase" parent="." unique_id=521659159 instance=ExtResource("14_51hg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.314075, 1.5584621, 0)

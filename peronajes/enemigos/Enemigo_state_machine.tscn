@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://btri38otx0th0"]
+
+[ext_resource type="Script" uid="uid://dv5mqeloxtmb0" path="res://peronajes/enemigos/Enemigo_state_machine.gd" id="1_8crn5"]
+[ext_resource type="Script" uid="uid://c7bjxiwp5vjdu" path="res://peronajes/enemigos/patrullar.gd" id="2_ddv5l"]
+[ext_resource type="Script" uid="uid://01vyc73mhkhg" path="res://peronajes/enemigos/perseguir.gd" id="3_wcdu7"]
+[ext_resource type="Script" uid="uid://jr7vchr206vf" path="res://peronajes/enemigos/embestir.gd" id="4_5fc7b"]
+[ext_resource type="Script" uid="uid://cumctitawm60n" path="res://peronajes/enemigos/morir.gd" id="5_s4em0"]
+[ext_resource type="Script" uid="uid://ccl052waqfe2s" path="res://peronajes/enemigos/mele.gd" id="6_r2dmv"]
+[ext_resource type="Script" uid="uid://bkd7arn28dkce" path="res://peronajes/enemigos/vida.gd" id="7_l5cuh"]
+
+[node name="Enemigo_state_machine" type="Node" unique_id=759901339]
+script = ExtResource("1_8crn5")
+initial_state = NodePath("Patrullar")
+
+[node name="Patrullar" type="Node" parent="." unique_id=161910009]
+script = ExtResource("2_ddv5l")
+
+[node name="Perseguir" type="Node" parent="." unique_id=172976130]
+script = ExtResource("3_wcdu7")
+
+[node name="Embestir" type="Node" parent="." unique_id=2108773918]
+script = ExtResource("4_5fc7b")
+
+[node name="Morir" type="Node" parent="." unique_id=1279998895]
+script = ExtResource("5_s4em0")
+
+[node name="Mele" type="Node" parent="." unique_id=1903212392]
+script = ExtResource("6_r2dmv")
+attack_cooldown = 1.0
+
+[node name="Vida" type="Node" parent="." unique_id=1915132868]
+script = ExtResource("7_l5cuh")
+
+[node name="RecibirGolpe" type="Node" parent="." unique_id=1223283424]

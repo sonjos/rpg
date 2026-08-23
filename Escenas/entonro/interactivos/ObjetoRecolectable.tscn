@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cci5pwayc4wtn"]
+
+[ext_resource type="Script" uid="uid://cbyty4cgeemqb" path="res://Escenas/entonro/interactivos/ObjetoRecolectable.gd" id="1_c2l3b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjege"]
+size = Vector3(4.0826416, 1.2035217, 4.4697876)
+
+[node name="ObjetoRecolectable" type="Area3D" unique_id=1510452573]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_c2l3b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1941087037]
+transform = Transform3D(-0.0023505255, -0.026208699, -0.9996538, -0.99600255, 0.08932643, 0, 0.08929549, 0.9956576, -0.026313892, -0.00042750718, 0.0014570623, 0.016240817)
+shape = SubResource("BoxShape3D_pjege")
+debug_color = Color(0.92576426, 0.27019167, 0.089165725, 0.41960785)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1324034405]

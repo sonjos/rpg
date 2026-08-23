@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d1to7b2dgp6gi" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Stairs_Exterior_SidesU.gltf" id="8_xhmvs"]
 [ext_resource type="PackedScene" uid="uid://r7bl3n8gc8g4" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Stairs_Exterior_SingleSide.gltf" id="9_3xy8k"]
 [ext_resource type="PackedScene" uid="uid://dovuty44dkk8w" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Corner_ExteriorWide_Brick.gltf" id="10_8aje4"]
-[ext_resource type="PackedScene" uid="uid://4kdellt32xan" path="res://Escenas/juego/escenarios/decoraciones/fogata.tscn" id="11_unmpj"]
+[ext_resource type="PackedScene" uid="uid://4kdellt32xan" path="res://Escenas/entonro/interactivos/fogata.tscn" id="11_unmpj"]
 [ext_resource type="PackedScene" uid="uid://mt1ei5vscqv8" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Anvil_Log.gltf" id="13_npsmh"]
 [ext_resource type="PackedScene" uid="uid://bpcaundx63sta" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Table_Large.gltf" id="14_ia65h"]
 [ext_resource type="PackedScene" uid="uid://mcy5k6uakf4t" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Pickaxe_Bronze.gltf" id="15_82tdp"]

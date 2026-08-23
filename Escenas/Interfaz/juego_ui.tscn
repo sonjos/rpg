@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://bfyo3lnlsftwi"]
 
-[ext_resource type="Script" uid="uid://bpcv3ba5xvqee" path="res://script/UI/juego_ui.gd" id="1_jh6d4"]
+[ext_resource type="Script" uid="uid://bpcv3ba5xvqee" path="res://Escenas/Interfaz/juego_ui.gd" id="1_jh6d4"]
 [ext_resource type="Texture2D" uid="uid://bhjg8xy1c5nc7" path="res://Assets/Botones/PNG/Double/Divider/divider-005.png" id="2_yit54"]
 [ext_resource type="Texture2D" uid="uid://cr1pdijcyu15t" path="res://Assets/Botones/PNG/Double/Border/panel-border-016.png" id="3_rgmxi"]
 [ext_resource type="Texture2D" uid="uid://cslefe7eraoxk" path="res://Assets/Botones/PNG/Double/Transparent border/panel-transparent-border-007.png" id="4_yav5u"]
 [ext_resource type="Texture2D" uid="uid://dsm7f33yvwu0a" path="res://Assets/terreno/Previews/coin-silver.png" id="7_huu8h"]
+[ext_resource type="PackedScene" uid="uid://bl6ii0p555uyu" path="res://Escenas/Interfaz/caja_dialogo_ui.tscn" id="7_ltstt"]
 [ext_resource type="Texture2D" uid="uid://uddtu48q5j4e" path="res://Assets/Botones/PNG/Double/Divider/divider-000.png" id="7_yit54"]
 
-[node name="JuegoUI" type="CanvasLayer" unique_id=302991265 groups=["HUD"]]
+[node name="JuegoUI" type="CanvasLayer" unique_id=302991265]
 script = ExtResource("1_jh6d4")
 
 [node name="BarraVida" type="TextureProgressBar" parent="." unique_id=294806784]
@@ -81,32 +82,6 @@ offset_right = 622.0
 offset_bottom = 399.0
 text = "☠️ Revivir"
 
-[node name="PanelDialogo" type="Panel" parent="." unique_id=955720372]
-visible = false
-custom_minimum_size = Vector2(24, 80)
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TituloDialogo" type="Label" parent="PanelDialogo" unique_id=1413735236]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "wdad"
-
-[node name="TextoDialogo" type="Label" parent="PanelDialogo" unique_id=1174789467]
-propagate_maximum_size = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "erw"
+[node name="CajaDialogoUI" parent="." unique_id=1103360831 instance=ExtResource("7_ltstt")]
 
 [connection signal="pressed" from="BtnRevivir" to="." method="_on_btn_revivir_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://6c00p4o0glck"]
+
+[ext_resource type="Script" uid="uid://cy6ve4dutsaku" path="res://Escenas/entonro/interactivos/zone_trigger.gd" id="1_l5h75"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dklp6"]
+
+[node name="ZoneTrigger" type="Area3D" unique_id=1288791466]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_l5h75")
+escena_destino = "uid://cgq61v3r4hlle"
+posicion_aparicion = Vector3(0.12, 0, 0)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="." unique_id=2028680203]
+shape = SubResource("SphereShape3D_dklp6")
+debug_color = Color(1.0764054, 0.10673117, 0.1162378, 0.9647059)
+
+[node name="Label" type="Label3D" parent="." unique_id=1064176781]
+transform = Transform3D(1.6984618, 0, 0, 0, 1.6481798, 0, 0, 0, 1, 0, 1.2194734, 0)
+billboard = 1
+text = "Valle de Aethelgard"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

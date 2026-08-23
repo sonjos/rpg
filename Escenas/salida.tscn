@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://n3gwqamciui0"]
+
+[ext_resource type="Script" uid="uid://xxfvhwkijw4m" path="res://script/salida.gd" id="1_kkfyu"]
+[ext_resource type="ArrayMesh" uid="uid://cp6mofk8e14kj" path="res://Assets/terreno/Models/OBJ format/door-large-open.obj" id="1_w5bce"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodb4"]
+size = Vector3(2.1900024, 2.071167, 0.81811523)
+
+[node name="Salida" type="Area3D" unique_id=2092563362]
+collision_layer = 32
+collision_mask = 3
+script = ExtResource("1_kkfyu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=524081923]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_w5bce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=58831506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044769287, 0.9412086, -0.00076913834)
+shape = SubResource("BoxShape3D_fodb4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

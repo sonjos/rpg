@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cx4o74dypu8u0"]
+
+[ext_resource type="Script" uid="uid://dr8ohbo0354bm" path="res://script/trampa_dano.gd" id="1_jkd7o"]
+[ext_resource type="ArrayMesh" uid="uid://dudi6l1khmxu3" path="res://Assets/terreno/Models/OBJ format/trap-spikes-large.obj" id="2_s03av"]
+[ext_resource type="AudioStream" uid="uid://cr4xplon3mhcy" path="res://Assets/rpg-audio/Audio/knifeSlice.ogg" id="3_s03av"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodb4"]
+size = Vector3(0.7607422, 0.24331665, 0.79907227)
+
+[node name="TrampaDaño" type="Area3D" unique_id=2105198476]
+script = ExtResource("1_jkd7o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=880906154]
+mesh = ExtResource("2_s03av")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=197244619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029785156, 0.16365051, -0.009399414)
+shape = SubResource("BoxShape3D_fodb4")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1065651672]
+stream = ExtResource("3_s03av")

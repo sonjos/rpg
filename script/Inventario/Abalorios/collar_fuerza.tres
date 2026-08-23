@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://mcrfn15ns8k0"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="1_jb4sf"]
+[ext_resource type="Texture2D" uid="uid://csjs5j2lkclk0" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Necklace2.png" id="1_r6q5g"]
+
+[resource]
+script = ExtResource("1_jb4sf")
+nombre = "Collar_Fuerza"
+icono = ExtResource("1_r6q5g")
+descripcion = "Aumenta la fuerza +2."
+tipo = 5
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dw7haenmng6hg"
+path="res://.godot/imported/7. Mystic Grove.ogg-b7c27eb595a63dbf854ae075f29f4517.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Loops/ogg/7. Mystic Grove.ogg"
+dest_files=["res://.godot/imported/7. Mystic Grove.ogg-b7c27eb595a63dbf854ae075f29f4517.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

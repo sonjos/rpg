@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2bo6neqvd8ws"
+path="res://.godot/imported/Book2_Open.obj-fb8a10458c7b779761a9fd91193c15dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Book2_Open.obj-fb8a10458c7b779761a9fd91193c15dd.mesh"]
+
+source_file="res://Assets/armasObjetos/OBJ-20260806T094929Z-1-001/OBJ/Book2_Open.obj"
+dest_files=["res://.godot/imported/Book2_Open.obj-fb8a10458c7b779761a9fd91193c15dd.mesh", "res://.godot/imported/Book2_Open.obj-fb8a10458c7b779761a9fd91193c15dd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

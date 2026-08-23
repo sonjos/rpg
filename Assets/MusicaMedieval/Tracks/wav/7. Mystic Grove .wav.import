@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dy8sj731la35b"
+path="res://.godot/imported/7. Mystic Grove .wav-b7d280f7f3384fba3248ea4fc261a116.sample"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Tracks/wav/7. Mystic Grove .wav"
+dest_files=["res://.godot/imported/7. Mystic Grove .wav-b7d280f7f3384fba3248ea4fc261a116.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

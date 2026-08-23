@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bfyo3lnlsftwi"]
+
+[ext_resource type="Script" uid="uid://cxw80ijuonfgj" path="res://script/contador_monedas.gd" id="1_vkhhh"]
+[ext_resource type="Script" uid="uid://csgnu4v0yo70d" path="res://script/BarraVida.gd" id="2_a3ka7"]
+[ext_resource type="Texture2D" uid="uid://chxygj0xbg4h1" path="res://Assets/Botones/PNG/Double/Transparent center/panel-transparent-center-027.png" id="3_jh6d4"]
+[ext_resource type="Texture2D" uid="uid://di3shw2faboxw" path="res://Assets/Botones/PNG/Double/Transparent border/panel-transparent-border-025.png" id="4_yit54"]
+[ext_resource type="Script" uid="uid://bv7ufuyjfd3dg" path="res://script/boton_dash_ui.gd" id="5_rgmxi"]
+[ext_resource type="Script" uid="uid://dm1anq4mmq5q8" path="res://script/label_tutorial.gd" id="6_a3ka7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oeajq"]
+
+[node name="JuegoUI" type="CanvasLayer" unique_id=302991265]
+
+[node name="ContadorMonedas" type="Label" parent="." unique_id=1597776251]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Moneda: 0"
+script = ExtResource("1_vkhhh")
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=883537732]
+offset_left = 185.0
+offset_right = 256.0
+offset_bottom = 27.0
+value = 100.0
+script = ExtResource("2_a3ka7")
+
+[node name="BotonDashUI" type="TextureProgressBar" parent="." unique_id=1413977229]
+texture_filter = 5
+material = SubResource("CanvasItemMaterial_oeajq")
+offset_left = 46.0
+offset_top = 550.0
+offset_right = 142.0
+offset_bottom = 646.0
+tooltip_text = "Dash"
+fill_mode = 4
+texture_under = ExtResource("3_jh6d4")
+texture_over = ExtResource("4_yit54")
+texture_progress = ExtResource("3_jh6d4")
+tint_under = Color(0.09803922, 1, 1, 1)
+tint_over = Color(1, 0.05490196, 1, 1)
+tint_progress = Color(0.011087579, 0.011087578, 0.01108758, 1)
+script = ExtResource("5_rgmxi")
+
+[node name="LabelTutorial" type="Label" parent="." unique_id=459055102 groups=["etiqueta_tutorial"]]
+offset_left = 585.0
+offset_top = 254.0
+offset_right = 686.0
+offset_bottom = 313.0
+offset_transform_visual_only = false
+text = "texto"
+script = ExtResource("6_a3ka7")

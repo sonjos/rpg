@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dukbo5hdbot0l"]
+
+[ext_resource type="Script" uid="uid://vbcs2m51wihk" path="res://scripts/entorno/PuntoDeControl.gd" id="1_4qde0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fodb4"]
+
+[node name="PuntoDeControl" type="Area3D" unique_id=659017079]
+script = ExtResource("1_4qde0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1588801200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0337715, 0.6086812, 0)
+shape = SubResource("SphereShape3D_fodb4")
+debug_color = Color(0.89481854, 0.31103286, 0.19991669, 0.41960785)

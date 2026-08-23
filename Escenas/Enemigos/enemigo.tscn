@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://daxnwkuvx2usq"]
+
+[ext_resource type="PackedScene" uid="uid://btri38otx0th0" path="res://Escenas/Enemigos/state/Enemigo_state_machine.tscn" id="1_b78qp"]
+[ext_resource type="PackedScene" uid="uid://djqeywp8nbmxm" path="res://Assets/Enemigos/glTF/Viking_Male.gltf" id="2_hhnnl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p8jiu"]
+radius = 0.64697266
+height = 3.6168213
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fodb4"]
+radius = 2.2995744
+
+[node name="Enemigo" type="CharacterBody3D" unique_id=571827207 groups=["enemigo"]]
+collision_layer = 64
+collision_mask = 3
+
+[node name="Enemigo_state_machine" parent="." unique_id=759901339 instance=ExtResource("1_b78qp")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=805332442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0834012, 1.7019708, 0.049945995)
+shape = SubResource("CapsuleShape3D_p8jiu")
+
+[node name="HitboxAtaque" type="Area3D" parent="." unique_id=176417384]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxAtaque" unique_id=1600428411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5537304, 1.3025801, -0.043743372)
+shape = SubResource("SphereShape3D_fodb4")
+debug_color = Color(0.92156863, 0.27450982, 0.16078432, 0.9411765)
+
+[node name="Viking_Male" parent="." unique_id=1991851950 instance=ExtResource("2_hhnnl")]

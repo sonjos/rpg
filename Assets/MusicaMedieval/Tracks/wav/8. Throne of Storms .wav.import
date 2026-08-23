@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bleskoys0e1hw"
+path="res://.godot/imported/8. Throne of Storms .wav-a53e71c2bbc28b5cc7470b2962694514.sample"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Tracks/wav/8. Throne of Storms .wav"
+dest_files=["res://.godot/imported/8. Throne of Storms .wav-a53e71c2bbc28b5cc7470b2962694514.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

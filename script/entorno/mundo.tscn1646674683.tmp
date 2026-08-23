@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cr6bf434v86jf"]
+
+[ext_resource type="PackedScene" uid="uid://b53pl71kik5fv" path="res://scripts/actores/jugador/Jugador.tscn" id="1_dhsey"]
+[ext_resource type="Script" uid="uid://b6nj4vljvjsbv" path="res://scripts/actores/npcs/NpcInteractuable.gd" id="2_3eblc"]
+[ext_resource type="Script" uid="uid://tra3jjh7vvgk" path="res://scripts/interfaz/ControlHUD.gd" id="3_ckqt7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dklp6"]
+
+[node name="Mundo" type="Node3D" unique_id=1759134975]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=815650100]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=192663682]
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="Jugador" parent="." unique_id=1219636950 instance=ExtResource("1_dhsey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6301981, 0)
+
+[node name="NPCInteractuable" type="Area3D" parent="." unique_id=2143177339]
+script = ExtResource("2_3eblc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCInteractuable" unique_id=1026319129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9972892, 2.5063648)
+shape = SubResource("SphereShape3D_dklp6")
+debug_color = Color(0.9655313, 0.17136732, 0.19916657, 0.41960785)
+
+[node name="ControlHUD" type="CanvasLayer" parent="." unique_id=297571095 groups=["HUD"]]
+script = ExtResource("3_ckqt7")

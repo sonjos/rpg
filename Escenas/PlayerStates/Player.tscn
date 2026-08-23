@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bkn6qht4mn52"]
+
+[ext_resource type="PackedScene" uid="uid://gfhidfim3vu1" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Warrior.gltf" id="1_betah"]
+[ext_resource type="Script" uid="uid://dy326a4evskpj" path="res://script/PersonajeState/Player.gd" id="1_skfn6"]
+[ext_resource type="PackedScene" uid="uid://dk5im6e0nr18n" path="res://Escenas/PlayerStates/state/state_machine.tscn" id="2_skfn6"]
+[ext_resource type="PackedScene" uid="uid://cogqv5xwsufbk" path="res://Escenas/PlayerStates/state/health_state_machine.tscn" id="3_po6p1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dklp6"]
+radius = 0.57958984
+height = 3.1302032
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fodb4"]
+radius = 0.14404297
+height = 1.3977661
+
+[node name="Player" type="CharacterBody3D" unique_id=1756599763 groups=["Player"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2046
+script = ExtResource("1_skfn6")
+
+[node name="Player" parent="." unique_id=608360380 instance=ExtResource("1_betah")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.5570915, 0, 0.16625094)
+
+[node name="State_Machine" parent="." unique_id=166052325 instance=ExtResource("2_skfn6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1837950179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5986953, 1.3904648, 0.1198129)
+shape = SubResource("CapsuleShape3D_dklp6")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=2137016947]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 3.072, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1095136043]
+current = true
+
+[node name="DetectorInteraccion3D" type="RayCast3D" parent="SpringArm3D/Camera3D" unique_id=1901215906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53938526, 0, -0.7478547)
+target_position = Vector3(0, -1, -4)
+collision_mask = 2045
+collide_with_areas = true
+
+[node name="HealthStateMachine" parent="." unique_id=1101855204 instance=ExtResource("3_po6p1")]
+
+[node name="HitboxAtaque" type="Area3D" parent="." unique_id=1336440192]
+collision_layer = 130
+collision_mask = 2047
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxAtaque" unique_id=2008544561]
+transform = Transform3D(1, 8.135865e-08, 5.543039e-08, -8.135865e-08, 0.36595023, 0.93063444, 5.543039e-08, -0.93063444, 0.36595023, 0.94402826, 1.2212142, -1.0257487)
+shape = SubResource("CapsuleShape3D_fodb4")
+disabled = true
+debug_color = Color(0.9755458, 0, 0.21540254, 1)
+
+[connection signal="body_entered" from="HitboxAtaque" to="." method="_on_hitbox_ataque_body_entered"]
+[connection signal="body_entered" from="HitboxAtaque" to="State_Machine" method="_on_hitbox_ataque_body_entered"]

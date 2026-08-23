@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bxhqnwghv3uwp"]
+
+[ext_resource type="PackedScene" uid="uid://bkn6qht4mn52" path="res://Escenas/PlayerStates/Player.tscn" id="1_pvn7i"]
+[ext_resource type="PackedScene" uid="uid://bfyo3lnlsftwi" path="res://Escenas/Interfaz/juego_ui.tscn" id="2_pvn7i"]
+[ext_resource type="PackedScene" uid="uid://daxnwkuvx2usq" path="res://Escenas/Enemigos/enemigo.tscn" id="3_h3tdp"]
+[ext_resource type="PackedScene" uid="uid://cci5pwayc4wtn" path="res://Escenas/Objetos/ObjetoRecolectable.tscn" id="4_4wecd"]
+[ext_resource type="PackedScene" uid="uid://vh5kswb1m3wj" path="res://Escenas/juego/escenarios/decoraciones/fogata..res" id="6_ehe83"]
+[ext_resource type="PackedScene" uid="uid://ywck0tk3xvvf" path="res://script/entorno/trampa_caida_daño.tscn" id="7_0dnju"]
+[ext_resource type="PackedScene" uid="uid://csajmne1pnafg" path="res://script/entorno/puerta_llave.tscn" id="8_mlboc"]
+[ext_resource type="Resource" uid="uid://bosagvh0ncteq" path="res://script/Inventario/clave/llave_oro.tres" id="9_8v0ye"]
+[ext_resource type="Texture2D" uid="uid://cp0xyyop72gne" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Key4.png" id="9_gtxsi"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="10_ywnx0"]
+[ext_resource type="PackedScene" uid="uid://brws03t8ndtbg" path="res://script/entorno/puzle_antorchcha.tscn" id="11_ywnx0"]
+[ext_resource type="PackedScene" uid="uid://e6344bu41jsk" path="res://script/entorno/npc_interactuable.tscn" id="12_re6v7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_re6v7"]
+size = Vector3(79.04335, 1.559082, 83.28111)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k0thu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_qg0bv"]
+sky_material = SubResource("ProceduralSkyMaterial_k0thu")
+
+[sub_resource type="Environment" id="Environment_dh3y6"]
+background_mode = 2
+sky = SubResource("Sky_qg0bv")
+
+[sub_resource type="Resource" id="Resource_re6v7"]
+script = ExtResource("10_ywnx0")
+nombre = "LlaveDorada"
+icono = ExtResource("9_gtxsi")
+descripcion = "Abre mazmorras."
+tipo = 3
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"
+
+[node name="Node3D" type="Node3D" unique_id=1604517919]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2027228761]
+transform = Transform3D(0.9955575, 0, 0.09415551, 0, 1, 0, -0.09415551, 0, 0.9955575, 0, 0, 0)
+collision_mask = 2047
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2130058993]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+mesh = SubResource("BoxMesh_fodb4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=336723860]
+transform = Transform3D(1.0000082, 0, -1.8626451e-07, 0, 1, 0, 1.8626451e-07, 0, 1.0000082, -10.279623, 0, -5.885557)
+shape = SubResource("BoxShape3D_re6v7")
+
+[node name="Player" parent="." unique_id=1756599763 instance=ExtResource("1_pvn7i")]
+transform = Transform3D(0.8852451, 0, -0.46512485, 0, 1, 0, 0.46512485, 0, 0.8852451, 0, 24.681562, 0)
+collision_layer = 3
+collision_mask = 2047
+mouse_sensitivity = 0.02
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=279701749]
+environment = SubResource("Environment_dh3y6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=659172898]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="JuegoUI" parent="." unique_id=302991265 instance=ExtResource("2_pvn7i")]
+
+[node name="ObjetoRecolectable" parent="." unique_id=1510452573 instance=ExtResource("4_4wecd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 12.973154, 1.5841188, 0)
+item_a_recolectar = ExtResource("9_8v0ye")
+
+[node name="Fogata" parent="." unique_id=1175257183 instance=ExtResource("6_ehe83")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1180046, 14.045094)
+
+[node name="TrampaCaidaDaño" parent="." unique_id=918707074 instance=ExtResource("7_0dnju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7867322, 1.3759271, 0)
+
+[node name="PuertaLlave" parent="." unique_id=1273208787 instance=ExtResource("8_mlboc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.216322, 2.066691, 2.2336648)
+
+[node name="ObjetoRecolectable2" parent="." unique_id=88918065 instance=ExtResource("4_4wecd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.68729, 2.4851727, 0)
+item_a_recolectar = SubResource("Resource_re6v7")
+
+[node name="PuzleAntorchcha" parent="." unique_id=1458329554 instance=ExtResource("11_ywnx0")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="NpcInteractuable" parent="." unique_id=1110977492 instance=ExtResource("12_re6v7")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.48215, 3.0581293, 0)
+
+[node name="Enemigo" parent="." unique_id=571827207 instance=ExtResource("3_h3tdp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.156832, -24.870607)

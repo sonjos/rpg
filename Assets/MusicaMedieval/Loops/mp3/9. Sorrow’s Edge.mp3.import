@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxb43fi6hxb05"
+path="res://.godot/imported/9. Sorrow’s Edge.mp3-71b6d3a7499556948f5ba7cc73d0eb88.mp3str"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Loops/mp3/9. Sorrow’s Edge.mp3"
+dest_files=["res://.godot/imported/9. Sorrow’s Edge.mp3-71b6d3a7499556948f5ba7cc73d0eb88.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

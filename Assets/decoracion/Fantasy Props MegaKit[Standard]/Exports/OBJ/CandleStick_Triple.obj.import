@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7ibh3gk2hpqm"
+path="res://.godot/imported/CandleStick_Triple.obj-b0c1fd5b73617035d93831d172e5792f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CandleStick_Triple.obj-b0c1fd5b73617035d93831d172e5792f.mesh"]
+
+source_file="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/OBJ/CandleStick_Triple.obj"
+dest_files=["res://.godot/imported/CandleStick_Triple.obj-b0c1fd5b73617035d93831d172e5792f.mesh", "res://.godot/imported/CandleStick_Triple.obj-b0c1fd5b73617035d93831d172e5792f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

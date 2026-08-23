@@ -1,0 +1,264 @@
+[gd_scene format=3 uid="uid://b3wta5sqhjgyq"]
+
+[ext_resource type="PackedScene" uid="uid://bj802nnl31g5k" path="res://Escenas/juego/Casas/casa_medieval_1.tscn" id="1_64q86"]
+[ext_resource type="PackedScene" uid="uid://0yos3np7voxt" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Roof_Dormer_RoundTile.gltf" id="2_p7xde"]
+[ext_resource type="PackedScene" uid="uid://bbja8eeuiqyp1" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Floor_RedBrick.gltf" id="3_p54t0"]
+[ext_resource type="PackedScene" uid="uid://bgxf7xpjo5be" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Table_Fork.gltf" id="4_aohu1"]
+[ext_resource type="PackedScene" uid="uid://ci1k47gfxgf5y" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/WeaponStand.gltf" id="5_8xfdg"]
+[ext_resource type="PackedScene" uid="uid://b7n12enrsngd2" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Sword_Bronze.gltf" id="6_nkac5"]
+[ext_resource type="PackedScene" uid="uid://f3pfdxap5giw" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Shield_Wooden.gltf" id="7_nsf2q"]
+[ext_resource type="PackedScene" uid="uid://d1to7b2dgp6gi" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Stairs_Exterior_SidesU.gltf" id="8_xhmvs"]
+[ext_resource type="PackedScene" uid="uid://r7bl3n8gc8g4" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Stairs_Exterior_SingleSide.gltf" id="9_3xy8k"]
+[ext_resource type="PackedScene" uid="uid://dovuty44dkk8w" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Corner_ExteriorWide_Brick.gltf" id="10_8aje4"]
+[ext_resource type="PackedScene" uid="uid://4kdellt32xan" path="res://Escenas/juego/escenarios/decoraciones/fogata.tscn" id="11_unmpj"]
+[ext_resource type="PackedScene" uid="uid://mt1ei5vscqv8" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Anvil_Log.gltf" id="13_npsmh"]
+[ext_resource type="PackedScene" uid="uid://bpcaundx63sta" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Table_Large.gltf" id="14_ia65h"]
+[ext_resource type="PackedScene" uid="uid://mcy5k6uakf4t" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Pickaxe_Bronze.gltf" id="15_82tdp"]
+[ext_resource type="PackedScene" uid="uid://cnyuwlwsa05sl" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Stool.gltf" id="16_6i54v"]
+[ext_resource type="PackedScene" uid="uid://dqxjcxablukn3" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Whetstone.gltf" id="17_uvw4e"]
+[ext_resource type="ArrayMesh" uid="uid://cj6kb6pgxgtv4" path="res://Assets/ModularRuinas/drive-download-20260806T100210Z-1-001/OBJ/Torch.obj" id="18_gvu8h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dklp6"]
+size = Vector3(10.48999, 0.5682373, 13.341187)
+
+[node name="Herreria" type="Node3D" unique_id=292715140]
+
+[node name="CasaMedieval1" parent="." unique_id=833456788 instance=ExtResource("1_64q86")]
+
+[node name="Suelo" type="Node3D" parent="CasaMedieval1" unique_id=1556643080]
+metadata/_edit_lock_ = true
+
+[node name="Floor_RedBrick2" parent="CasaMedieval1/Suelo" unique_id=1813881443 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -1.1870946)
+
+[node name="Floor_RedBrick3" parent="CasaMedieval1/Suelo" unique_id=645321722 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -3.1870947)
+
+[node name="Floor_RedBrick4" parent="CasaMedieval1/Suelo" unique_id=1890981527 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -5.1870947)
+
+[node name="Floor_RedBrick5" parent="CasaMedieval1/Suelo" unique_id=1276500249 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -7.1870947)
+
+[node name="Floor_RedBrick6" parent="CasaMedieval1/Suelo" unique_id=13827985 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -11.687095)
+
+[node name="Floor_RedBrick9" parent="CasaMedieval1/Suelo" unique_id=1721443904 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.558363, 0, -11.687095)
+
+[node name="Floor_RedBrick10" parent="CasaMedieval1/Suelo" unique_id=968507582 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55836296, 0, -11.687095)
+
+[node name="Floor_RedBrick11" parent="CasaMedieval1/Suelo" unique_id=538495629 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94163704, 0, -11.687095)
+
+[node name="Floor_RedBrick12" parent="CasaMedieval1/Suelo" unique_id=1299666080 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.441637, 0, -11.687095)
+
+[node name="Floor_RedBrick13" parent="CasaMedieval1/Suelo" unique_id=1244866892 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.441637, 0, -11.687095)
+
+[node name="Floor_RedBrick14" parent="CasaMedieval1/Suelo" unique_id=1704985996 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.941637, 0, -11.687095)
+
+[node name="Floor_RedBrick15" parent="CasaMedieval1/Suelo" unique_id=1364849329 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.941637, 0, -9.687095)
+
+[node name="Floor_RedBrick16" parent="CasaMedieval1/Suelo" unique_id=1220916791 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8093367, 0.02965653, -8.006952)
+metadata/_edit_lock_ = true
+
+[node name="Floor_RedBrick17" parent="CasaMedieval1/Suelo" unique_id=1898338874 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.941637, 0, -6.1870947)
+
+[node name="Floor_RedBrick18" parent="CasaMedieval1/Suelo" unique_id=959733725 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.941637, 0, -4.1870947)
+
+[node name="Floor_RedBrick19" parent="CasaMedieval1/Suelo" unique_id=259901749 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.941637, 0, -2.1870947)
+
+[node name="Floor_RedBrick20" parent="CasaMedieval1/Suelo" unique_id=802052925 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.941637, 0, -1.1870947)
+
+[node name="Floor_RedBrick21" parent="CasaMedieval1/Suelo" unique_id=1529738387 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8464656, 0, -1.1870947)
+
+[node name="Floor_RedBrick22" parent="CasaMedieval1/Suelo" unique_id=2129134283 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8464656, 0, -1.1870947)
+
+[node name="Floor_RedBrick23" parent="CasaMedieval1/Suelo" unique_id=1403545804 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15353441, 0, -1.1870947)
+
+[node name="Floor_RedBrick24" parent="CasaMedieval1/Suelo" unique_id=656320482 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1535344, 0, -1.1870947)
+
+[node name="Floor_RedBrick25" parent="CasaMedieval1/Suelo" unique_id=159419922 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6535344, 0, -1.1870947)
+
+[node name="Floor_RedBrick26" parent="CasaMedieval1/Suelo" unique_id=1308708489 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6535344, 0, -3.1870947)
+
+[node name="Floor_RedBrick27" parent="CasaMedieval1/Suelo" unique_id=228566062 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6535344, 0, -5.1870947)
+
+[node name="Floor_RedBrick28" parent="CasaMedieval1/Suelo" unique_id=362589022 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6535344, 0, -7.1870947)
+
+[node name="Floor_RedBrick29" parent="CasaMedieval1/Suelo" unique_id=305211660 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6535344, 0, -9.187095)
+
+[node name="Floor_RedBrick30" parent="CasaMedieval1/Suelo" unique_id=1180050870 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6535344, 0, -9.687095)
+
+[node name="Floor_RedBrick31" parent="CasaMedieval1/Suelo" unique_id=221629525 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6535344, 0, -9.687095)
+
+[node name="Floor_RedBrick32" parent="CasaMedieval1/Suelo" unique_id=264439448 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3464656, 0, -9.687095)
+
+[node name="Floor_RedBrick33" parent="CasaMedieval1/Suelo" unique_id=1487043618 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3464656, 0, -9.687095)
+
+[node name="Floor_RedBrick34" parent="CasaMedieval1/Suelo" unique_id=1748813811 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3464656, 0, -9.687095)
+
+[node name="Floor_RedBrick35" parent="CasaMedieval1/Suelo" unique_id=1562641616 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3464656, 0, -7.6870947)
+
+[node name="Floor_RedBrick36" parent="CasaMedieval1/Suelo" unique_id=699939431 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3464656, 0, -5.6870947)
+
+[node name="Floor_RedBrick37" parent="CasaMedieval1/Suelo" unique_id=1841518032 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3464656, 0, -3.6870947)
+
+[node name="Floor_RedBrick38" parent="CasaMedieval1/Suelo" unique_id=1478248617 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3464656, 0, -3.1870947)
+
+[node name="Floor_RedBrick39" parent="CasaMedieval1/Suelo" unique_id=460648785 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3464656, 0, -3.1870947)
+
+[node name="Floor_RedBrick40" parent="CasaMedieval1/Suelo" unique_id=89580126 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3464656, 0, -3.1870947)
+
+[node name="Floor_RedBrick41" parent="CasaMedieval1/Suelo" unique_id=827847546 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6535344, 0, -3.1870947)
+
+[node name="Floor_RedBrick42" parent="CasaMedieval1/Suelo" unique_id=1087246734 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6535344, 0, -5.1870947)
+
+[node name="Floor_RedBrick43" parent="CasaMedieval1/Suelo" unique_id=1172201325 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6535344, 0, -7.1870947)
+
+[node name="Floor_RedBrick44" parent="CasaMedieval1/Suelo" unique_id=1637464847 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6535344, 0, -7.6870947)
+
+[node name="Floor_RedBrick45" parent="CasaMedieval1/Suelo" unique_id=219969001 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3464656, 0, -7.6870947)
+
+[node name="Floor_RedBrick46" parent="CasaMedieval1/Suelo" unique_id=484490622 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5873625, -2.9802322e-08, -7.6763167)
+
+[node name="Floor_RedBrick47" parent="CasaMedieval1/Suelo" unique_id=1937409193 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3464656, 0, -5.6870947)
+
+[node name="Floor_RedBrick48" parent="CasaMedieval1/Suelo" unique_id=1659719126 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3464656, 0, -5.6870947)
+
+[node name="Floor_RedBrick49" parent="CasaMedieval1/Suelo" unique_id=1152695044 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3464656, 0, -4.6870947)
+
+[node name="Floor_RedBrick50" parent="CasaMedieval1/Suelo" unique_id=670364254 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3464656, 0, -4.6870947)
+
+[node name="Floor_RedBrick8" parent="CasaMedieval1/Suelo" unique_id=1745867886 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -11.187095)
+
+[node name="Floor_RedBrick7" parent="CasaMedieval1/Suelo" unique_id=1541840523 instance=ExtResource("3_p54t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.558363, 0, -9.187095)
+
+[node name="Table_Fork2" parent="CasaMedieval1/Suelo" unique_id=832297979 instance=ExtResource("4_aohu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8163447, 2.0414166, -7.835624)
+
+[node name="estante" parent="CasaMedieval1/Suelo" unique_id=1902189263 instance=ExtResource("5_8xfdg")]
+transform = Transform3D(0.20003445, 0, -0.97978884, 0, 1, 0, 0.97978884, 0, 0.20003445, -4.8462152, 0, -4.91302)
+
+[node name="Sword_Bronze2" parent="CasaMedieval1/Suelo/estante" unique_id=966195875 instance=ExtResource("6_nkac5")]
+transform = Transform3D(-0.11568664, -0.043996476, -0.9923113, 2.3201391e-10, -0.99901855, 0.04429384, -0.9932865, 0.0051242057, 0.11557308, -0.13445759, 0.95365834, -0.015025139)
+
+[node name="Sword_Bronze3" parent="CasaMedieval1/Suelo/estante" unique_id=1552045845 instance=ExtResource("6_nkac5")]
+transform = Transform3D(-0.115686655, -0.04399648, -0.99231136, 2.3201391e-10, -0.99901855, 0.04429384, -0.99328655, 0.0051242067, 0.11557311, 0.24393797, 0.95365834, 0.062228203)
+
+[node name="estante2" parent="CasaMedieval1/Suelo" unique_id=637258140 instance=ExtResource("5_8xfdg")]
+transform = Transform3D(0.20003445, 0, -0.97978884, 0, 1, 0, 0.97978884, 0, 0.20003445, -4.8462152, 0, -6.41302)
+
+[node name="Sword_Bronze2" parent="CasaMedieval1/Suelo/estante2" unique_id=1057428835 instance=ExtResource("6_nkac5")]
+transform = Transform3D(-0.11568664, -0.043996476, -0.9923113, 2.3201391e-10, -0.99901855, 0.04429384, -0.9932865, 0.0051242057, 0.11557308, -0.13445759, 0.95365834, -0.015025139)
+
+[node name="Sword_Bronze3" parent="CasaMedieval1/Suelo/estante2" unique_id=2000900277 instance=ExtResource("6_nkac5")]
+transform = Transform3D(-0.115686655, -0.04399648, -0.99231136, 2.3201391e-10, -0.99901855, 0.04429384, -0.99328655, 0.0051242067, 0.11557311, 0.24393797, 0.95365834, 0.062228203)
+
+[node name="estante3" parent="CasaMedieval1/Suelo" unique_id=1430998774 instance=ExtResource("5_8xfdg")]
+transform = Transform3D(0.20003445, 0, -0.97978884, 0, 1, 0, 0.97978884, 0, 0.20003445, -4.8462152, 0, -7.91302)
+
+[node name="Sword_Bronze2" parent="CasaMedieval1/Suelo/estante3" unique_id=1485228187 instance=ExtResource("6_nkac5")]
+transform = Transform3D(-0.11568664, -0.043996476, -0.9923113, 2.3201391e-10, -0.99901855, 0.04429384, -0.9932865, 0.0051242057, 0.11557308, -0.13445759, 0.95365834, -0.015025139)
+
+[node name="Sword_Bronze3" parent="CasaMedieval1/Suelo/estante3" unique_id=1572959572 instance=ExtResource("6_nkac5")]
+transform = Transform3D(-0.115686655, -0.04399648, -0.99231136, 2.3201391e-10, -0.99901855, 0.04429384, -0.99328655, 0.0051242067, 0.11557311, 0.24393797, 0.95365834, 0.062228203)
+
+[node name="Shield_Wooden2" parent="CasaMedieval1/Suelo" unique_id=2033218447 instance=ExtResource("7_nsf2q")]
+transform = Transform3D(0.19403915, 0, 0.9809938, 0, 1, 0, -0.9809938, 0, 0.19403915, -5.1795516, 2.4829843, -8.128246)
+
+[node name="Shield_Wooden3" parent="CasaMedieval1/Suelo" unique_id=999843553 instance=ExtResource("7_nsf2q")]
+transform = Transform3D(0.2822328, 0, 0.95934594, 0, 1, 0, -0.95934594, 0, 0.2822328, -5.411818, 2.5455344, -4.942653)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CasaMedieval1/Suelo" unique_id=968476712]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CasaMedieval1/Suelo/StaticBody3D" unique_id=1187232969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4351807, -0.21588135, -6.1705933)
+shape = SubResource("BoxShape3D_dklp6")
+
+[node name="Chimenea" type="Node3D" parent="CasaMedieval1" unique_id=1685937629]
+transform = Transform3D(-0.9997243, 0, -0.023479275, 0, 1, 0, 0.023479275, 0, -0.9997243, 1.359515, 0, -22.008133)
+
+[node name="Stairs_Exterior_SidesU2" parent="CasaMedieval1/Chimenea" unique_id=1793194716 instance=ExtResource("8_xhmvs")]
+transform = Transform3D(0.010755407, 0, -0.9999422, 0, 1.5543869, 0, 0.9999422, 0, 0.010755407, 5.970832, 0, -11.828525)
+
+[node name="Stairs_Exterior_SingleSide2" parent="CasaMedieval1/Chimenea" unique_id=1797648949 instance=ExtResource("9_3xy8k")]
+transform = Transform3D(-4.3711385e-08, 1.7493229, -3.7252903e-09, -0.99999994, -7.646532e-08, 0, 0, 0, 0.9999999, 5.0628357, 0.60990393, -11.920329)
+
+[node name="Corner_ExteriorWide_Brick2" parent="CasaMedieval1/Chimenea" unique_id=1381862506 instance=ExtResource("10_8aje4")]
+transform = Transform3D(-0.38656732, 0, 0.92226136, 0, 1.6134344, 0, -0.92226136, 0, -0.38656732, 6.208128, 1.4858801, -11.841123)
+
+[node name="Fogata" parent="CasaMedieval1" unique_id=1175257183 instance=ExtResource("11_unmpj")]
+transform = Transform3D(0.8608918, 0, 0, 0, 1, 0, 0, 0, 0.66424906, -4.74541, 0, -10.026636)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="CasaMedieval1/Fogata" unique_id=199877251]
+light_color = Color(1, 0.46666667, 0, 1)
+
+[node name="Roof_Dormer_RoundTile2" parent="." unique_id=1991271231 instance=ExtResource("2_p7xde")]
+transform = Transform3D(0.95238936, 0, 0, 0, 1.0392336, 0, 0, 0, 1.9927788, 5.9992123, 6.1322603, -6.7591915)
+
+[node name="Anvil_Log2" parent="." unique_id=1221431650 instance=ExtResource("13_npsmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.482579, 0.07521069, -12.324041)
+
+[node name="Table_Large2" parent="." unique_id=1551022218 instance=ExtResource("14_ia65h")]
+transform = Transform3D(0.033989158, 0, 0.9994222, 0, 1, 0, -0.9994222, 0, 0.033989158, -4.8201923, 0, -2.0119462)
+
+[node name="Pickaxe_Bronze2" parent="." unique_id=1091919925 instance=ExtResource("15_82tdp")]
+transform = Transform3D(0.0412155, 0.036578137, 0.99848056, 0, -0.9993296, 0.03660924, 0.9991502, -0.0015088682, -0.04118787, -5.5026693, 2.4109194, -2.7258189)
+
+[node name="Stool2" parent="." unique_id=139936440 instance=ExtResource("16_6i54v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8960686, 0.28748155, -2.332855)
+
+[node name="Whetstone2" parent="." unique_id=259526101 instance=ExtResource("17_uvw4e")]
+transform = Transform3D(-0.17818612, 0, -0.9839968, 0, 1, 0, 0.9839968, 0, -0.17818612, 4.041233, 0, -11.160136)
+
+[node name="Torch" type="MeshInstance3D" parent="." unique_id=2035774426]
+transform = Transform3D(-0.09693924, 0, -0.9952903, 0, 1, 0, 0.9952903, 0, -0.09693924, 6.1753564, 2.7154684, -7.74015)
+mesh = ExtResource("18_gvu8h")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torch" unique_id=833982170]
+transform = Transform3D(-0.09693926, 0, 0.9952904, 0, 1, 0, -0.9952904, 0, -0.09693926, -0.24631882, 0.56196785, -0.03353548)
+light_color = Color(1, 0.46666667, 0, 1)
+omni_range = 3.5829482

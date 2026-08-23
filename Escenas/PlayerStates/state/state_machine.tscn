@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dk5im6e0nr18n"]
+
+[ext_resource type="Script" uid="uid://euv2hrj8mn4d" path="res://script/PersonajeState/Estados del personje/state_machine.gd" id="1_3uswv"]
+[ext_resource type="Script" uid="uid://cqe34nfl2kkfp" path="res://script/PersonajeState/Estados del personje/Estados/Quieto.gd" id="2_cwcpd"]
+[ext_resource type="Script" uid="uid://bskusfy827nxh" path="res://script/PersonajeState/Estados del personje/Estados/Andando.gd" id="3_kfln6"]
+[ext_resource type="Script" uid="uid://urhtfv88jtvb" path="res://script/PersonajeState/Estados del personje/Estados/Correr.gd" id="4_pfkl3"]
+[ext_resource type="Script" uid="uid://d356ftv2wn4k3" path="res://script/PersonajeState/Estados del personje/Estados/Slatar.gd" id="5_28m61"]
+[ext_resource type="Script" uid="uid://d210umqgk5kce" path="res://script/PersonajeState/Estados del personje/Estados/Ataque.gd" id="6_m8avd"]
+[ext_resource type="Script" uid="uid://e4c74sgjmqfs" path="res://script/PersonajeState/Estados del personje/Estados/Bloqueo.gd" id="7_6gxb2"]
+[ext_resource type="Script" uid="uid://cqtquh4goccv" path="res://script/PersonajeState/Estados del personje/Estados/Rodar.gd" id="8_cwcpd"]
+[ext_resource type="Script" uid="uid://blui8as7srgyu" path="res://script/PersonajeState/Estados del personje/Estados/Agarrar.gd" id="10_pfkl3"]
+[ext_resource type="Script" uid="uid://c6tumtralop18" path="res://script/PersonajeState/Estados del personje/Estados/Muerte.gd" id="11_28m61"]
+
+[node name="State_Machine" type="Node" unique_id=166052325 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_3uswv")
+initial_state = NodePath("Quieto")
+
+[node name="Quieto" type="Node" parent="." unique_id=1628620800]
+script = ExtResource("2_cwcpd")
+
+[node name="Andando" type="Node" parent="." unique_id=2125072478]
+script = ExtResource("3_kfln6")
+walk_speed = 10.0
+
+[node name="Correr" type="Node" parent="." unique_id=1010219931]
+script = ExtResource("4_pfkl3")
+run_speed = 20.0
+consumes_stamina = true
+
+[node name="Saltar" type="Node" parent="." unique_id=1699865837]
+script = ExtResource("5_28m61")
+
+[node name="Ataque" type="Node" parent="." unique_id=1659009777]
+script = ExtResource("6_m8avd")
+
+[node name="Bloqueo" type="Node" parent="." unique_id=1942184070]
+script = ExtResource("7_6gxb2")
+consumes_stamina = true
+
+[node name="Rodar" type="Node" parent="." unique_id=1515222217]
+script = ExtResource("8_cwcpd")
+consumes_stamina = true
+
+[node name="Agarrar" type="Node" parent="." unique_id=2063779545]
+script = ExtResource("10_pfkl3")
+
+[node name="Muerte" type="Node" parent="." unique_id=205914200]
+script = ExtResource("11_28m61")

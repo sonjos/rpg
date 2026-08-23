@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckp337t2d6spe"
+path="res://.godot/imported/4. Frostbound.wav-2ba7ce8ba27fbe60ed2ae01dc1d7e667.sample"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Tracks/wav/4. Frostbound.wav"
+dest_files=["res://.godot/imported/4. Frostbound.wav-2ba7ce8ba27fbe60ed2ae01dc1d7e667.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

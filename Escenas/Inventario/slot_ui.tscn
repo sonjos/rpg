@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://wqfl0mbkq1jq"]
+
+[ext_resource type="Script" uid="uid://5c57hjgd1mer" path="res://script/Inventario/slot_ui.gd" id="1_p8140"]
+
+[node name="SlotUI" type="Panel" unique_id=2001881842]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_p8140")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1878993705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LblStats" type="Label" parent="." unique_id=1369068057]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 35.0
+offset_right = 49.0
+offset_bottom = 58.0

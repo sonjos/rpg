@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://4r7fxva2mhk1"]
+
+[ext_resource type="Texture2D" uid="uid://dkjh2qf0775qq" path="res://Assets/terreno/Previews/chest.png" id="2_qncgo"]
+[ext_resource type="Texture2D" uid="uid://vdc3tx3g1nog" path="res://Assets/terreno/Previews/door-open.png" id="3_bmgc8"]
+
+[sub_resource type="GDScript" id="GDScript_ft1ng"]
+script/source = "extends Control
+
+@export_file(\"*.tscn\") var escena_juego: String = \"res://Escenas/escenarios/mundo.tscn\"
+
+@onready var boton_jugar: Button = $VBoxContainer/Jugar
+@onready var boton_salir: Button = $VBoxContainer/Salir
+@onready var caja_lore: PanelContainer = $Lore/CajaLore
+
+func _ready() -> void:
+	boton_jugar.pressed.connect(_on_jugar_pressed)
+	boton_salir.pressed.connect(_on_salir_pressed)
+	# Opcional: si tienes un botón dentro del lore para continuar
+	# $CajaLore/BotonContinuar.pressed.connect(_iniciar_juego)
+
+func _on_salir_pressed() -> void:
+	get_tree().quit()
+	
+func _on_jugar_pressed() -> void:
+	# Ocultamos el menú inicial y mostramos el Lore
+	boton_jugar.hide()
+	boton_salir.hide()
+	caja_lore.show()
+
+# Esta función se llamaría al pulsar un botón o tecla dentro del Lore
+func _iniciar_juego() -> void:
+	# Esto carga tu escena de juego (ajusta la ruta si es necesario)
+	get_tree().change_scene_to_file(\"res://Escenas/escenarios/mundo.tscn\")
+
+func _input(event: InputEvent) -> void:
+	# Solo salta al juego si el lore está visible y se presiona una tecla
+	if caja_lore.visible and event is InputEventKey and event.pressed:
+		_iniciar_juego()
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_dklp6"]
+font_size = 80
+font_color = Color(1, 1, 0.14901961, 1)
+outline_size = 40
+outline_color = Color(0, 0.3968584, 0.3968821, 1)
+shadow_size = 100
+shadow_color = Color(0.17848684, 0.010483798, 0.047553875, 0.8862745)
+stacked_outline_count = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qncgo"]
+
+[sub_resource type="FontFile" id="FontFile_yo4kt"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ft1ng"]
+font = SubResource("FontFile_yo4kt")
+font_size = 24
+font_color = Color(1.8801074e-08, 0.03402083, 0.03525108, 1)
+outline_size = 50
+
+[node name="MenuPrincipal" type="Control" unique_id=1503757354]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 19.0
+size_flags_vertical = 4
+script = SubResource("GDScript_ft1ng")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1580753197]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 651.0
+color = Color(0.078431375, 1, 1, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1345842498]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 17.0
+offset_right = 1082.0
+offset_bottom = 127.0
+text = "Aventura en la mazmorra"
+label_settings = SubResource("LabelSettings_dklp6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=253729628]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 347.0
+offset_right = 783.0
+offset_bottom = 517.0
+alignment = 1
+
+[node name="Jugar" type="Button" parent="VBoxContainer" unique_id=1949615879]
+material = SubResource("CanvasItemMaterial_qncgo")
+layout_mode = 2
+text = "Jugar"
+icon = ExtResource("2_qncgo")
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1779416015]
+layout_mode = 2
+text = "Salir"
+icon = ExtResource("3_bmgc8")
+
+[node name="Lore" type="Control" parent="." unique_id=829762991]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CajaLore" type="PanelContainer" parent="Lore" unique_id=125428731]
+visible = false
+modulate = Color(0.93333334, 1, 1, 0.9411765)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 100.0
+offset_right = 851.0
+offset_bottom = 600.0
+
+[node name="Label" type="Label" parent="Lore/CajaLore" unique_id=1399830381]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+offset_transform_enabled = true
+text = "\"En los días en que el cielo aún brillaba sobre Cairn, el mundo no era más que un reflejo de la ambición humana. Pero los reyes buscaron el poder eterno en las profundidades de la tierra, profanando el santuario del Primer Fuego. Lo que despertó en la oscuridad no concedió la inmortalidad, sino la ceniza. Ahora, los reinos yacen sepultados bajo el peso del olvido, y solo los valientes —o los condenados— se atreven a descender para avivar la llama o sucumbir ante la sombra del Señor de las Cenizas...\""
+label_settings = SubResource("LabelSettings_ft1ng")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

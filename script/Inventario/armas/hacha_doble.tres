@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbmor1bg4wybm"]
+
+[ext_resource type="Texture2D" uid="uid://bd6wjt4rerhcv" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Axe_Double.png" id="1_j7ygr"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="1_vo1wh"]
+
+[resource]
+script = ExtResource("1_vo1wh")
+nombre = "Hacha doble de hierro"
+icono = ExtResource("1_j7ygr")
+descripcion = "Se usa a 2 manos"
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

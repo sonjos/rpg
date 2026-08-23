@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://vysys6xxtqri"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="1_8ommu"]
+[ext_resource type="Texture2D" uid="uid://by0rxyaxuglbi" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Axe_Small_Golden.png" id="1_jfsj6"]
+
+[resource]
+script = ExtResource("1_8ommu")
+nombre = "Hacha_oro"
+icono = ExtResource("1_jfsj6")
+descripcion = "Se usa a una mano."
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

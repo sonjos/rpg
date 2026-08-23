@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpkyc1dkgwet"
+path="res://.godot/imported/Potion4_Filled.obj-3f540f6daa670a48fcbca4f83a27054e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Potion4_Filled.obj-3f540f6daa670a48fcbca4f83a27054e.mesh"]
+
+source_file="res://Assets/armasObjetos/OBJ-20260806T094929Z-1-001/OBJ/Potion4_Filled.obj"
+dest_files=["res://.godot/imported/Potion4_Filled.obj-3f540f6daa670a48fcbca4f83a27054e.mesh", "res://.godot/imported/Potion4_Filled.obj-3f540f6daa670a48fcbca4f83a27054e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

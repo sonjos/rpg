@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv26ytwje6qr0"
+path="res://.godot/imported/5. Emberlight.mp3-7ecf30a7d7d88275599ee7e888441869.mp3str"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Loops/mp3/5. Emberlight.mp3"
+dest_files=["res://.godot/imported/5. Emberlight.mp3-7ecf30a7d7d88275599ee7e888441869.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

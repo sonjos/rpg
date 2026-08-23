@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://cvqn4manowflt"]
+
+[ext_resource type="Script" uid="uid://cf3sr3aimvnu6" path="res://script/Inventario/inventario_ui.gd" id="1_gcmwb"]
+[ext_resource type="Texture2D" uid="uid://1hjuxlygqnkn" path="res://Assets/ui-pack-adventure/PNG/Double/panel_brown_arrows_dark_detail.png" id="2_rpyp0"]
+
+[node name="InventarioUI" type="Control" unique_id=468715284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gcmwb")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=2124880822]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.036
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -17.0
+offset_right = -0.4720459
+offset_bottom = 9.0
+texture = ExtResource("2_rpyp0")
+
+[node name="AreaInventario" type="Control" parent="." unique_id=2096859912]
+anchors_preset = 0
+
+[node name="Equipado" type="Label" parent="AreaInventario" unique_id=802104960]
+layout_mode = 0
+offset_left = 548.00006
+offset_top = 115.0
+offset_right = 829.00006
+offset_bottom = 138.0
+scale = Vector2(0.68000126, 1)
+text = "Equipado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColumnaIzquierda" type="VBoxContainer" parent="AreaInventario" unique_id=1735834290]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 187.0
+offset_top = 248.0
+offset_right = 587.0
+offset_bottom = 625.50024
+scale = Vector2(1, 0.79999954)
+
+[node name="GridMochila" type="GridContainer" parent="AreaInventario/ColumnaIzquierda" unique_id=376405652]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+columns = 3
+
+[node name="ColumnaDerecha" type="Control" parent="AreaInventario" unique_id=1028271843]
+anchors_preset = 0
+offset_left = 540.0
+offset_top = 85.0
+offset_right = 1002.0
+offset_bottom = 552.0
+
+[node name="PanelStatsUI" type="HBoxContainer" parent="AreaInventario/ColumnaDerecha" unique_id=942414214]
+layout_mode = 0
+offset_right = 462.0
+offset_bottom = 23.0
+
+[node name="LblVida" type="Label" parent="AreaInventario/ColumnaDerecha/PanelStatsUI" unique_id=159832137]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "💗"
+
+[node name="LblFuerza" type="Label" parent="AreaInventario/ColumnaDerecha/PanelStatsUI" unique_id=159478750]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "💪"
+
+[node name="LblDefensa" type="Label" parent="AreaInventario/ColumnaDerecha/PanelStatsUI" unique_id=1778627592]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "🛡️"
+
+[node name="LblSaqueo" type="Label" parent="AreaInventario/ColumnaDerecha/PanelStatsUI" unique_id=968896036]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "💰"
+
+[node name="LblAgilidad" type="Label" parent="AreaInventario/ColumnaDerecha/PanelStatsUI" unique_id=1703980900]
+layout_mode = 2
+text = "🥾"
+
+[node name="GridEquipo" type="GridContainer" parent="AreaInventario/ColumnaDerecha" unique_id=1196928361]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 56.0
+offset_right = 479.0
+offset_bottom = 256.0
+scale = Vector2(0.8800006, 0.6799996)
+columns = 4

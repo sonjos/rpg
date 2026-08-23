@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://btri38otx0th0"]
+
+[ext_resource type="Script" uid="uid://dv5mqeloxtmb0" path="res://script/enemigos/Enemigo_state_machine.gd" id="1_8crn5"]
+[ext_resource type="Script" uid="uid://c7bjxiwp5vjdu" path="res://script/enemigos/patrullar.gd" id="2_ddv5l"]
+[ext_resource type="Script" uid="uid://01vyc73mhkhg" path="res://script/enemigos/perseguir.gd" id="3_wcdu7"]
+[ext_resource type="Script" uid="uid://jr7vchr206vf" path="res://script/enemigos/embestir.gd" id="4_5fc7b"]
+[ext_resource type="Script" uid="uid://cumctitawm60n" path="res://script/enemigos/morir.gd" id="5_s4em0"]
+[ext_resource type="Script" uid="uid://c8ogqx0vpb5hi" path="res://script/enemigos/LootEntry.gd" id="6_6b6vx"]
+[ext_resource type="Script" uid="uid://ccl052waqfe2s" path="res://script/enemigos/mele.gd" id="6_r2dmv"]
+[ext_resource type="Script" uid="uid://bkd7arn28dkce" path="res://script/enemigos/vida.gd" id="7_l5cuh"]
+[ext_resource type="Resource" uid="uid://cq6wv8x5y4jba" path="res://script/Inventario/Aramaduras/armadura_oro.tres" id="7_tm0ld"]
+[ext_resource type="Resource" uid="uid://u072fvdorxa7" path="res://script/Inventario/Abalorios/collar_agilidad.tres" id="8_wp532"]
+[ext_resource type="Resource" uid="uid://cqj0r10kpgj5r" path="res://script/Inventario/armas/daga.tres" id="9_vakit"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="10_0b4te"]
+[ext_resource type="Resource" uid="uid://dcvxuykorv7pt" path="res://script/Inventario/armas/espada_normal.tres" id="12_u7tnt"]
+[ext_resource type="Resource" uid="uid://curyvsqsgewx8" path="res://script/Inventario/mochilas/mochilapequeña.tres" id="14_euqhq"]
+
+[sub_resource type="Resource" id="Resource_l5cuh"]
+script = ExtResource("6_6b6vx")
+objeto = ExtResource("7_tm0ld")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[sub_resource type="Resource" id="Resource_8jdfh"]
+script = ExtResource("6_6b6vx")
+objeto = ExtResource("8_wp532")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[sub_resource type="Resource" id="Resource_3pmlh"]
+script = ExtResource("6_6b6vx")
+objeto = ExtResource("9_vakit")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d8hp2"]
+load_path = "res://.godot/imported/Ring4.png-6b5bf925a416efeb880fa087b70aa6c3.s3tc.ctex"
+
+[sub_resource type="Resource" id="Resource_wp532"]
+script = ExtResource("10_0b4te")
+nombre = "A.saqueo"
+icono = SubResource("CompressedTexture2D_d8hp2")
+descripcion = "Reluce mas que el sol"
+tipo = 5
+bonus_saqueo = 0.2
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"
+
+[sub_resource type="Resource" id="Resource_sssog"]
+script = ExtResource("6_6b6vx")
+objeto = SubResource("Resource_wp532")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[sub_resource type="Resource" id="Resource_vakit"]
+script = ExtResource("6_6b6vx")
+objeto = ExtResource("14_euqhq")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[sub_resource type="Resource" id="Resource_qx7fb"]
+script = ExtResource("6_6b6vx")
+objeto = ExtResource("12_u7tnt")
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[node name="Enemigo_state_machine" type="Node" unique_id=759901339]
+script = ExtResource("1_8crn5")
+initial_state = NodePath("Patrullar")
+
+[node name="Patrullar" type="Node" parent="." unique_id=161910009]
+script = ExtResource("2_ddv5l")
+
+[node name="Perseguir" type="Node" parent="." unique_id=172976130]
+script = ExtResource("3_wcdu7")
+
+[node name="Embestir" type="Node" parent="." unique_id=2108773918]
+script = ExtResource("4_5fc7b")
+
+[node name="Morir" type="Node" parent="." unique_id=1279998895]
+script = ExtResource("5_s4em0")
+tabla_botin = Array[ExtResource("6_6b6vx")]([SubResource("Resource_l5cuh"), SubResource("Resource_8jdfh"), SubResource("Resource_3pmlh"), SubResource("Resource_sssog"), SubResource("Resource_vakit"), SubResource("Resource_qx7fb")])
+
+[node name="Mele" type="Node" parent="." unique_id=1903212392]
+script = ExtResource("6_r2dmv")
+
+[node name="Vida" type="Node" parent="." unique_id=1915132868]
+script = ExtResource("7_l5cuh")
+
+[node name="RecibirGolpe" type="Node" parent="." unique_id=1223283424]

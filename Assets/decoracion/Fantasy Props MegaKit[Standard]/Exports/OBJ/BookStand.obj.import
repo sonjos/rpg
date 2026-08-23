@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jimm8n7nqs8p"
+path="res://.godot/imported/BookStand.obj-3178386084fb17ce92cbd435b805be79.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BookStand.obj-3178386084fb17ce92cbd435b805be79.mesh"]
+
+source_file="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/OBJ/BookStand.obj"
+dest_files=["res://.godot/imported/BookStand.obj-3178386084fb17ce92cbd435b805be79.mesh", "res://.godot/imported/BookStand.obj-3178386084fb17ce92cbd435b805be79.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

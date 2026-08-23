@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cv4lscuyudgjw"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="1_g0wsp"]
+[ext_resource type="Texture2D" uid="uid://cquyh85bnhoom" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Hammer_Double_Golden.png" id="1_uk8y3"]
+
+[resource]
+script = ExtResource("1_g0wsp")
+nombre = "Martillo_oro"
+icono = ExtResource("1_uk8y3")
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

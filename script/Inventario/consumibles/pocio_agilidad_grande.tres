@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bsufb3mxlvief"]
+
+[ext_resource type="Texture2D" uid="uid://brgq5x8opksbm" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Potion8_Filled.png" id="1_qx7fb"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="1_vjrk6"]
+
+[resource]
+script = ExtResource("1_vjrk6")
+nombre = "PocionAgilidad_Grande"
+icono = ExtResource("1_qx7fb")
+descripcion = "aumenta la velocidad +10."
+tipo = 2
+es_acumulable = true
+bonus_agilidad_velocidad = 35.0
+es_consumible = true
+es_temporal = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

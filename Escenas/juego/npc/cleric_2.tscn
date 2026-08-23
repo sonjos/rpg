@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bpfwpylgsc45h"]
+
+[ext_resource type="PackedScene" uid="uid://dpoakiuhoh0uk" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Cleric.gltf" id="1_qacfl"]
+
+[node name="Cleric2" unique_id=477425678 instance=ExtResource("1_qacfl")]
+
+[node name="Skeleton3D" parent="CharacterArmature" parent_id_path=PackedInt32Array(356461009) index="0" unique_id=2114546988]
+bones/1/position = Vector3(0.20783743, 0.54991037, -0.6846449)
+bones/1/rotation = Quaternion(-3.7141758e-06, -0.11354098, 0.9935334, 7.9898855e-06)
+bones/2/position = Vector3(0.0021530327, 1.1316091, 0.0521905)
+bones/2/rotation = Quaternion(-3.5526934e-15, 1.1920933e-07, -8.470341e-22, 1)
+bones/4/rotation = Quaternion(0.3922721, 6.3146496e-07, 8.3812046e-07, 0.9198493)
+bones/5/rotation = Quaternion(-0.08156244, -0.11850051, 0.065762915, 0.987411)
+bones/6/rotation = Quaternion(-0.03625019, 6.713374e-07, -1.3636765e-10, 0.99934274)
+bones/7/rotation = Quaternion(-0.075696796, -8.9737056e-05, -1.6096825e-05, 0.99713093)
+bones/8/position = Vector3(0.12610292, 0.141414, 0.012646151)
+bones/9/rotation = Quaternion(0.5040011, 0.5948434, 0.6157303, -0.11410784)
+bones/10/rotation = Quaternion(-0.06261971, 0.06206342, -0.60117817, 0.7942366)
+bones/11/rotation = Quaternion(0.019800305, 0.017442659, -0.008522027, 0.9996155)
+bones/12/rotation = Quaternion(-0.0626413, -0.01881044, -0.0011808324, 0.99785817)
+bones/13/rotation = Quaternion(-0.14578034, 3.334977e-08, 2.6564472e-08, 0.989317)
+bones/14/rotation = Quaternion(-0.17105754, 0.08374463, -0.43297893, 0.88105357)
+bones/15/rotation = Quaternion(-0.07893173, -0.2979136, 0.14166275, 0.9407173)
+bones/16/position = Vector3(-0.1248261, 0.14141399, 0.01264626)
+bones/16/rotation = Quaternion(-0.033020806, 0.014954064, 0.41228098, 0.91033536)
+bones/17/rotation = Quaternion(0.6404356, -0.059219033, -0.3771212, -0.6664195)
+bones/18/rotation = Quaternion(0.155381, -0.38530886, 0.36580163, 0.8328163)
+bones/19/rotation = Quaternion(0.019800328, -0.017442653, 0.0085220365, 0.9996155)
+bones/20/rotation = Quaternion(-0.06264138, 0.018810434, 0.0011808301, 0.99785817)
+bones/21/rotation = Quaternion(-0.62014794, -0.08527077, -0.032721356, 0.77914995)
+bones/22/position = Vector3(0.020979194, -0.018025294, -1.0796017e-07)
+bones/22/rotation = Quaternion(9.499492e-08, -5.401671e-08, -6.3837824e-15, 1)
+bones/23/rotation = Quaternion(-0.17105755, -0.08374461, 0.432979, 0.88105357)
+bones/24/rotation = Quaternion(-0.078931734, 0.29791364, -0.14166282, 0.9407172)
+bones/25/position = Vector3(0.19541886, 0.01879815, -0.09142392)
+bones/25/rotation = Quaternion(0.9985022, 0.008179573, 0.0009733222, -0.054089203)
+bones/26/rotation = Quaternion(0.63016915, 0.0054575014, 0.0059725093, 0.77641577)
+bones/27/position = Vector3(-0.20403647, 0.01879808, -0.091424204)
+bones/27/rotation = Quaternion(0.8537226, -0.0077681816, -0.0016846263, 0.52066743)
+bones/28/rotation = Quaternion(0.43676966, -0.003953748, -0.007058545, 0.8995371)
+bones/30/position = Vector3(-0.21212636, 0.31917146, 0.5568017)
+bones/30/rotation = Quaternion(-7.538597e-06, 0.88664377, 0.46245325, -3.3297142e-06)
+
+[node name="Head_2" parent="CharacterArmature/Skeleton3D" index="0" unique_id=735582812]
+transform = Transform3D(0.9632224, -0.053355765, -0.2633548, 0.003175743, 0.9822796, -0.1873949, 0.26868665, 0.17966689, 0.9463232, -0.06133318, 2.0307934, 0.27474433)
+
+[node name="Weapon_R" parent="CharacterArmature/Skeleton3D" index="1" unique_id=985086983]
+transform = Transform3D(-0.6690293, -0.08174615, -0.7387264, 0.4604047, -0.82584816, -0.3255798, -0.58346075, -0.5579357, 0.5901531, -0.46363485, 1.2440798, -0.58048004)
+
+[node name="Torso" parent="CharacterArmature/Skeleton3D" index="2" unique_id=622140346]
+transform = Transform3D(0.9632661, -0.110540755, -0.24474303, 0.0032532066, 0.91609085, -0.40095803, 0.26852906, 0.38543332, 0.8827988, -0.000638621, 1.5046908, 0.063394584)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=217357480]
+autoplay = &"Walk"

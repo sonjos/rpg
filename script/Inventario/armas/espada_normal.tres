@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dcvxuykorv7pt"]
+
+[ext_resource type="Texture2D" uid="uid://76x6sblsieic" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Sword.png" id="1_585ao"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="2_vpcju"]
+
+[resource]
+script = ExtResource("2_vpcju")
+nombre = "Espada de Hierro"
+icono = ExtResource("1_585ao")
+descripcion = "DesUna espada básica pero fiablecripción del objeto."
+bonus_fuerza_poder = 16
+bonus_agilidad_velocidad = 0.05
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

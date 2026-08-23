@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqrx2ouirqvdj"
+path="res://.godot/imported/Hammer_Double.obj-f82fde52c89da4988e70613647d634dc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Hammer_Double.obj-f82fde52c89da4988e70613647d634dc.mesh"]
+
+source_file="res://Assets/armasObjetos/OBJ-20260806T094929Z-1-001/OBJ/Hammer_Double.obj"
+dest_files=["res://.godot/imported/Hammer_Double.obj-f82fde52c89da4988e70613647d634dc.mesh", "res://.godot/imported/Hammer_Double.obj-f82fde52c89da4988e70613647d634dc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

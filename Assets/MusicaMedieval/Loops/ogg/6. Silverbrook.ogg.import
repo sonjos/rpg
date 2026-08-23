@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8364gxhqwhki"
+path="res://.godot/imported/6. Silverbrook.ogg-20e0cf2e15000e00cf92621b46d10d07.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/MusicaMedieval/Loops/ogg/6. Silverbrook.ogg"
+dest_files=["res://.godot/imported/6. Silverbrook.ogg-20e0cf2e15000e00cf92621b46d10d07.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

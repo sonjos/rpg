@@ -1,14 +1,28 @@
 [gd_scene format=3 uid="uid://wqfl0mbkq1jq"]
 
-[ext_resource type="Script" uid="uid://5c57hjgd1mer" path="res://script/Inventario/slot_ui.gd" id="1_p8140"]
+[ext_resource type="Script" uid="uid://5c57hjgd1mer" path="res://Escenas/Inventario/slot_ui.gd" id="1_p8140"]
 
-[node name="SlotUI" type="Panel" unique_id=2001881842]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fodb4"]
+bg_color = Color(0.011764706, 0, 0.6, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.654902, 0.21176471, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 4
+
+[node name="Slot_ui" type="Button" unique_id=12834897]
 custom_minimum_size = Vector2(64, 64)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fodb4")
 script = ExtResource("1_p8140")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1878993705]
+[node name="Icono" type="TextureRect" parent="." unique_id=1878993705]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,9 +32,17 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LblStats" type="Label" parent="." unique_id=1369068057]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 35.0
-offset_right = 49.0
-offset_bottom = 58.0
+[node name="LblCantidad" type="Label" parent="." unique_id=1369068057]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.3311532, 0.12016141, 0.02166714, 0.9411765)
+text = "1"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bgoxctij05o0x"]
+
+[ext_resource type="Texture2D" uid="uid://bkoxab0v28apf" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Dart.png" id="1_v412m"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_4c6jo"]
+
+[resource]
+script = ExtResource("2_4c6jo")
+nombre = "flecha"
+icono = ExtResource("1_v412m")
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

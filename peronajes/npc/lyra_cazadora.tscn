@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://col76f3ipqj3a"]
 
 [ext_resource type="Script" uid="uid://c1f7ngu88p55a" path="res://peronajes/npc/LyraCazadora.gd" id="1_pkxud"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_fodb4"]
+[ext_resource type="PackedScene" uid="uid://c7lnglxajdtg1" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Ranger.gltf" id="2_51gnr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0minr"]
 radius = 0.6328125
@@ -14,13 +13,12 @@ height = 3.2561035
 collision_mask = 3
 script = ExtResource("1_pkxud")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=174672550]
-mesh = SubResource("CapsuleMesh_fodb4")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=346143446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6925572, 0)
 shape = SubResource("CapsuleShape3D_0minr")
 
 [node name="AreaInteraccion" type="Area3D" parent="." unique_id=2048090102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.215008, 0)
 collision_layer = 0
 collision_mask = 2
 
@@ -30,10 +28,13 @@ shape = SubResource("SphereShape3D_p8jiu")
 debug_color = Color(0.84705883, 0.37254903, 0.05490196, 0.9529412)
 
 [node name="CartelInteraccion" type="Label3D" parent="." unique_id=1299849815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2763586, 0)
 billboard = 1
 modulate = Color(1, 0.043137256, 1, 1)
 text = "Lyra cazadora"
+
+[node name="Ranger2" parent="." unique_id=116681575 instance=ExtResource("2_51gnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.077180505, 0)
 
 [connection signal="body_entered" from="AreaInteraccion" to="." method="_on_area_interaccion_body_entered"]
 [connection signal="body_exited" from="AreaInteraccion" to="." method="_on_area_interaccion_body_exited"]

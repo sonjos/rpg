@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cuvhbjb45k2ej"]
+
+[ext_resource type="Texture2D" uid="uid://bcbivqwvcp2bd" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Bow_Wooden.png" id="1_8oqi1"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_16kl8"]
+
+[resource]
+script = ExtResource("2_16kl8")
+nombre = "arco"
+icono = ExtResource("1_8oqi1")
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

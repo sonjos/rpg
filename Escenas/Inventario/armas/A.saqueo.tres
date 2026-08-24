@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://o2jk554ht7xf"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_a1nt2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d8hp2"]
+load_path = "res://.godot/imported/Ring4.png-6b5bf925a416efeb880fa087b70aa6c3.s3tc.ctex"
+
+[resource]
+script = ExtResource("1_a1nt2")
+nombre = "A.saqueo"
+icono = SubResource("CompressedTexture2D_d8hp2")
+descripcion = "Reluce mas que el sol"
+tipo = 5
+bonus_saqueo = 0.2
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

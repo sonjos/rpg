@@ -37,10 +37,10 @@ func _actualizar_icono() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if not Engine.is_editor_hint():
-		print("¡ALGO HA ENTRADO EN EL ÁREA!: ", body.name, " - Grupos: ", body.get_groups())
+		print("¡ALGO HA ENTRADO EN EL ÁREA!: ", body.name)
 		
 		if body.is_in_group("Player") or body.name == "Player":
 			if item_a_recolectar:
-				PlayerStats.recoger_item(item_a_recolectar)
+				InventarioManager.recoger_item(item_a_recolectar)
 				print("¡Objeto recogido con éxito!")
 				queue_free()

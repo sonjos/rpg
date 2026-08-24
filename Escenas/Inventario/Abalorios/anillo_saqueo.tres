@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://by0ksu60mvv3p"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_f41u6"]
+[ext_resource type="Texture2D" uid="uid://bmepwcso4csxf" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Ring4.png" id="1_x7lth"]
+
+[resource]
+script = ExtResource("1_f41u6")
+icono = ExtResource("1_x7lth")
+descripcion = "Aumenta la saqueo en +2."
+tipo = 5
+bonus_saqueo = 2.0
+cantidad_curacion = 1
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

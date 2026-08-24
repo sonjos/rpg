@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cq6wv8x5y4jba"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_0td06"]
+[ext_resource type="Texture2D" uid="uid://cxx76e4y0hteg" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Armor_Golden.png" id="1_btjqb"]
+
+[resource]
+script = ExtResource("1_0td06")
+nombre = "Armadura_oro"
+icono = ExtResource("1_btjqb")
+tipo = 1
+cantidad_maxima = 1
+bonus_defensa = 15
+bonus_saqueo = 0.15
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

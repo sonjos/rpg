@@ -11,17 +11,6 @@ var texto_completo_actual: String = ""
 
 func _ready() -> void:
 	add_to_group("HUD")
-	
-	# Aplicar estilo de marco dorado y fondo oscuro al panel de diálogo de forma automática
-	var panel_fondo = get_node_or_null("ContenedorDialogo/PanelFondo")
-	if panel_fondo:
-		var estilo := StyleBoxFlat.new()
-		estilo.bg_color = Color.html("#14141EE0")
-		estilo.set_border_width_all(2)
-		estilo.border_color = Color.html("#D9A736")
-		estilo.set_corner_radius_all(12)
-		panel_fondo.add_theme_stylebox_override("panel", estilo)
-		
 	if contenedor_dialogo:
 		contenedor_dialogo.hide()
 
@@ -33,13 +22,13 @@ func mostrar_dialogo(nombre: String, texto: String) -> void:
 	
 	if nombre_label:
 		nombre_label.text = nombre
-		nombre_label.add_theme_color_override("font_color", Color.html("#FFD700"))
+		
 		
 	texto_completo_actual = texto
 	if texto_label:
 		texto_label.text = texto
 		texto_label.visible_characters = 0
-		texto_label.add_theme_color_override("default_color", Color.html("#F0F0F0"))
+		
 	
 	if tween_texto and tween_texto.is_running():
 		tween_texto.kill()

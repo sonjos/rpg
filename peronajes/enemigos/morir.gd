@@ -69,11 +69,9 @@ func generar_loot_con_saqueo() -> void:
 		indice_valido += 1
 
 	if item_elegido:
-		if escena_item_drop:
-			var drop = escena_item_drop.instantiate()
-			character.get_parent().add_child(drop)
-			drop.global_position = character.global_position
-			if "item_data" in drop:
-				drop.item_data = item_elegido
-		elif PlayerStats and PlayerStats.has_method("recoger_item"):
-			PlayerStats.recoger_item(item_elegido)
+		# Forzamos que vaya directo al inventario siempre
+		if InventarioManager and InventarioManager.has_method("recoger_item"):
+			InventarioManager.recoger_item(item_elegido)
+			print("¡Item añadido al inventario: ", item_elegido.nombre, "!")
+		else:
+			print("Error: InventarioManager no encontrado.")

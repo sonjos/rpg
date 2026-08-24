@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm1vulhn511wp"]
+
+[ext_resource type="Texture2D" uid="uid://wqxefb2bjwjc" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Armor_Black.png" id="1_at03m"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_bb7wh"]
+
+[resource]
+script = ExtResource("1_bb7wh")
+nombre = "Armadura_nega"
+icono = ExtResource("1_at03m")
+tipo = 1
+bonus_defensa = 18
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

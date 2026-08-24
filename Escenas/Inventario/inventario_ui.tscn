@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvqn4manowflt"]
 
-[ext_resource type="Script" uid="uid://cf3sr3aimvnu6" path="res://script/Inventario/inventario_ui.gd" id="1_gcmwb"]
+[ext_resource type="Script" uid="uid://cf3sr3aimvnu6" path="res://Escenas/Inventario/inventario_ui.gd" id="1_gcmwb"]
 [ext_resource type="Texture2D" uid="uid://1hjuxlygqnkn" path="res://Assets/ui-pack-adventure/PNG/Double/panel_brown_arrows_dark_detail.png" id="2_rpyp0"]
 
 [node name="InventarioUI" type="Control" unique_id=468715284]

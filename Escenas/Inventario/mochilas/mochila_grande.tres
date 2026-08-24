@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b8dnheyqgd0ga"]
+
+[ext_resource type="Texture2D" uid="uid://bou6o633hkd37" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Backpack.png" id="1_ln8o7"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_2hleg"]
+
+[resource]
+script = ExtResource("2_2hleg")
+nombre = "Mochila_Grande"
+icono = ExtResource("1_ln8o7")
+tipo = 4
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://budbocxh101f1"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_3gdkh"]
+[ext_resource type="Texture2D" uid="uid://c120bgadg3loy" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Potion1_Filled_Red.png" id="1_uk7x7"]
+
+[resource]
+script = ExtResource("1_3gdkh")
+nombre = "Pocion_fuerza_grande"
+icono = ExtResource("1_uk7x7")
+descripcion = "Aumenta la fuerza en +10"
+tipo = 2
+es_acumulable = true
+bonus_fuerza_poder = 35
+es_consumible = true
+es_temporal = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

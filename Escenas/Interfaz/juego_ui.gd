@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var stamina_bar: TextureProgressBar = $StaminaBar
 @onready var barra_experiencia: TextureProgressBar = $BarraExperiencia
 @onready var contador_monedas_label: Label = $ContadorMonedas/Label
-
+@onready var texto_mision: RichTextLabel = $PanelMisiones/TextoMision
 @export var player: CharacterBody3D 
 
 func _ready() -> void:
@@ -32,7 +32,13 @@ func _actualizar_interfaz() -> void:
 		barra_experiencia.value = PlayerStats.experiencia
 	if contador_monedas_label:
 		contador_monedas_label.text = str(PlayerStats.monedas)
-
+	if texto_mision:
+		if PlayerStats.mision_activa_nombre != "":
+			var item_txt = PlayerStats.mision_item_nombre if PlayerStats.mision_item_nombre != "" else "Objetos"
+			texto_mision.text = "Misión: " + PlayerStats.mision_activa_nombre + "\n" + \
+								"- " + item_txt + ": " + str(PlayerStats.mision_cantidad_actual) + " / " + str(PlayerStats.mision_cantidad_requerida)
+		else:
+			texto_mision.text = "Sin misiones activas."
 func _on_level_up(nuevo_nivel: int) -> void:
 	# Si quieres que al subir de nivel también llame a la caja de diálogo mediante el grupo HUD:
 	var hud = get_tree().get_first_node_in_group("HUD")

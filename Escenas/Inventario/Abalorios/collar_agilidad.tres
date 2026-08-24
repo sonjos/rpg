@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://u072fvdorxa7"]
+
+[ext_resource type="Texture2D" uid="uid://dd14xo61ah8us" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Necklace1.png" id="1_3asxe"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_72w3c"]
+
+[resource]
+script = ExtResource("1_72w3c")
+nombre = "Collar_Agilidad"
+icono = ExtResource("1_3asxe")
+descripcion = "Aumenta la agilidad en + 2"
+tipo = 5
+bonus_agilidad_velocidad = 0.2
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

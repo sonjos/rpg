@@ -5,8 +5,16 @@
 [ext_resource type="Script" uid="uid://01vyc73mhkhg" path="res://peronajes/enemigos/perseguir.gd" id="3_wcdu7"]
 [ext_resource type="Script" uid="uid://jr7vchr206vf" path="res://peronajes/enemigos/embestir.gd" id="4_5fc7b"]
 [ext_resource type="Script" uid="uid://cumctitawm60n" path="res://peronajes/enemigos/morir.gd" id="5_s4em0"]
+[ext_resource type="Script" uid="uid://c8ogqx0vpb5hi" path="res://peronajes/enemigos/LootEntry.gd" id="6_bvcwe"]
 [ext_resource type="Script" uid="uid://ccl052waqfe2s" path="res://peronajes/enemigos/mele.gd" id="6_r2dmv"]
+[ext_resource type="Resource" uid="uid://dgb5q8xfpk8wd" path="res://Escenas/Inventario/Misiones/Hueso_de_lobo.tres" id="7_6v6ou"]
 [ext_resource type="Script" uid="uid://bkd7arn28dkce" path="res://peronajes/enemigos/vida.gd" id="7_l5cuh"]
+
+[sub_resource type="Resource" id="Resource_xf2ke"]
+script = ExtResource("6_bvcwe")
+objeto = ExtResource("7_6v6ou")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
 
 [node name="Enemigo_state_machine" type="Node" unique_id=759901339]
 script = ExtResource("1_8crn5")
@@ -23,6 +31,8 @@ script = ExtResource("4_5fc7b")
 
 [node name="Morir" type="Node" parent="." unique_id=1279998895]
 script = ExtResource("5_s4em0")
+tabla_botin = Array[ExtResource("6_bvcwe")]([SubResource("Resource_xf2ke")])
+probabilidad_drop_general = 1.0
 
 [node name="Mele" type="Node" parent="." unique_id=1903212392]
 script = ExtResource("6_r2dmv")

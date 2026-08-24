@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://de0pxmn2lbky1"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_losov"]
+[ext_resource type="Texture2D" uid="uid://0c65xe2mgplh" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Necklace3.png" id="1_yeeph"]
+
+[resource]
+script = ExtResource("1_losov")
+nombre = "Collar_Saqueo"
+icono = ExtResource("1_yeeph")
+descripcion = "Aumenta el saqueo +2."
+bonus_saqueo = 0.2
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

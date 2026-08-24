@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c6god8rae8bud"]
+
+[ext_resource type="Texture2D" uid="uid://bq83rvstbp1ek" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Potion4_Filled.png" id="1_j1f8y"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_o7llh"]
+
+[resource]
+script = ExtResource("2_o7llh")
+nombre = "Pocion_Agilidad_pequeña"
+icono = ExtResource("1_j1f8y")
+descripcion = "Aumaenta la velocidad +5"
+tipo = 2
+es_acumulable = true
+bonus_agilidad_velocidad = 15.0
+es_consumible = true
+es_temporal = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

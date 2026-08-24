@@ -49,32 +49,30 @@ func interactuar() -> void:
 	var jugador = get_tree().get_first_node_in_group("Player")
 	if jugador:
 		_mirar_hacia(jugador.global_position)
-
+	if not mision_aceptada:
+		mision_aceptada = true
+		var nombre_item_mision = item_mision.nombre if item_mision else "Objeto"
+		PlayerStats.aceptar_mision("Caza de Lobos", "Trae los restos requeridos a Lyra.", cantidad_requerida, nombre_item_mision)
+		_mostrar_mensaje("Los lobos de la selva están descontrolados. Traéme sus restos y te recompensaré adecuadamente.")
 	if mision_completada:
 		_mostrar_mensaje("Gracias por tu ayuda previa. Los caminos del norte están más despejados ahora.")
 		return
 
 	if not mision_aceptada:
 		mision_aceptada = true
+		var nombre_item_mision = item_mision.nombre if item_mision else "Objeto"
+		PlayerStats.aceptar_mision("Caza de Lobos", "Consigue los restos requeridos.", cantidad_requerida, nombre_item_mision)
 		_mostrar_mensaje("Los lobos de la selva están descontrolados. Traéme sus restos y te recompensaré adecuadamente.")
-	else:
-		_comprobar_mision()
 
 func _comprobar_mision() -> void:
-	if item_mision == null:
-		_entregar_recompensa_final()
-		return
-
 	var conteo: int = 0
 	for item in PlayerStats.inventario:
 		if item and item.nombre == item_mision.nombre:
 			conteo += 1
-
-	if conteo >= cantidad_requerida:
-		_remover_objetos_mision()
-		_entregar_recompensa_final()
-	else:
-		_mostrar_mensaje("Aún no tienes los objetos necesarios. Necesito: %s x%d" % [item_mision.nombre, cantidad_requerida])
+	
+	# Actualizamos el progreso en PlayerStats para que la UI lo lea
+	PlayerStats.mision_cantidad_actual = conteo
+	PlayerStats.stats_changed.emit()
 
 func _remover_objetos_mision() -> void:
 	var removidos: int = 0
@@ -106,7 +104,12 @@ func _mostrar_mensaje(texto: String) -> void:
 func _mirar_hacia(pos: Vector3) -> void:
 	var target = Vector3(pos.x, global_position.y, pos.z)
 	if global_position.distance_squared_to(target) > 0.001:
-		look_at(target, Vector3.UP)
+		# Apuntamos directamente al jugador manteniendo el eje Y plano
+		super.look_at(target, Vector3.UP) if "super" in self else look_at(target, Vector3.UP)
+		
+		# Como los modelos importados suelen mirar hacia el eje Z positivo o negativo,
+		# sumamos o ajustamos 180 grados (PI) para que la cara del modelo quede frente al jugador
+		rotate_object_local(Vector3.UP, PI)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") or body.name == "Player":
@@ -119,3 +122,12 @@ func _on_body_exited(body: Node3D) -> void:
 		jugador_en_rango = false
 		if cartel_interaccion:
 			cartel_interaccion.hide()
+		_ocultar_dialogo()
+
+func _ocultar_dialogo() -> void:
+	var ui = get_tree().get_first_node_in_group("HUD")
+	if not ui:
+		ui = get_node_or_null("/root/" + get_tree().current_scene.name + "/JuegoUI")
+
+	if ui and ui.has_method("ocultar_dialogo"):
+		ui.ocultar_dialogo()

@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://vh5kswb1m3wj" path="res://Escenas/entonro/interactivos/fogata..res" id="6_ehe83"]
 [ext_resource type="PackedScene" uid="uid://ywck0tk3xvvf" path="res://Escenas/entonro/interactivos/trampa_caida_daño.tscn" id="7_0dnju"]
 [ext_resource type="PackedScene" uid="uid://csajmne1pnafg" path="res://Escenas/entonro/interactivos/puerta_llave.tscn" id="8_mlboc"]
-[ext_resource type="Resource" uid="uid://bosagvh0ncteq" path="res://script/Inventario/clave/llave_oro.tres" id="9_8v0ye"]
+[ext_resource type="Resource" uid="uid://bosagvh0ncteq" path="res://Escenas/Inventario/clave/llave_oro.tres" id="9_8v0ye"]
 [ext_resource type="Texture2D" uid="uid://cp0xyyop72gne" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Key4.png" id="9_gtxsi"]
-[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://script/Inventario/item_data.gd" id="10_ywnx0"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="10_ywnx0"]
 [ext_resource type="PackedScene" uid="uid://brws03t8ndtbg" path="res://Escenas/entonro/interactivos/puzle_antorchcha.tscn" id="11_ywnx0"]
+[ext_resource type="PackedScene" uid="uid://col76f3ipqj3a" path="res://peronajes/npc/lyra_cazadora.tscn" id="12_m0sv4"]
 [ext_resource type="PackedScene" uid="uid://e6344bu41jsk" path="res://peronajes/npc/AldeanoViejito.tscn" id="12_re6v7"]
 [ext_resource type="PackedScene" uid="uid://d2l2v7xja058k" path="res://Escenas/entonro/interactivos/encounter_zone.tscn" id="13_51hg2"]
+[ext_resource type="Resource" uid="uid://dgb5q8xfpk8wd" path="res://Escenas/Inventario/Misiones/Hueso_de_lobo.tres" id="13_lcjlg"]
 [ext_resource type="PackedScene" uid="uid://6c00p4o0glck" path="res://Escenas/entonro/interactivos/zone_trigger.tscn" id="13_m0sv4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
@@ -81,10 +83,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7867322, 1.3759271, 0)
 [node name="PuertaLlave" parent="." unique_id=1273208787 instance=ExtResource("8_mlboc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.216322, 2.066691, 2.2336648)
 
-[node name="ObjetoRecolectable2" parent="." unique_id=88918065 instance=ExtResource("4_4wecd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.68729, 2.4851727, 0)
-item_a_recolectar = SubResource("Resource_re6v7")
-
 [node name="PuzleAntorchcha" parent="." unique_id=1458329554 instance=ExtResource("11_ywnx0")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
@@ -94,5 +92,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.441596, 1.1926796, 6.490585
 [node name="EncounterZone" parent="." unique_id=466142203 instance=ExtResource("13_51hg2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.446903, 2.0874293, -0.84815955)
 
-[node name="NpcInteractuable" parent="." unique_id=2004120757 instance=ExtResource("12_re6v7")]
+[node name="aldeano_tutorial" parent="." unique_id=62137180 instance=ExtResource("12_re6v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.917041, 2.4304805, 0)
+
+[node name="LyraCazadora" parent="." unique_id=2004120757 instance=ExtResource("12_m0sv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.713162, 2.4304805, 0)
+item_mision = ExtResource("13_lcjlg")
+cantidad_requerida = 3
+
+[node name="ObjetoRecolectable2" parent="." unique_id=2013815533 instance=ExtResource("4_4wecd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.40045, 4.915653, 0)
+item_a_recolectar = SubResource("Resource_re6v7")

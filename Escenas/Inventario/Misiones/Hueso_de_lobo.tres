@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dgb5q8xfpk8wd"]
+
+[ext_resource type="Texture2D" uid="uid://bc2ud7wi8ldav" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Bone.png" id="1_xusek"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_143tc"]
+
+[resource]
+script = ExtResource("2_143tc")
+nombre = "Hueso de lobo"
+icono = ExtResource("1_xusek")
+descripcion = "Hueso de lobo"
+tipo = 6
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

@@ -31,7 +31,7 @@ var is_Bloqueo : bool = false
 var player_state_machine : Node = null
 var is_dead : bool = false
 var menu_inventario_instancia: Control = null
-var inventario: Array[ItemData] = []
+
 var equipo : Dictionary = {
 	"casco": null,
 	"pechera": null,
@@ -39,6 +39,15 @@ var equipo : Dictionary = {
 	"anillo": null,
 	"clave": null
 }
+
+#-------Misiones-------
+var mision_activa_nombre: String = ""
+var mision_activa_descripcion: String = ""
+var mision_cantidad_requerida: int = 0
+var mision_cantidad_actual: int = 0
+var mision_item_nombre: String = ""
+var mision_activa_completada: bool = false
+
 
 func _ready() -> void:
 	pass
@@ -128,11 +137,7 @@ func actualizar_vida_enemigo(current: float, max_val: float) -> void:
 func reportar_enemigo_muerto() -> void:
 	emit_signal("enemy_died")
 
-func recoger_item(item: ItemData) -> void:
-	if not item:
-		return
-	inventario.append(item)
-	emit_signal("stats_changed")
+
 
 # --- CÁLCULO DE STATS TOTALES (BASE + EQUIPO) ---
 func obtener_fuerza_total() -> float:
@@ -172,3 +177,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			if escena:
 				menu_inventario_instancia = escena.instantiate()
 				get_tree().root.add_child(menu_inventario_instancia)
+
+func aceptar_mision(nombre: String, descripcion: String, cantidad: int, item_nombre: String) -> void:
+	mision_activa_nombre = nombre
+	mision_activa_descripcion = descripcion
+	mision_cantidad_requerida = cantidad
+	mision_item_nombre = item_nombre
+	mision_cantidad_actual = 0
+	mision_activa_completada = false
+	if has_signal("stats_changed"):
+		stats_changed.emit()
+
+func completar_mision() -> void:
+	mision_activa_completada = true
+	if has_signal("stats_changed"):
+		stats_changed.emit()

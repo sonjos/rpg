@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://brx7nijoeyeur"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_2y8lf"]
+[ext_resource type="Texture2D" uid="uid://btnfrdm5g5uh4" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Potion3_Filled.png" id="1_qtlnt"]
+
+[resource]
+script = ExtResource("1_2y8lf")
+nombre = "Pocion_Saqueo_Pequeña"
+icono = ExtResource("1_qtlnt")
+descripcion = "Aumenta el saqueo en + 5."
+tipo = 2
+es_acumulable = true
+bonus_saqueo = 35.0
+es_consumible = true
+es_temporal = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

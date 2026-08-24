@@ -84,7 +84,24 @@ text = "☠️ Revivir"
 
 [node name="CajaDialogoUI" parent="." unique_id=1103360831 instance=ExtResource("7_ltstt")]
 
+[node name="ContenedorBotones" type="HBoxContainer" parent="CajaDialogoUI" unique_id=750530196]
+offset_left = 906.0
+offset_top = 499.0
+offset_right = 1058.0
+offset_bottom = 539.0
+
+[node name="BtnAceptar" type="Button" parent="CajaDialogoUI/ContenedorBotones" unique_id=87442484]
+visible = false
+layout_mode = 2
+text = "Aceptar"
+
+[node name="BtnRechazar" type="Button" parent="CajaDialogoUI/ContenedorBotones" unique_id=1027265555]
+visible = false
+layout_mode = 2
+text = "Rechazar"
+
 [node name="PanelMisiones" type="Panel" parent="." unique_id=114199210]
+visible = false
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0

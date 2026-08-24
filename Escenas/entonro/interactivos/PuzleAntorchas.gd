@@ -1,3 +1,4 @@
+# res://scripts/entorno/PuzleAntorchcha.gd
 extends Node3D
 
 signal puzle_resuelto
@@ -14,7 +15,7 @@ func registrar_activacion(id_antorcha: int) -> void:
 	# Verificar si el orden hasta ahora es correcto
 	for i in range(secuencia_actual.size()):
 		if secuencia_actual[i] != secuencia_correcta[i]:
-			get_tree().call_group("HUD", "mostrar_dialogo", "Mecanismo", "Secuencia incorrecta. El mecanismo se ha reiniciado.")
+			_mostrar_mensaje("Mecanismo", "Secuencia incorrecta. El mecanismo se ha reiniciado.")
 			reiniciar_puzle()
 			return
 			
@@ -35,9 +36,16 @@ func reiniciar_puzle() -> void:
 			antorcha.apagar()
 
 func desbloquear_paso() -> void:
-	get_tree().call_group("HUD", "mostrar_dialogo", "Mecanismo", "¡Secuencia correcta! La puerta se ha desbloqueado.")
+	_mostrar_mensaje("Mecanismo", "¡Secuencia correcta! La puerta se ha desbloqueado.")
 	if puerta_objetivo:
 		if "esta_bloqueada" in puerta_objetivo:
 			puerta_objetivo.esta_bloqueada = false
 		if puerta_objetivo.has_method("abrir_puerta"):
 			puerta_objetivo.abrir_puerta() # Abre la puerta automáticamente
+
+func _mostrar_mensaje(remitente: String, texto: String) -> void:
+	var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogo")
+	if caja_dialogo and caja_dialogo.has_method("mostrar_dialogo"):
+		caja_dialogo.mostrar_dialogo(remitente, texto)
+	else:
+		get_tree().call_group("HUD", "mostrar_dialogo", remitente, texto)

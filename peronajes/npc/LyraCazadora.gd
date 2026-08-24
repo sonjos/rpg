@@ -1,3 +1,4 @@
+# res://Escenas/NPCs/lyra_cazadora.gd
 extends CharacterBody3D
 class_name LyraCazadora
 
@@ -13,8 +14,6 @@ class_name LyraCazadora
 @onready var anim_player: AnimationPlayer = $ModeloLyra/AnimationPlayer if has_node("ModeloLyra/AnimationPlayer") else null
 
 var jugador_en_rango: bool = false
-var mision_aceptada: bool = false
-var mision_completada: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity", 9.8)
 
 func _ready() -> void:
@@ -49,44 +48,68 @@ func interactuar() -> void:
 	var jugador = get_tree().get_first_node_in_group("Player")
 	if jugador:
 		_mirar_hacia(jugador.global_position)
-	if not mision_aceptada:
-		mision_aceptada = true
-		var nombre_item_mision = item_mision.nombre if item_mision else "Objeto"
-		PlayerStats.aceptar_mision("Caza de Lobos", "Trae los restos requeridos a Lyra.", cantidad_requerida, nombre_item_mision)
-		_mostrar_mensaje("Los lobos de la selva están descontrolados. Traéme sus restos y te recompensaré adecuadamente.")
-	if mision_completada:
+
+	if QuestManager.mision_completada:
 		_mostrar_mensaje("Gracias por tu ayuda previa. Los caminos del norte están más despejados ahora.")
 		return
 
-	if not mision_aceptada:
-		mision_aceptada = true
-		var nombre_item_mision = item_mision.nombre if item_mision else "Objeto"
-		PlayerStats.aceptar_mision("Caza de Lobos", "Consigue los restos requeridos.", cantidad_requerida, nombre_item_mision)
-		_mostrar_mensaje("Los lobos de la selva están descontrolados. Traéme sus restos y te recompensaré adecuadamente.")
+	if QuestManager.mision_aceptada:
+		QuestManager.actualizar_progreso()
+		if QuestManager.mision_cantidad_actual >= cantidad_requerida:
+			_remover_objetos_mision()
+			_entregar_recompensa_final()
+		else:
+			_mostrar_mensaje("¿Cómo va esa caza? Vuelve cuando consigas todos los restos requeridos.")
+		return
 
-func _comprobar_mision() -> void:
-	var conteo: int = 0
-	for item in PlayerStats.inventario:
-		if item and item.nombre == item_mision.nombre:
-			conteo += 1
-	
-	# Actualizamos el progreso en PlayerStats para que la UI lo lea
-	PlayerStats.mision_cantidad_actual = conteo
-	PlayerStats.stats_changed.emit()
+	# Búsqueda directa y blindada de la caja de diálogo en la escena activa
+	var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogoUI")
+	if not caja_dialogo:
+		var current_scene = get_tree().current_scene
+		if current_scene:
+			caja_dialogo = current_scene.find_child("CajaDialogoUI", true, false)
+
+	if caja_dialogo and caja_dialogo.has_method("mostrar_dialogo_con_opciones"):
+		var nombre_item_mision = item_mision.nombre if item_mision else "Objeto"
+		
+		caja_dialogo.mostrar_dialogo_con_opciones(
+			nombre_npc,
+			"Los lobos de la selva están descontrolados. ¿Aceptas cazaros y traerme sus restos?",
+			"Aceptar Misión",
+			func():
+				QuestManager.aceptar_mision("Caza de Lobos", "Consigue los restos requeridos.", cantidad_requerida, nombre_item_mision)
+				_mostrar_mensaje("¡Perfecto! Ve al bosque y tráeme los huesos de lobo."),
+			"Rechazar",
+			func():
+				_mostrar_mensaje("Vaya... avísame si cambias de opinión.")
+		)
+	else:
+		print("ERROR CRÍTICO: No se encuentra la caja de diálogo para mostrar opciones.")
 
 func _remover_objetos_mision() -> void:
 	var removidos: int = 0
-	for i in range(PlayerStats.inventario.size() - 1, -1, -1):
-		var item = PlayerStats.inventario[i]
-		if item and item.nombre == item_mision.nombre:
-			PlayerStats.inventario.remove_at(i)
-			removidos += 1
-			if removidos >= cantidad_requerida:
-				break
-	PlayerStats.stats_changed.emit()
+	for i in range(InventarioManager.inventario.size() - 1, -1, -1):
+		var slot = InventarioManager.inventario[i]
+		if slot and slot.has("item") and slot["item"] != null:
+			if item_mision and slot["item"].nombre == item_mision.nombre:
+				var cantidad_en_slot = slot["cantidad"]
+				var cantidad_necesaria = cantidad_requerida - removidos
+				
+				if cantidad_en_slot >= cantidad_necesaria:
+					slot["cantidad"] -= cantidad_necesaria
+					removidos += cantidad_necesaria
+					if slot["cantidad"] <= 0:
+						InventarioManager.inventario.remove_at(i)
+					break
+				else:
+					removidos += cantidad_en_slot
+					InventarioManager.inventario.remove_at(i)
+					
+	InventarioManager.inventario_actualizado.emit()
+	QuestManager.actualizar_progreso()
 
 func _entregar_recompensa_final() -> void:
-	mision_completada = true
+	QuestManager.completar_mision()
 	if recompensa_item:
 		PlayerStats.recoger_item(recompensa_item)
 	PlayerStats.ganar_monedas(monedas_recompensa)
@@ -94,21 +117,19 @@ func _entregar_recompensa_final() -> void:
 	_mostrar_mensaje("¡Excelente trabajo! Toma tu recompensa: %d monedas y %d EXP." % [monedas_recompensa, exp_recompensa])
 
 func _mostrar_mensaje(texto: String) -> void:
-	var ui = get_tree().get_first_node_in_group("HUD")
-	if not ui:
-		ui = get_node_or_null("/root/" + get_tree().current_scene.name + "/JuegoUI")
+	var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogoUI")
+	if not caja_dialogo:
+		var current_scene = get_tree().current_scene
+		if current_scene:
+			caja_dialogo = current_scene.find_child("CajaDialogoUI", true, false)
 
-	if ui and ui.has_method("mostrar_dialogo"):
-		ui.mostrar_dialogo(nombre_npc, texto)
+	if caja_dialogo and caja_dialogo.has_method("mostrar_dialogo"):
+		caja_dialogo.mostrar_dialogo(nombre_npc, texto)
 
 func _mirar_hacia(pos: Vector3) -> void:
 	var target = Vector3(pos.x, global_position.y, pos.z)
 	if global_position.distance_squared_to(target) > 0.001:
-		# Apuntamos directamente al jugador manteniendo el eje Y plano
 		super.look_at(target, Vector3.UP) if "super" in self else look_at(target, Vector3.UP)
-		
-		# Como los modelos importados suelen mirar hacia el eje Z positivo o negativo,
-		# sumamos o ajustamos 180 grados (PI) para que la cara del modelo quede frente al jugador
 		rotate_object_local(Vector3.UP, PI)
 
 func _on_body_entered(body: Node3D) -> void:
@@ -125,9 +146,11 @@ func _on_body_exited(body: Node3D) -> void:
 		_ocultar_dialogo()
 
 func _ocultar_dialogo() -> void:
-	var ui = get_tree().get_first_node_in_group("HUD")
-	if not ui:
-		ui = get_node_or_null("/root/" + get_tree().current_scene.name + "/JuegoUI")
+	var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogoUI")
+	if not caja_dialogo:
+		var current_scene = get_tree().current_scene
+		if current_scene:
+			caja_dialogo = current_scene.find_child("CajaDialogoUI", true, false)
 
-	if ui and ui.has_method("ocultar_dialogo"):
-		ui.ocultar_dialogo()
+	if caja_dialogo and caja_dialogo.has_method("ocultar_dialogo"):
+		caja_dialogo.ocultar_dialogo()

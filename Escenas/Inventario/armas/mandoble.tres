@@ -8,4 +8,6 @@ script = ExtResource("1_ci2i4")
 nombre = "Mandoble_Hierro"
 icono = ExtResource("1_su8f8")
 descripcion = "Arma a 2 manos."
+precio_compra = 150
+precio_venta = 75
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

@@ -7,4 +7,7 @@
 script = ExtResource("2_4c6jo")
 nombre = "flecha"
 icono = ExtResource("1_v412m")
+precio_compra = 10
+precio_venta = 5
+es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

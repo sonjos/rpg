@@ -8,4 +8,6 @@ script = ExtResource("2_2hleg")
 nombre = "Mochila_Grande"
 icono = ExtResource("1_ln8o7")
 tipo = 4
+precio_compra = 1200
+precio_venta = 600
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

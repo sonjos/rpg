@@ -26,7 +26,7 @@ var max_stamina : float = 100.0
 var current_stamina : float = 100.0
 var saqueo : float = 0.0
 var agilidad : float = 1.0 
-
+var casillas_extra_inventario: int = 0
 var is_Bloqueo : bool = false
 var player_state_machine : Node = null
 var is_dead : bool = false
@@ -165,3 +165,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			if escena:
 				menu_inventario_instancia = escena.instantiate()
 				get_tree().root.add_child(menu_inventario_instancia)
+
+func obtener_capacidad_inventario_total() -> int:
+	var base_casillas = 18 # O el total de casillas por defecto que tengas en tu InventarioManager
+	for slot in equipo:
+		if equipo[slot] and "tipo" in equipo[slot] and equipo[slot].tipo == 4: # Suponiendo que el tipo 4 o similar sea Mochila, o comprobando si da casillas
+			pass 
+	return base_casillas + casillas_extra_inventario
+
+func equipar_mochila(item: ItemData, extra_casillas: int) -> void:
+	casillas_extra_inventario += extra_casillas
+	emit_signal("stats_changed")

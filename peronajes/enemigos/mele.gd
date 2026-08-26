@@ -1,6 +1,6 @@
 # res://states/Mele.gd
 extends Enemigo_state_machine
-
+@export var fuerza_ataque: float = 10.0
 @export var attack_cooldown: float = 1.5
 var timer: float = 0.0
 

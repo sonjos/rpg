@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dxapnmx2r6vqx"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_n6jys"]
+[ext_resource type="Texture2D" uid="uid://mecfwdsn7pqh" path="res://Assets/misiones/Brújula de Plata.jpg" id="1_t3bhb"]
+
+[resource]
+script = ExtResource("1_n6jys")
+nombre = "Brújula de Plata"
+icono = ExtResource("1_t3bhb")
+tipo = 6
+precio_compra = 45
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

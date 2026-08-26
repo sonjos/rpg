@@ -53,7 +53,10 @@ func actualizar_mochila() -> void:
 		
 	print("--- ACTUALIZANDO MOCHILA. Total items en manager: ", InventarioManager.inventario.size())
 		
-	for i in range(TOTAL_CASILLAS):
+	# Calculamos el total de casillas base más las ampliaciones de las mochilas
+	var capacidad_total_actual = TOTAL_CASILLAS + InventarioManager.casillas_extra
+		
+	for i in range(capacidad_total_actual):
 		var slot_ui = ESCENA_SLOT.instantiate()
 		
 		if i < InventarioManager.inventario.size():
@@ -116,7 +119,6 @@ func usar_o_equipar_item(indice: int) -> void:
 	match item.tipo:
 		0: slot_destino = "arma"
 		1: slot_destino = "pechera"
-		4, 5: slot_destino = "anillo"
 		2: # Consumible
 			if item.cantidad_curacion > 0:
 				PlayerStats.current_health = min(PlayerStats.max_health, PlayerStats.current_health + item.cantidad_curacion)
@@ -126,6 +128,15 @@ func usar_o_equipar_item(indice: int) -> void:
 				InventarioManager.inventario_actualizado.emit()
 				PlayerStats.stats_changed.emit()
 				return
+		4: # Mochila (Aumenta las casillas de inventario al usarla)
+			InventarioManager.casillas_extra += 6 # Puedes cambiar este valor según la mochila si lo deseas
+			slot_data["cantidad"] -= 1
+			if slot_data["cantidad"] <= 0:
+				InventarioManager.inventario.remove_at(indice)
+			InventarioManager.inventario_actualizado.emit()
+			PlayerStats.stats_changed.emit()
+			return
+		5: slot_destino = "anillo" # Abalorio / Anillo
 		_:
 			# Si es un objeto de misión, material u otro tipo no equipable/consumible, 
 			# simplemente evitamos que crashee o ignore el clic.

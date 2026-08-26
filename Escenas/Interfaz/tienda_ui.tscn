@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://bwlmxwxdonhay"]
+
+[ext_resource type="Script" uid="uid://bhge8wl5loxfr" path="res://Escenas/Interfaz/tienda_ui.gd" id="1_31y55"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_o55hi"]
+[ext_resource type="Resource" uid="uid://cuvhbjb45k2ej" path="res://Escenas/Inventario/armas/arco_normal.tres" id="3_ixi5m"]
+[ext_resource type="Resource" uid="uid://6jpuyf3hvum" path="res://Escenas/Inventario/Abalorios/anillo_fuerza.tres" id="4_jvi8f"]
+[ext_resource type="Resource" uid="uid://cqj0r10kpgj5r" path="res://Escenas/Inventario/armas/daga.tres" id="5_7ltyw"]
+[ext_resource type="Resource" uid="uid://b4e0cqg2scnl0" path="res://Escenas/Inventario/Aramaduras/armadura_hierro.tres" id="5_nsdjk"]
+[ext_resource type="Resource" uid="uid://by0ksu60mvv3p" path="res://Escenas/Inventario/Abalorios/anillo_saqueo.tres" id="7_7hasf"]
+[ext_resource type="Resource" uid="uid://dcvxuykorv7pt" path="res://Escenas/Inventario/armas/espada_normal.tres" id="7_kh3rg"]
+[ext_resource type="Resource" uid="uid://cm8fiicilr28o" path="res://Escenas/Inventario/armas/arco_oro.tres" id="8_gcddp"]
+[ext_resource type="Resource" uid="uid://bgoxctij05o0x" path="res://Escenas/Inventario/armas/flecha_normal.tres" id="8_o8bmc"]
+[ext_resource type="Resource" uid="uid://dlhl4hhdqhu2k" path="res://Escenas/Inventario/armas/flecha_oro.tres" id="9_cenel"]
+[ext_resource type="Resource" uid="uid://lndwu3wq6yvx" path="res://Escenas/Inventario/armas/daga_oro.tres" id="9_jeueb"]
+[ext_resource type="Resource" uid="uid://cbmor1bg4wybm" path="res://Escenas/Inventario/armas/hacha_doble.tres" id="10_rjxil"]
+[ext_resource type="Resource" uid="uid://dgvbidpbx8l3g" path="res://Escenas/Inventario/armas/hacha_doble_oro.tres" id="11_qtcqo"]
+[ext_resource type="Resource" uid="uid://chlnof0gpeo5l" path="res://Escenas/Inventario/armas/hacha_mormal.tres" id="12_mkgxn"]
+[ext_resource type="Resource" uid="uid://vysys6xxtqri" path="res://Escenas/Inventario/armas/hacha_oro.tres" id="13_lnwbp"]
+[ext_resource type="Resource" uid="uid://b8vw5joi3t05b" path="res://Escenas/Inventario/armas/madoble_oro.tres" id="14_p3w73"]
+[ext_resource type="Resource" uid="uid://dfmw2mh0j27n7" path="res://Escenas/Inventario/armas/mandoble.tres" id="15_rjb3w"]
+[ext_resource type="Resource" uid="uid://ccex4nga7xx1h" path="res://Escenas/Inventario/armas/martillo.tres" id="16_cupcf"]
+[ext_resource type="Resource" uid="uid://cv4lscuyudgjw" path="res://Escenas/Inventario/armas/martillo_oro.tres" id="17_gy883"]
+[ext_resource type="Resource" uid="uid://ccgytfvq6387t" path="res://Escenas/Inventario/Abalorios/anillo_agilidad.tres" id="18_hofet"]
+[ext_resource type="Resource" uid="uid://u072fvdorxa7" path="res://Escenas/Inventario/Abalorios/collar_agilidad.tres" id="21_c66i8"]
+[ext_resource type="Resource" uid="uid://mcrfn15ns8k0" path="res://Escenas/Inventario/Abalorios/collar_fuerza.tres" id="22_dh332"]
+[ext_resource type="Resource" uid="uid://de0pxmn2lbky1" path="res://Escenas/Inventario/Abalorios/collar_saqueo.tres" id="23_bpq54"]
+[ext_resource type="Resource" uid="uid://daa7kg62f6piw" path="res://Escenas/Inventario/Aramaduras/armadura_cuero.tres" id="24_1vsu0"]
+[ext_resource type="Resource" uid="uid://dw122mpje4fd" path="res://Escenas/Inventario/Aramaduras/armadura_de_hierro_reforzada.tres" id="25_sb7kd"]
+[ext_resource type="Resource" uid="uid://cm1vulhn511wp" path="res://Escenas/Inventario/Aramaduras/armadura_negra.tres" id="27_j5kdf"]
+[ext_resource type="Resource" uid="uid://cq6wv8x5y4jba" path="res://Escenas/Inventario/Aramaduras/armadura_oro.tres" id="28_vtxvp"]
+[ext_resource type="Resource" uid="uid://curyvsqsgewx8" path="res://Escenas/Inventario/mochilas/mochilapequeña.tres" id="29_0deou"]
+[ext_resource type="Resource" uid="uid://b8dnheyqgd0ga" path="res://Escenas/Inventario/mochilas/mochila_grande.tres" id="30_ljwul"]
+[ext_resource type="Resource" uid="uid://c6god8rae8bud" path="res://Escenas/Inventario/consumibles/pocion_agilidad_pequeña.tres" id="31_qtcqo"]
+[ext_resource type="Resource" uid="uid://budbocxh101f1" path="res://Escenas/Inventario/consumibles/pocion_de_fuerza_grande.tres" id="32_mkgxn"]
+[ext_resource type="Resource" uid="uid://bni8oraskrvni" path="res://Escenas/Inventario/consumibles/pocion_fuerza_pequeña.tres" id="33_lnwbp"]
+[ext_resource type="Resource" uid="uid://4makipk2samt" path="res://Escenas/Inventario/consumibles/pocion_saqueo_grande.tres" id="34_p3w73"]
+[ext_resource type="Resource" uid="uid://brx7nijoeyeur" path="res://Escenas/Inventario/consumibles/pocion_saqueo_pequeña.tres" id="35_rjb3w"]
+[ext_resource type="Resource" uid="uid://bsufb3mxlvief" path="res://Escenas/Inventario/consumibles/pocio_agilidad_grande.tres" id="36_cupcf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gww5c"]
+bg_color = Color(0.078431375, 0.078431375, 0.11764706, 0.8784314)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.654902, 0.21176471, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="FontVariation" id="FontVariation_b78of"]
+variation_embolden = 1.0
+spacing_space = 50
+baseline_offset = -0.075
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0fij"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[node name="TiendaUI" type="Control" unique_id=1233054682]
+process_priority = 50
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_31y55")
+items_en_venta = Array[ExtResource("2_o55hi")]([ExtResource("3_ixi5m"), ExtResource("8_gcddp"), ExtResource("5_7ltyw"), ExtResource("9_jeueb"), ExtResource("7_kh3rg"), ExtResource("8_o8bmc"), ExtResource("9_cenel"), ExtResource("10_rjxil"), ExtResource("11_qtcqo"), ExtResource("12_mkgxn"), ExtResource("13_lnwbp"), ExtResource("14_p3w73"), ExtResource("15_rjb3w"), ExtResource("16_cupcf"), ExtResource("17_gy883"), ExtResource("18_hofet"), ExtResource("4_jvi8f"), ExtResource("7_7hasf"), ExtResource("21_c66i8"), ExtResource("22_dh332"), ExtResource("23_bpq54"), ExtResource("24_1vsu0"), ExtResource("25_sb7kd"), ExtResource("5_nsdjk"), ExtResource("27_j5kdf"), ExtResource("28_vtxvp"), ExtResource("29_0deou"), ExtResource("30_ljwul"), ExtResource("31_qtcqo"), ExtResource("32_mkgxn"), ExtResource("33_lnwbp"), ExtResource("34_p3w73"), ExtResource("35_rjb3w"), ExtResource("36_cupcf")])
+
+[node name="Panel" type="Panel" parent="." unique_id=2072742137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gww5c")
+
+[node name="Label" type="Label" parent="Panel" unique_id=203887084]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_right = 124.5
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_shadow_color = Color(17.694864, 0, 0, 0.9411765)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = SubResource("FontVariation_b78of")
+theme_override_font_sizes/font_size = 50
+text = "Tienda de Eldrin"
+
+[node name="BtnCerrar" type="Button" parent="Panel" unique_id=1507463821]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -31.0
+offset_right = 29.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u0fij")
+text = "Cerrar"
+
+[node name="LblComprar" type="Label" parent="Panel" unique_id=1270411591]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 107.0
+offset_right = 297.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_shadow_color = Color(17.694864, 0, 0, 0.9411765)
+theme_override_font_sizes/font_size = 30
+text = "Comprar"
+
+[node name="LblVender" type="Label" parent="Panel" unique_id=1041304975]
+layout_mode = 0
+offset_left = 859.0
+offset_top = 93.0
+offset_right = 987.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_shadow_color = Color(17.694864, 0, 0, 0.9411765)
+theme_override_font_sizes/font_size = 30
+text = "Vender"
+
+[node name="PanelVender" type="Panel" parent="." unique_id=1821373985]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -488.0
+offset_top = 171.0
+offset_right = -38.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxVender" type="VBoxContainer" parent="PanelVender" unique_id=932288442]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 68.0
+offset_bottom = 64.0
+
+[node name="PanelComprar" type="Panel" parent="." unique_id=1935299657]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 40.999996
+offset_top = 170.99998
+offset_right = 491.0
+offset_bottom = -27.0
+grow_vertical = 2
+
+[node name="VboxComprar" type="VBoxContainer" parent="PanelComprar" unique_id=788433188]
+layout_mode = 0
+offset_left = -3.9999962
+offset_top = -0.99998474
+offset_right = 36.000004
+offset_bottom = 39.000015
+alignment = 2
+
+[node name="Armas" type="Button" parent="PanelComprar" unique_id=1912555307]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 248.00002
+offset_right = 549.0
+offset_bottom = 279.0
+text = "Armas"
+
+[node name="Armaduras" type="Button" parent="PanelComprar" unique_id=141020737]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 182.00002
+offset_right = 554.0
+offset_bottom = 213.00002
+text = "Armaduras"
+
+[node name="Consumibles" type="Button" parent="PanelComprar" unique_id=743144012]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 121.000015
+offset_right = 542.0
+offset_bottom = 152.00002
+text = "Pociones
+"
+
+[node name="Ablorios" type="Button" parent="PanelComprar" unique_id=293980298]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 72.000015
+offset_right = 543.0
+offset_bottom = 103.000015
+text = "Abalorios
+"
+
+[node name="Mochilas" type="Button" parent="PanelComprar" unique_id=1489912147]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 19.000015
+offset_right = 527.0
+offset_bottom = 50.000015
+text = "Mochilas
+
+"

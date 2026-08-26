@@ -1,14 +1,17 @@
 class_name ItemData
 extends Resource
 
+@export_group("Creacion de objetos")
 @export var nombre: String = "Objeto"
 @export var icono: Texture2D
 @export_multiline var descripcion: String = "Descripción del objeto."
 @export_enum("Arma", "Armadura", "Consumible", "Clave", "Mochila", "Abalorio", "Misiones") var tipo: int
-
+@export_group ("Comercio")
+@export var precio_compra: int = 50
+@export var precio_venta: int = 25
 # --- VISUAL EN EL MUNDO ---
 @export_group("Mundo y Apariencia")
-@export var modelo_3d: PackedScene           # El modelo 3D que aparecerá tirado en el suelo o cofre
+@export var modelo_3d: PackedScene           # El modelo 3D que aparececrá tirado en el suelo o cofre
 
 # --- PROPIEDADES DE INVENTARIO ---
 @export_group("Inventario")

@@ -7,8 +7,6 @@
 radius = 0.6328125
 height = 3.2561035
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_p8jiu"]
-
 [node name="AldeanoViejito" type="CharacterBody3D" unique_id=2004120757]
 collision_mask = 3
 script = ExtResource("1_fqnse")
@@ -19,20 +17,8 @@ script = ExtResource("1_fqnse")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4542236, 0)
 shape = SubResource("CapsuleShape3D_0minr")
 
-[node name="AreaInteraccion" type="Area3D" parent="." unique_id=2048090102]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaInteraccion" unique_id=664422221]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.1460704, 0)
-shape = SubResource("SphereShape3D_p8jiu")
-debug_color = Color(0.84705883, 0.37254903, 0.05490196, 0.9529412)
-
 [node name="CartelInteraccion" type="Label3D" parent="." unique_id=1299849815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.490757, 0)
 billboard = 1
 modulate = Color(1, 0.7607843, 0.10980392, 1)
 text = "Aldeano viejito"
-
-[connection signal="body_entered" from="AreaInteraccion" to="." method="_on_area_interaccion_body_entered"]
-[connection signal="body_exited" from="AreaInteraccion" to="." method="_on_area_interaccion_body_exited"]

@@ -8,4 +8,7 @@ script = ExtResource("1_n38qw")
 nombre = "Mandoble_oro"
 icono = ExtResource("1_e5nc8")
 descripcion = "reluce mas que el sol"
+precio_compra = 600
+precio_venta = 300
+bonus_fuerza_poder = 30
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

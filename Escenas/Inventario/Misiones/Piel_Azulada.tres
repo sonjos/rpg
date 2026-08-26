@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c0tbv2mkxmwxk"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_asenj"]
+[ext_resource type="Texture2D" uid="uid://bpf8xgm30ta13" path="res://Assets/misiones/piel azulada.jpg" id="1_p5jss"]
+
+[resource]
+script = ExtResource("1_asenj")
+nombre = "Piel Azulada"
+icono = ExtResource("1_p5jss")
+descripcion = "Piel azul como el hielo"
+tipo = 6
+precio_compra = 10
+precio_venta = 5
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

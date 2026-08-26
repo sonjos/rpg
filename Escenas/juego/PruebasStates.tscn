@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://col76f3ipqj3a" path="res://peronajes/npc/lyra_cazadora.tscn" id="12_m0sv4"]
 [ext_resource type="PackedScene" uid="uid://e6344bu41jsk" path="res://peronajes/npc/AldeanoViejito.tscn" id="12_re6v7"]
 [ext_resource type="PackedScene" uid="uid://d2l2v7xja058k" path="res://Escenas/entonro/interactivos/encounter_zone.tscn" id="13_51hg2"]
-[ext_resource type="Resource" uid="uid://dgb5q8xfpk8wd" path="res://Escenas/Inventario/Misiones/Hueso_de_lobo.tres" id="13_lcjlg"]
 [ext_resource type="PackedScene" uid="uid://6c00p4o0glck" path="res://Escenas/entonro/interactivos/zone_trigger.tscn" id="13_m0sv4"]
+[ext_resource type="PackedScene" uid="uid://dyu3romas1tk5" path="res://peronajes/npc/herrero_eldrin.tscn" id="16_go44g"]
+[ext_resource type="PackedScene" uid="uid://c60j2jtwmph6t" path="res://peronajes/npc/capitan_jorah.tscn" id="17_vc82t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
 size = Vector3(100, 1, 100)
@@ -48,7 +49,7 @@ transform = Transform3D(0.9955575, 0, 0.09415551, 0, 1, 0, -0.09415551, 0, 0.995
 collision_mask = 2047
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2130058993]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 0, 0)
 mesh = SubResource("BoxMesh_fodb4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=336723860]
@@ -97,9 +98,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.917041, 2.4304805, 0)
 
 [node name="LyraCazadora" parent="." unique_id=2004120757 instance=ExtResource("12_m0sv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.713162, 2.4304805, 0)
-item_mision = ExtResource("13_lcjlg")
-cantidad_requerida = 3
 
 [node name="ObjetoRecolectable2" parent="." unique_id=2013815533 instance=ExtResource("4_4wecd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.40045, 4.915653, 0)
 item_a_recolectar = SubResource("Resource_re6v7")
+
+[node name="HerreroEldrin" parent="." unique_id=640003296 instance=ExtResource("16_go44g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.685897, 2.016244, 0)
+
+[node name="CapitanJorah" parent="." unique_id=602743472 instance=ExtResource("17_vc82t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0430346, 1.1424005, 0)

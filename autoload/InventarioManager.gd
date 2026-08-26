@@ -8,6 +8,9 @@ const TOTAL_CASILLAS: int = 18 # 3 columnas x 6 filas
 # Cada ranura es un diccionario: {"item": ItemData, "cantidad": int}
 var inventario: Array[Dictionary] = []
 
+# Variable para almacenar las casillas extra otorgadas por las mochilas
+var casillas_extra: int = 0
+
 # Referencia opcional al menú de inventario abierto si existe
 var menu_inventario_instancia: Control = null
 
@@ -25,8 +28,9 @@ func recoger_item(item: ItemData, cantidad_a_recoger: int = 1) -> bool:
 					menu_inventario_instancia.actualizar_interfaz()
 				return true
 				
-	# 2. Si no es acumulable o no hay pilas, buscamos casilla libre
-	if inventario.size() < TOTAL_CASILLAS:
+	# 2. Si no es acumulable o no hay pilas, buscamos casilla libre (respetando las casillas extra de la mochila)
+	var capacidad_maxima_total = TOTAL_CASILLAS + casillas_extra
+	if inventario.size() < capacidad_maxima_total:
 		inventario.append({
 			"item": item,
 			"cantidad": cantidad_a_recoger

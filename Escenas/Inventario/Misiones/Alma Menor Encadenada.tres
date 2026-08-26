@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://db12b8nlrbp11"]
+
+[ext_resource type="Texture2D" uid="uid://jpae8r1gf3hw" path="res://Assets/misiones/Alma Menor Encadenada.jpg" id="1_cb38i"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_rhrrh"]
+
+[resource]
+script = ExtResource("1_rhrrh")
+nombre = "Alma Menor Encadenada"
+icono = ExtResource("1_cb38i")
+tipo = 6
+precio_compra = 35
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

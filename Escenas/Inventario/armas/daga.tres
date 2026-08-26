@@ -7,5 +7,8 @@
 script = ExtResource("2_j362v")
 nombre = "daga"
 icono = ExtResource("1_ioveq")
-bonus_fuerza_poder = 4
+precio_compra = 130
+precio_venta = 65
+bonus_fuerza_poder = 8
+bonus_agilidad_velocidad = 0.1
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

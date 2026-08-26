@@ -2,9 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bcbivqwvcp2bd" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Bow_Wooden.png" id="1_8oqi1"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_16kl8"]
+[ext_resource type="Resource" uid="uid://bgoxctij05o0x" path="res://Escenas/Inventario/armas/flecha_normal.tres" id="2_ta5n1"]
 
 [resource]
 script = ExtResource("2_16kl8")
 nombre = "arco"
 icono = ExtResource("1_8oqi1")
+precio_compra = 150
+precio_venta = 75
+bonus_fuerza_poder = 8
+bonus_agilidad_velocidad = 0.1
+requiere_item = ExtResource("2_ta5n1")
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

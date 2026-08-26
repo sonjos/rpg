@@ -13,7 +13,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[node name="CajaDialogoUI" type="CanvasLayer" unique_id=1103360831 groups=["HUD"]]
+[node name="CajaDialogoUI" type="CanvasLayer" unique_id=1482164206 groups=["HUD"]]
 layer = 10
 script = ExtResource("1_pemok")
 
@@ -29,10 +29,10 @@ grow_vertical = 0
 [node name="PanelFondo" type="Panel" parent="ContenedorDialogo" unique_id=917687139]
 custom_minimum_size = Vector2(800, 160)
 layout_mode = 0
-offset_left = 87.0
-offset_top = -182.0
-offset_right = 887.0
-offset_bottom = -22.0
+offset_left = 23.0
+offset_top = -186.0
+offset_right = 823.0
+offset_bottom = -26.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dklp6")
 
 [node name="MarginContainer" type="MarginContainer" parent="ContenedorDialogo/PanelFondo" unique_id=848912313]
@@ -62,3 +62,17 @@ theme_override_colors/default_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
 bbcode_enabled = true
 text = "assd"
 fit_content = true
+
+[node name="ContenedorBotones" type="GridContainer" parent="." unique_id=861372795]
+offset_left = 838.0
+offset_top = 389.0
+offset_right = 917.0
+offset_bottom = 455.0
+
+[node name="BtnAceptar" type="Button" parent="ContenedorBotones" unique_id=2136735340]
+layout_mode = 2
+text = "Aceptar"
+
+[node name="BtnRechazar" type="Button" parent="ContenedorBotones" unique_id=2089455049]
+layout_mode = 2
+text = "Rechazar"

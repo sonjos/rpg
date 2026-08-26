@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b0hofqa55bwuv"]
+
+[ext_resource type="Script" uid="uid://rogy7ps44nuh" path="res://Escenas/Interfaz/item_tienda_fila.gd" id="1_vasts"]
+
+[node name="ItemTiendaFila" type="HBoxContainer" unique_id=1361594934]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vasts")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1480778788]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=702013971]
+layout_mode = 2
+
+[node name="BtnComprar" type="Button" parent="." unique_id=1517153042]
+layout_mode = 2
+text = "Comprar"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dx5go6talfutf"]
+
+[ext_resource type="Texture2D" uid="uid://72if314yvmqy" path="res://Assets/misiones/Retazo del Eclipse.jpg" id="1_a6cd2"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_qsey5"]
+
+[resource]
+script = ExtResource("1_qsey5")
+nombre = "Retazo del Eclipse"
+icono = ExtResource("1_a6cd2")
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

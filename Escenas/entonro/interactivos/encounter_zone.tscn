@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2l2v7xja058k"]
 
 [ext_resource type="Script" uid="uid://wsk2qccof647" path="res://Escenas/entonro/interactivos/encounter_zone.gd" id="1_tjeoc"]
-[ext_resource type="PackedScene" uid="uid://daxnwkuvx2usq" path="res://peronajes/enemigos/enemigo.tscn" id="2_unfk7"]
+[ext_resource type="PackedScene" uid="uid://daxnwkuvx2usq" path="res://peronajes/enemigos/Bosque Susurrante/SolsasHBQ.tscn" id="2_unfk7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dklp6"]
 radius = 2.8949187

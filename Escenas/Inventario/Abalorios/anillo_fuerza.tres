@@ -9,4 +9,7 @@ nombre = "A.fuerza"
 icono = ExtResource("1_oog57")
 descripcion = "Aumenta la fuerza +2."
 tipo = 5
+precio_compra = 250
+precio_venta = 125
+bonus_fuerza_poder = 5
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

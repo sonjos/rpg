@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://44qklgl0rd81"]
+
+[ext_resource type="Texture2D" uid="uid://buncid7ult7x7" path="res://Assets/misiones/Fragmento de Estatuaria.jpg" id="1_tqntb"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_ucg7i"]
+
+[resource]
+script = ExtResource("1_ucg7i")
+nombre = "Fragmento de Estatuaria"
+icono = ExtResource("1_tqntb")
+precio_compra = 25
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

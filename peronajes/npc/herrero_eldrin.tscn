@@ -1,39 +1,27 @@
 [gd_scene format=3 uid="uid://dyu3romas1tk5"]
 
 [ext_resource type="Script" uid="uid://cb24bi036ly31" path="res://peronajes/npc/HerreroEldrin.gd" id="1_2bi2a"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_fodb4"]
+[ext_resource type="ArrayMesh" uid="uid://2sromn6dxm6f" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Warrior__ncl1_29_005.res" id="2_lsjpc"]
+[ext_resource type="Resource" uid="uid://dcvxuykorv7pt" path="res://Escenas/Inventario/armas/espada_normal.tres" id="2_ucd57"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0minr"]
 radius = 0.6328125
 height = 3.2561035
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_p8jiu"]
-
 [node name="HerreroEldrin" type="CharacterBody3D" unique_id=2004120757]
 collision_mask = 3
 script = ExtResource("1_2bi2a")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=174672550]
-mesh = SubResource("CapsuleMesh_fodb4")
+arma_inicial = ExtResource("2_ucd57")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=346143446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033988833, 1.3548934, 0)
 shape = SubResource("CapsuleShape3D_0minr")
 
-[node name="AreaInteraccion" type="Area3D" parent="." unique_id=2048090102]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaInteraccion" unique_id=664422221]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
-shape = SubResource("SphereShape3D_p8jiu")
-debug_color = Color(0.84705883, 0.37254903, 0.05490196, 0.9529412)
-
 [node name="CartelInteraccion" type="Label3D" parent="." unique_id=1299849815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.250649, 0)
 billboard = 1
 modulate = Color(0.078431375, 1, 0.06666667, 1)
 text = "Herrero Eldrin"
 
-[connection signal="body_entered" from="AreaInteraccion" to="." method="_on_area_interaccion_body_entered"]
-[connection signal="body_exited" from="AreaInteraccion" to="." method="_on_area_interaccion_body_exited"]
+[node name="WarriorNcl129005" type="MeshInstance3D" parent="." unique_id=854308092]
+mesh = ExtResource("2_lsjpc")

@@ -17,7 +17,7 @@ var paso_actual: PasoTutorial = PasoTutorial.INICIO
 @export var nombre_npc: String = "Anciano Mateo"
 @export var recompensa_exp: int = 150
 
-@onready var area_interaccion: Area3D = $AreaInteraccion
+
 @onready var cartel_interaccion: Label3D = $CartelInteraccion
 @onready var anim_player: AnimationPlayer = $Monk2/AnimationPlayer if has_node("Monk2/AnimationPlayer") else null
 
@@ -32,14 +32,6 @@ func _ready() -> void:
 		cartel_interaccion.text = "[Z] Hablar con Mateo"
 		cartel_interaccion.hide()
 
-	if area_interaccion:
-		area_interaccion.collision_layer = 0
-		area_interaccion.collision_mask = 2
-		
-		if not area_interaccion.body_entered.is_connected(_on_body_entered):
-			area_interaccion.body_entered.connect(_on_body_entered)
-		if not area_interaccion.body_exited.is_connected(_on_body_exited):
-			area_interaccion.body_exited.connect(_on_body_exited)
 
 	if anim_player:
 		if not anim_player.animation_finished.is_connected(_on_animation_finished):

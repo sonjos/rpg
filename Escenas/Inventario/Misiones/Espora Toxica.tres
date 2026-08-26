@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cnhmeuctto51e"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_t6wbw"]
+[ext_resource type="Texture2D" uid="uid://b1o1f7iqwic1p" path="res://Assets/misiones/Espora Toxica.jpg" id="1_xujug"]
+
+[resource]
+script = ExtResource("1_t6wbw")
+nombre = "Espora Toxica"
+icono = ExtResource("1_xujug")
+tipo = 6
+precio_compra = 10
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

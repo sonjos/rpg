@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b6ijllji32wrc"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_6vxcg"]
+[ext_resource type="Texture2D" uid="uid://6e44pnuudrse" path="res://Assets/misiones/Núcleo de Sombra Pura.jpg" id="1_sjfe1"]
+
+[resource]
+script = ExtResource("1_6vxcg")
+nombre = "Núcleo de Sombra Pura"
+icono = ExtResource("1_sjfe1")
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

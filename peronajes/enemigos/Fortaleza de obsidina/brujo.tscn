@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dfimbpnat1dul"]
+
+[ext_resource type="PackedScene" uid="uid://cllalnho3ydaw" path="res://Assets/Enemigos/glTF/Suit_Male.gltf" id="1_nsqkq"]
+[ext_resource type="PackedScene" uid="uid://btri38otx0th0" path="res://peronajes/enemigos/Enemigo_state_machine.tscn" id="2_f74tb"]
+[ext_resource type="Script" uid="uid://c8ogqx0vpb5hi" path="res://peronajes/enemigos/LootEntry.gd" id="3_2083g"]
+[ext_resource type="Resource" uid="uid://b6ijllji32wrc" path="res://Escenas/Inventario/Misiones/Núcleo de Sombra Pura.tres" id="4_l3ks0"]
+[ext_resource type="PackedScene" uid="uid://bl3s2seeha3rm" path="res://Assets/Enemigos/glTF/Wizard.gltf" id="5_3anug"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p8jiu"]
+radius = 0.64697266
+height = 3.6168213
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fodb4"]
+radius = 2.2995744
+
+[sub_resource type="Resource" id="Resource_r3c3r"]
+script = ExtResource("3_2083g")
+objeto = ExtResource("4_l3ks0")
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[node name="Brujo" type="CharacterBody3D" unique_id=571827207 groups=["enemigo"]]
+collision_layer = 64
+collision_mask = 3
+
+[node name="Suit_Male2" parent="." unique_id=2092814318 instance=ExtResource("1_nsqkq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=805332442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0834012, 1.7019708, 0.049945995)
+shape = SubResource("CapsuleShape3D_p8jiu")
+
+[node name="HitboxAtaque" type="Area3D" parent="." unique_id=176417384]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxAtaque" unique_id=1600428411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5537304, 1.3025801, -0.043743372)
+shape = SubResource("SphereShape3D_fodb4")
+debug_color = Color(0.92156863, 0.27450982, 0.16078432, 0.9411765)
+
+[node name="Enemigo_state_machine" parent="." unique_id=759901339 instance=ExtResource("2_f74tb")]
+
+[node name="Morir" parent="Enemigo_state_machine" index="3" unique_id=1279998895]
+experiencia_otorgada = 700
+monedas_otorgadas = 2500
+tabla_botin = Array[ExtResource("3_2083g")]([SubResource("Resource_r3c3r")])
+probabilidad_drop_general = 0.182
+
+[node name="Mele" parent="Enemigo_state_machine" index="4" unique_id=1903212392]
+fuerza_ataque = 75.0
+
+[node name="Vida" parent="Enemigo_state_machine" index="5" unique_id=1915132868]
+vida_maxima = 600.0
+
+[node name="Wizard" parent="." unique_id=1561335305 instance=ExtResource("5_3anug")]
+
+[editable path="Enemigo_state_machine"]

@@ -6,4 +6,8 @@
 [resource]
 script = ExtResource("1_sxuax")
 icono = ExtResource("1_c13rs")
+precio_compra = 25
+precio_venta = 12
+es_acumulable = true
+bonus_fuerza_poder = 5
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

@@ -8,4 +8,6 @@ script = ExtResource("1_vo1wh")
 nombre = "Hacha doble de hierro"
 icono = ExtResource("1_j7ygr")
 descripcion = "Se usa a 2 manos"
+precio_compra = 180
+precio_venta = 90
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

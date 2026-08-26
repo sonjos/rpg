@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://behsc343hq7on"]
+
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_e6iya"]
+[ext_resource type="Texture2D" uid="uid://cljdqu72cfo68" path="res://Assets/misiones/Pescado abisal.jpg" id="1_qyxxg"]
+
+[resource]
+script = ExtResource("1_e6iya")
+nombre = "Pescado Abisal"
+icono = ExtResource("1_qyxxg")
+precio_compra = 40
+es_acumulable = true
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

@@ -8,5 +8,7 @@ script = ExtResource("1_losov")
 nombre = "Collar_Saqueo"
 icono = ExtResource("1_yeeph")
 descripcion = "Aumenta el saqueo +2."
+precio_compra = 400
+precio_venta = 200
 bonus_saqueo = 0.2
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

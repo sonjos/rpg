@@ -7,4 +7,7 @@
 script = ExtResource("1_nfin5")
 nombre = "Martillo"
 icono = ExtResource("1_s2ekf")
+precio_compra = 280
+precio_venta = 140
+bonus_fuerza_poder = 20
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

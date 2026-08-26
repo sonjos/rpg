@@ -31,14 +31,18 @@ script = ExtResource("4_5fc7b")
 
 [node name="Morir" type="Node" parent="." unique_id=1279998895]
 script = ExtResource("5_s4em0")
+experiencia_otorgada = 25
+monedas_otorgadas = 150
 tabla_botin = Array[ExtResource("6_bvcwe")]([SubResource("Resource_xf2ke")])
 probabilidad_drop_general = 1.0
 
 [node name="Mele" type="Node" parent="." unique_id=1903212392]
 script = ExtResource("6_r2dmv")
+fuerza_ataque = 8.0
 attack_cooldown = 1.0
 
 [node name="Vida" type="Node" parent="." unique_id=1915132868]
 script = ExtResource("7_l5cuh")
+vida_maxima = 40.0
 
 [node name="RecibirGolpe" type="Node" parent="." unique_id=1223283424]

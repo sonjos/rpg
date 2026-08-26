@@ -36,30 +36,82 @@
 [ext_resource type="Resource" uid="uid://4makipk2samt" path="res://Escenas/Inventario/consumibles/pocion_saqueo_grande.tres" id="34_p3w73"]
 [ext_resource type="Resource" uid="uid://brx7nijoeyeur" path="res://Escenas/Inventario/consumibles/pocion_saqueo_pequeña.tres" id="35_rjb3w"]
 [ext_resource type="Resource" uid="uid://bsufb3mxlvief" path="res://Escenas/Inventario/consumibles/pocio_agilidad_grande.tres" id="36_cupcf"]
+[ext_resource type="Texture2D" uid="uid://bdj1waij5dcot" path="res://Assets/ui-pack-adventure/PNG/Default/button_grey_close.png" id="37_p3w73"]
+[ext_resource type="Texture2D" uid="uid://beq71omt5j2q8" path="res://Assets/ui-pack-adventure/PNG/Default/panel_border_grey.png" id="38_rjb3w"]
+[ext_resource type="Texture2D" uid="uid://cxuflckgx0j03" path="res://Assets/Botones/PNG/Double/Border/panel-border-017.png" id="39_cupcf"]
+[ext_resource type="Texture2D" uid="uid://dmdy8y6f3yh4j" path="res://Assets/ui-pack-adventure/PNG/Default/panel_border_grey_detail.png" id="39_rjb3w"]
+[ext_resource type="Texture2D" uid="uid://ca40b7b62ig3c" path="res://Assets/ui-pack-adventure/PNG/Default/scrollbar_future_transparent.png" id="40_cupcf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gww5c"]
-bg_color = Color(0.078431375, 0.078431375, 0.11764706, 0.8784314)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8509804, 0.654902, 0.21176471, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-corner_detail = 12
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjb3w"]
+bg_color = Color(0.09803922, 0.043137256, 0.30588236, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_b78of"]
 variation_embolden = 1.0
 spacing_space = 50
 baseline_offset = -0.075
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0fij"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cupcf"]
+load_path = "res://.godot/imported/banner_classic_curtain.png-2d197dd4f92688faf0c61a0d9867e9b7.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkgxn"]
+texture = SubResource("CompressedTexture2D_cupcf")
+expand_margin_left = 16.0
+expand_margin_top = 20.0
+expand_margin_right = 16.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnwbp"]
+texture = ExtResource("37_p3w73")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vsu0"]
+texture = ExtResource("38_rjb3w")
+expand_margin_left = 15.0
+expand_margin_right = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sb7kd"]
+texture = ExtResource("38_rjb3w")
+expand_margin_left = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c66i8"]
+texture = ExtResource("39_cupcf")
+expand_margin_left = 40.0
+expand_margin_top = 30.0
+expand_margin_right = 38.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hofet"]
+expand_margin_left = 40.0
+expand_margin_top = 30.0
+expand_margin_right = 38.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5kdf"]
+texture = ExtResource("40_cupcf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3w73"]
+texture = ExtResource("39_rjb3w")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjb3w"]
+texture = ExtResource("39_rjb3w")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cupcf"]
+texture = ExtResource("39_rjb3w")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dh332"]
+texture = ExtResource("39_rjb3w")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bpq54"]
+texture = ExtResource("39_rjb3w")
+expand_margin_left = 10.0
+expand_margin_right = 10.0
 
 [node name="TiendaUI" type="Control" unique_id=1233054682]
 process_priority = 50
@@ -79,17 +131,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gww5c")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjb3w")
 
 [node name="Label" type="Label" parent="Panel" unique_id=203887084]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -124.5
-offset_right = 124.5
-offset_bottom = 45.0
+offset_left = -272.00003
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 85.0
 grow_horizontal = 2
+scale = Vector2(1.0086769, 1)
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_colors/font_shadow_color = Color(17.694864, 0, 0, 0.9411765)
 theme_override_constants/shadow_offset_x = 5
@@ -97,6 +151,7 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = SubResource("FontVariation_b78of")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_mkgxn")
 text = "Tienda de Eldrin"
 
 [node name="BtnCerrar" type="Button" parent="Panel" unique_id=1507463821]
@@ -112,29 +167,30 @@ offset_right = 29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_u0fij")
-text = "Cerrar"
+theme_override_styles/normal = SubResource("StyleBoxTexture_lnwbp")
 
 [node name="LblComprar" type="Label" parent="Panel" unique_id=1270411591]
 layout_mode = 0
 offset_left = 169.0
-offset_top = 107.0
+offset_top = 75.0
 offset_right = 297.0
-offset_bottom = 149.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_colors/font_shadow_color = Color(17.694864, 0, 0, 0.9411765)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_1vsu0")
 text = "Comprar"
 
 [node name="LblVender" type="Label" parent="Panel" unique_id=1041304975]
 layout_mode = 0
-offset_left = 859.0
-offset_top = 93.0
-offset_right = 987.0
-offset_bottom = 135.0
+offset_left = 864.0
+offset_top = 72.0
+offset_right = 992.0
+offset_bottom = 114.0
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_colors/font_shadow_color = Color(17.694864, 0, 0, 0.9411765)
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_sb7kd")
 text = "Vender"
 
 [node name="PanelVender" type="Panel" parent="." unique_id=1821373985]
@@ -145,77 +201,100 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -488.0
-offset_top = 171.0
+offset_top = 160.0
 offset_right = -38.0
-offset_bottom = -27.0
+offset_bottom = -38.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c66i8")
 
 [node name="VBoxVender" type="VBoxContainer" parent="PanelVender" unique_id=932288442]
+custom_minimum_size = Vector2(350, 340)
 layout_mode = 0
-offset_left = 28.0
-offset_top = 24.0
-offset_right = 68.0
-offset_bottom = 64.0
+offset_left = 40.0
+offset_top = 56.0
+offset_right = 390.0
+offset_bottom = 396.0
 
 [node name="PanelComprar" type="Panel" parent="." unique_id=1935299657]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 40.999996
-offset_top = 170.99998
-offset_right = 491.0
-offset_bottom = -27.0
+offset_left = 40.0
+offset_top = 168.0
+offset_right = 440.0
+offset_bottom = -80.0
 grow_vertical = 2
+pivot_offset = Vector2(216, 216)
+theme_override_styles/panel = SubResource("StyleBoxTexture_hofet")
 
-[node name="VboxComprar" type="VBoxContainer" parent="PanelComprar" unique_id=788433188]
+[node name="TextureRect" type="TextureRect" parent="PanelComprar" unique_id=1608656209]
 layout_mode = 0
-offset_left = -3.9999962
-offset_top = -0.99998474
-offset_right = 36.000004
-offset_bottom = 39.000015
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 480.0
+offset_bottom = 480.0
+texture = ExtResource("39_cupcf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelComprar" unique_id=1815160253]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 414.0
+offset_bottom = 413.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_j5kdf")
+draw_focus_border = true
+
+[node name="VboxComprar" type="VBoxContainer" parent="PanelComprar/ScrollContainer" unique_id=788433188]
+custom_minimum_size = Vector2(390, 390)
+layout_mode = 2
 alignment = 2
-
-[node name="Armas" type="Button" parent="PanelComprar" unique_id=1912555307]
-layout_mode = 0
-offset_left = 491.0
-offset_top = 248.00002
-offset_right = 549.0
-offset_bottom = 279.0
-text = "Armas"
-
-[node name="Armaduras" type="Button" parent="PanelComprar" unique_id=141020737]
-layout_mode = 0
-offset_left = 459.0
-offset_top = 182.00002
-offset_right = 554.0
-offset_bottom = 213.00002
-text = "Armaduras"
-
-[node name="Consumibles" type="Button" parent="PanelComprar" unique_id=743144012]
-layout_mode = 0
-offset_left = 465.0
-offset_top = 121.000015
-offset_right = 542.0
-offset_bottom = 152.00002
-text = "Pociones
-"
 
 [node name="Ablorios" type="Button" parent="PanelComprar" unique_id=293980298]
 layout_mode = 0
-offset_left = 462.0
-offset_top = 72.000015
-offset_right = 543.0
-offset_bottom = 103.000015
+offset_left = 492.0
+offset_top = 104.0
+offset_right = 573.0
+offset_bottom = 135.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_p3w73")
 text = "Abalorios
 "
 
 [node name="Mochilas" type="Button" parent="PanelComprar" unique_id=1489912147]
 layout_mode = 0
-offset_left = 450.0
-offset_top = 19.000015
-offset_right = 527.0
-offset_bottom = 50.000015
+offset_left = 492.0
+offset_top = 165.0
+offset_right = 573.0
+offset_bottom = 196.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rjb3w")
 text = "Mochilas
 
 "
+
+[node name="Consumibles" type="Button" parent="PanelComprar" unique_id=743144012]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 232.0
+offset_right = 573.0
+offset_bottom = 263.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_cupcf")
+text = "Pociones
+"
+
+[node name="Armaduras" type="Button" parent="PanelComprar" unique_id=141020737]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 296.0
+offset_right = 587.0
+offset_bottom = 327.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_dh332")
+text = "Armaduras"
+
+[node name="Armas" type="Button" parent="PanelComprar" unique_id=1912555307]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 37.0
+offset_right = 580.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_bpq54")
+text = "Armas"

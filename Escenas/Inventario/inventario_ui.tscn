@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://cvqn4manowflt"]
 
 [ext_resource type="Script" uid="uid://cf3sr3aimvnu6" path="res://Escenas/Inventario/inventario_ui.gd" id="1_gcmwb"]
-[ext_resource type="Texture2D" uid="uid://1hjuxlygqnkn" path="res://Assets/ui-pack-adventure/PNG/Double/panel_brown_arrows_dark_detail.png" id="2_rpyp0"]
+[ext_resource type="Texture2D" uid="uid://cxuflckgx0j03" path="res://Assets/Botones/PNG/Double/Border/panel-border-017.png" id="2_sauhr"]
+[ext_resource type="Texture2D" uid="uid://bi1db8wrnjk86" path="res://Assets/Botones/PNG/Double/Border/panel-border-015.png" id="3_33bfh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fodb4"]
+bg_color = Color(0.09803922, 0.043137256, 0.30588236, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fodb4"]
+texture = ExtResource("3_33bfh")
 
 [node name="InventarioUI" type="Control" unique_id=468715284]
 layout_mode = 3
@@ -12,57 +19,88 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gcmwb")
 
-[node name="Fondo" type="TextureRect" parent="." unique_id=2124880822]
+[node name="Fondo" type="Panel" parent="." unique_id=1773944545]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.036
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -17.0
-offset_right = -0.4720459
-offset_bottom = 9.0
-texture = ExtResource("2_rpyp0")
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fodb4")
+
+[node name="TextureRect" type="TextureRect" parent="Fondo" unique_id=199845857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sauhr")
 
 [node name="AreaInventario" type="Control" parent="." unique_id=2096859912]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Equipado" type="Label" parent="AreaInventario" unique_id=802104960]
+[node name="ColumnaIzquierda" type="Panel" parent="AreaInventario" unique_id=1710705199]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 0
-offset_left = 548.00006
-offset_top = 115.0
-offset_right = 829.00006
-offset_bottom = 138.0
-scale = Vector2(0.68000126, 1)
-text = "Equipado"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColumnaIzquierda" type="VBoxContainer" parent="AreaInventario" unique_id=1735834290]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 0
-offset_left = 187.0
-offset_top = 248.0
-offset_right = 587.0
-offset_bottom = 625.50024
+offset_left = 141.0
+offset_top = 134.0
+offset_right = 515.0
+offset_bottom = 636.50024
 scale = Vector2(1, 0.79999954)
 
 [node name="GridMochila" type="GridContainer" parent="AreaInventario/ColumnaIzquierda" unique_id=376405652]
 custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
+layout_mode = 0
+offset_left = 27.0
+offset_right = 374.0
+offset_bottom = 498.75024
 columns = 3
 
-[node name="ColumnaDerecha" type="Control" parent="AreaInventario" unique_id=1028271843]
-anchors_preset = 0
-offset_left = 540.0
-offset_top = 85.0
-offset_right = 1002.0
-offset_bottom = 552.0
-
-[node name="PanelStatsUI" type="HBoxContainer" parent="AreaInventario/ColumnaDerecha" unique_id=942414214]
+[node name="TextureRect" type="TextureRect" parent="AreaInventario/ColumnaIzquierda" unique_id=1248347268]
 layout_mode = 0
-offset_right = 462.0
-offset_bottom = 23.0
+offset_left = 2.0
+offset_top = -63.750023
+offset_right = 393.0
+offset_bottom = 533.75037
+texture = ExtResource("3_33bfh")
+
+[node name="ColumnaDerecha" type="Panel" parent="AreaInventario" unique_id=2103087904]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 83.0
+offset_right = 1011.0
+offset_bottom = 564.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fodb4")
+
+[node name="Equipado" type="Label" parent="AreaInventario/ColumnaDerecha" unique_id=802104960]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 217.0
+offset_right = 253.0
+offset_bottom = 240.0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+text = "Equipado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelStatsUI" type="VBoxContainer" parent="AreaInventario/ColumnaDerecha" unique_id=1422495386]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 48.999992
+offset_right = 479.0
+offset_bottom = 180.0
+scale = Vector2(0.8471665, 1.0689749)
 
 [node name="LblVida" type="Label" parent="AreaInventario/ColumnaDerecha/PanelStatsUI" unique_id=159832137]
 custom_minimum_size = Vector2(100, 0)
@@ -89,11 +127,18 @@ layout_mode = 2
 text = "🥾"
 
 [node name="GridEquipo" type="GridContainer" parent="AreaInventario/ColumnaDerecha" unique_id=1196928361]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 0
-offset_left = 17.0
-offset_top = 56.0
-offset_right = 479.0
-offset_bottom = 256.0
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.5
+offset_top = -191.99997
+offset_right = 262.5
+offset_bottom = 8.0000305
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.8800006, 0.6799996)
 columns = 4

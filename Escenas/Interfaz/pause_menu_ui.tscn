@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b5os1edqc03pj"]
+
+[ext_resource type="Script" uid="uid://crsg72uj3w6ml" path="res://Escenas/Interfaz/pause_menu_ui.gd" id="1_qr5vh"]
+[ext_resource type="Texture2D" uid="uid://urt5hq64yi6y" path="res://Assets/ui-pack-adventure/PNG/Double/button_red.png" id="2_s3ac2"]
+[ext_resource type="Texture2D" uid="uid://ddslxuy3lm8vd" path="res://Assets/ui-pack-adventure/PNG/Double/button_grey.png" id="3_la3d5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dklp6"]
+texture = ExtResource("2_s3ac2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fodb4"]
+texture = ExtResource("3_la3d5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0minr"]
+texture = ExtResource("2_s3ac2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8jiu"]
+texture = ExtResource("3_la3d5")
+
+[node name="PauseMenuUI" type="Control" unique_id=707741525]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qr5vh")
+
+[node name="Panel" type="Panel" parent="." unique_id=1185720459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=30791328]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnReanudar" type="Button" parent="Panel/VBoxContainer" unique_id=401357951]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_dklp6")
+text = "Reanudar"
+
+[node name="BtnAjustes" type="Button" parent="Panel/VBoxContainer" unique_id=1360982643]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fodb4")
+text = "Ajustes"
+
+[node name="BtnGuardarPartida" type="Button" parent="Panel/VBoxContainer" unique_id=1705923120]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_0minr")
+text = "Guardar Partida"
+
+[node name="BtnMenuPrincipal" type="Button" parent="Panel/VBoxContainer" unique_id=1521276109]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_p8jiu")
+text = "Menu Principal"

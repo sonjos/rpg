@@ -14,6 +14,9 @@ func enter() -> void:
 	character.velocity.x = 0.0
 	character.velocity.z = 0.0
 	
+	# Capturamos el cursor del ratón al empezar a atacar
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	# 1. Aceleración de ataque según la estadística de Agilidad
 	var anim_player = character.animation_player
 	if anim_player:

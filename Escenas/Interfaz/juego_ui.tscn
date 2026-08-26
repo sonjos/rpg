@@ -7,7 +7,25 @@
 [ext_resource type="Texture2D" uid="uid://21ps2l24274s" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Coin_Skull.png" id="6_662f1"]
 [ext_resource type="PackedScene" uid="uid://bl6ii0p555uyu" path="res://Escenas/Interfaz/caja_dialogo_ui.tscn" id="7_ltstt"]
 [ext_resource type="Texture2D" uid="uid://uddtu48q5j4e" path="res://Assets/Botones/PNG/Double/Divider/divider-000.png" id="7_yit54"]
+[ext_resource type="Texture2D" uid="uid://si08eg37qve" path="res://Assets/ui-pack-adventure/Vector/button_grey.svg" id="8_3igg6"]
 [ext_resource type="PackedScene" uid="uid://bwlmxwxdonhay" path="res://Escenas/Interfaz/tienda_ui.tscn" id="8_662f1"]
+[ext_resource type="Texture2D" uid="uid://dh6cosqiygwrm" path="res://Assets/Botones/PNG/Default/Border/panel-border-017.png" id="8_yvpbt"]
+[ext_resource type="Texture2D" uid="uid://3day5kqa30yn" path="res://Assets/ui-pack-adventure/Vector/button_red.svg" id="9_cqhpg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fodb4"]
+bg_color = Color(0.09803922, 0.043137256, 0.14901961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yvpbt"]
+texture = ExtResource("8_3igg6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epv56"]
+texture = ExtResource("9_cqhpg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dklp6"]
+bg_color = Color(0.09803922, 0.043137256, 0.14901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0minr"]
+bg_color = Color(0.09803922, 0.043137256, 0.14901961, 1)
 
 [node name="JuegoUI" type="CanvasLayer" unique_id=302991265]
 script = ExtResource("1_jh6d4")
@@ -38,8 +56,8 @@ value = 100.0
 fill_mode = 5
 texture_under = ExtResource("3_rgmxi")
 texture_progress = ExtResource("4_yav5u")
-tint_under = Color(0.047058824, 0.039215688, 1, 1)
-tint_progress = Color(0.06593363, 0, 0.9840922, 1)
+tint_under = Color(1, 0.84313726, 0, 1)
+tint_progress = Color(0.09803922, 0.043137256, 0.30588236, 1)
 
 [node name="BarraExperiencia" type="TextureProgressBar" parent="." unique_id=1303615088]
 offset_left = 964.0
@@ -87,25 +105,51 @@ text = "☠️ Revivir"
 
 [node name="CajaDialogoUI" parent="." unique_id=1103360831 instance=ExtResource("7_ltstt")]
 
+[node name="PanelFondo" parent="CajaDialogoUI/ContenedorDialogo" parent_id_path=PackedInt32Array(1103360831, 1277099080) index="0" unique_id=917687139]
+theme_override_styles/panel = SubResource("StyleBoxFlat_fodb4")
+
+[node name="MarginContainer" parent="CajaDialogoUI/ContenedorDialogo/PanelFondo" index="0" unique_id=848912313]
+offset_right = 499.82208
+offset_bottom = 113.607025
+
+[node name="BtnAceptar" parent="CajaDialogoUI/ContenedorBotones" parent_id_path=PackedInt32Array(1103360831, 861372795) index="0" unique_id=2136735340]
+theme_override_styles/normal = SubResource("StyleBoxTexture_yvpbt")
+
+[node name="BtnRechazar" parent="CajaDialogoUI/ContenedorBotones" parent_id_path=PackedInt32Array(1103360831, 861372795) index="1" unique_id=2089455049]
+theme_override_styles/normal = SubResource("StyleBoxTexture_epv56")
+
 [node name="PanelMisiones" type="Panel" parent="." unique_id=114199210]
-visible = false
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -291.0
-offset_top = 81.0
+offset_left = -296.0
+offset_top = 80.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dklp6")
+
+[node name="TextureRect" type="TextureRect" parent="PanelMisiones" unique_id=1677626499]
+layout_mode = 0
+offset_right = 291.0
+offset_bottom = 567.0
+texture = ExtResource("8_yvpbt")
 
 [node name="TextoMision" type="RichTextLabel" parent="PanelMisiones" unique_id=1668405986]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 25.0
-offset_right = 279.0
-offset_bottom = 540.0
+offset_left = 43.0
+offset_top = 80.0
+offset_right = 251.0
+offset_bottom = 496.0
+theme_override_colors/default_color = Color(1, 0.84313726, 0, 1)
 
 [node name="TiendaUI" parent="." unique_id=1233054682 instance=ExtResource("8_662f1")]
 visible = false
 
+[node name="Panel" parent="TiendaUI" index="0" unique_id=2072742137]
+theme_override_styles/panel = SubResource("StyleBoxFlat_0minr")
+
 [connection signal="pressed" from="BtnRevivir" to="." method="_on_btn_revivir_pressed"]
+
+[editable path="CajaDialogoUI"]
+[editable path="TiendaUI"]

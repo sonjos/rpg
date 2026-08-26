@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://6c00p4o0glck" path="res://Escenas/entonro/interactivos/zone_trigger.tscn" id="13_m0sv4"]
 [ext_resource type="PackedScene" uid="uid://dyu3romas1tk5" path="res://peronajes/npc/herrero_eldrin.tscn" id="16_go44g"]
 [ext_resource type="PackedScene" uid="uid://c60j2jtwmph6t" path="res://peronajes/npc/capitan_jorah.tscn" id="17_vc82t"]
-[ext_resource type="PackedScene" uid="uid://b5os1edqc03pj" path="res://Escenas/Interfaz/pause_menu_ui.tscn" id="21_n6eq2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
 size = Vector3(100, 1, 100)
@@ -109,5 +108,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.685897, 2.016244, 0)
 
 [node name="CapitanJorah" parent="." unique_id=602743472 instance=ExtResource("17_vc82t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0430346, 1.1424005, 0)
-
-[node name="PauseMenuUI" parent="." unique_id=707741525 instance=ExtResource("21_n6eq2")]

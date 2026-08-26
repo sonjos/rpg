@@ -6,7 +6,7 @@ signal experiencia_cambiada(nueva_exp: int)
 @onready var animation_player : AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var state_machine = $State_Machine
 @onready var raycast: RayCast3D = $SpringArm3D/Camera3D/DetectorInteraccion3D
-
+@onready var pause_menu: Control
 # Variable para saber si el jugador está congelado (por ejemplo, en un diálogo)
 var esta_congelado: bool = false
 
@@ -63,7 +63,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Si está congelado en un diálogo, ignoramos los movimientos de cámara e interacciones
 	if esta_congelado:
 		return
-
+	
 	# Rotación horizontal con el ratón
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -75,6 +75,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			# Limitamos la rotación para que no dé la vuelta completa[cite: 7]
 			spring_arm.rotation.x = clamp(spring_arm.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	
+	if event.is_action_pressed("Pause"):
+		if pause_menu:
+			if pause_menu.visible:
+				pause_menu.cerrar_pausa()
+			else:
+				pause_menu.abrir_pausa()
+				
 	# Interacción mediante RayCast[cite: 7]
 	if event.is_action_pressed("Interactuar"):
 		if raycast and raycast.is_colliding():

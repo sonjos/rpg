@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxblk01hslaty"]
+
+[ext_resource type="PackedScene" uid="uid://cgq61v3r4hlle" path="res://Escenas/entonro/valle_de_aethelgard.res" id="1_e2108"]
+
+[node name="Mundo" type="Node3D" unique_id=2068105686]
+
+[node name="Valle de Aethelgard" parent="." unique_id=1823752372 instance=ExtResource("1_e2108")]

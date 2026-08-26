@@ -1,42 +1,12 @@
 [gd_scene format=3 uid="uid://4r7fxva2mhk1"]
 
-[ext_resource type="Texture2D" uid="uid://dkjh2qf0775qq" path="res://Assets/terreno/Previews/chest.png" id="2_qncgo"]
-[ext_resource type="Texture2D" uid="uid://vdc3tx3g1nog" path="res://Assets/terreno/Previews/door-open.png" id="3_bmgc8"]
-
-[sub_resource type="GDScript" id="GDScript_ft1ng"]
-script/source = "extends Control
-
-@export_file(\"*.tscn\") var escena_juego: String = \"res://Escenas/escenarios/mundo.tscn\"
-
-@onready var boton_jugar: Button = $VBoxContainer/Jugar
-@onready var boton_salir: Button = $VBoxContainer/Salir
-@onready var caja_lore: PanelContainer = $Lore/CajaLore
-
-func _ready() -> void:
-	boton_jugar.pressed.connect(_on_jugar_pressed)
-	boton_salir.pressed.connect(_on_salir_pressed)
-	# Opcional: si tienes un botón dentro del lore para continuar
-	# $CajaLore/BotonContinuar.pressed.connect(_iniciar_juego)
-
-func _on_salir_pressed() -> void:
-	get_tree().quit()
-	
-func _on_jugar_pressed() -> void:
-	# Ocultamos el menú inicial y mostramos el Lore
-	boton_jugar.hide()
-	boton_salir.hide()
-	caja_lore.show()
-
-# Esta función se llamaría al pulsar un botón o tecla dentro del Lore
-func _iniciar_juego() -> void:
-	# Esto carga tu escena de juego (ajusta la ruta si es necesario)
-	get_tree().change_scene_to_file(\"res://Escenas/escenarios/mundo.tscn\")
-
-func _input(event: InputEvent) -> void:
-	# Solo salta al juego si el lore está visible y se presiona una tecla
-	if caja_lore.visible and event is InputEventKey and event.pressed:
-		_iniciar_juego()
-"
+[ext_resource type="Script" uid="uid://bbug3tffmalwt" path="res://Escenas/Interfaz/menu_principal.gd" id="1_diof2"]
+[ext_resource type="Texture2D" uid="uid://cxuflckgx0j03" path="res://Assets/Botones/PNG/Double/Border/panel-border-017.png" id="2_as6mv"]
+[ext_resource type="Texture2D" uid="uid://t4roedjmx8xv" path="res://Assets/ui-pack-adventure/PNG/Double/banner_modern.png" id="3_orwus"]
+[ext_resource type="Texture2D" uid="uid://ddslxuy3lm8vd" path="res://Assets/ui-pack-adventure/PNG/Double/button_grey.png" id="4_8u7cf"]
+[ext_resource type="Texture2D" uid="uid://dkchn5c2pnaac" path="res://Assets/ui-pack-adventure/PNG/Double/button_brown_close.png" id="5_uq6q7"]
+[ext_resource type="Texture2D" uid="uid://urt5hq64yi6y" path="res://Assets/ui-pack-adventure/PNG/Double/button_red.png" id="6_cy3ht"]
+[ext_resource type="Script" uid="uid://hmt5dk8t3k2m" path="res://Escenas/Interfaz/lore.gd" id="7_orwus"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dklp6"]
 font_size = 80
@@ -48,6 +18,15 @@ shadow_color = Color(0.17848684, 0.010483798, 0.047553875, 0.8862745)
 stacked_outline_count = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qncgo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sbvpr"]
+texture = ExtResource("4_8u7cf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ln1d1"]
+texture = ExtResource("5_uq6q7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3p61"]
+texture = ExtResource("6_cy3ht")
 
 [sub_resource type="FontFile" id="FontFile_yo4kt"]
 cache/0/variation_coordinates = {}
@@ -111,25 +90,51 @@ font_size = 24
 font_color = Color(1.8801074e-08, 0.03402083, 0.03525108, 1)
 outline_size = 50
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fodb4"]
+texture = ExtResource("4_8u7cf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0minr"]
+texture = ExtResource("6_cy3ht")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uek14"]
+texture = ExtResource("4_8u7cf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8jiu"]
+texture = ExtResource("6_cy3ht")
+
 [node name="MenuPrincipal" type="Control" unique_id=1503757354]
 layout_mode = 3
 anchors_preset = 0
-offset_bottom = 19.0
-size_flags_vertical = 4
-script = SubResource("GDScript_ft1ng")
+offset_right = 1158.0
+offset_bottom = 651.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_diof2")
+escena_juego = "uid://bxhqnwghv3uwp"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1580753197]
 layout_mode = 0
 offset_right = 1156.0
 offset_bottom = 651.0
-color = Color(0.078431375, 1, 1, 1)
+color = Color(0.09803922, 0.043137256, 0.30588236, 1)
+
+[node name="PanelBorder017" type="Sprite2D" parent="." unique_id=579319052]
+position = Vector2(578.99994, 332)
+scale = Vector2(12, 7)
+texture = ExtResource("2_as6mv")
+
+[node name="BannerModern" type="Sprite2D" parent="." unique_id=948066423]
+position = Vector2(590.00006, 159)
+scale = Vector2(1.7, 1.313)
+texture = ExtResource("3_orwus")
 
 [node name="Label" type="Label" parent="." unique_id=1345842498]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 17.0
-offset_right = 1082.0
-offset_bottom = 127.0
+offset_left = 214.0
+offset_top = 109.0
+offset_right = 1200.0
+offset_bottom = 219.0
+scale = Vector2(0.7733346, 0.7520575)
 text = "Aventura en la mazmorra"
 label_settings = SubResource("LabelSettings_dklp6")
 horizontal_alignment = 1
@@ -138,42 +143,111 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=253729628]
 layout_mode = 0
 offset_left = 410.0
-offset_top = 347.0
+offset_top = 348.0
 offset_right = 783.0
 offset_bottom = 517.0
 alignment = 1
 
 [node name="Jugar" type="Button" parent="VBoxContainer" unique_id=1949615879]
 material = SubResource("CanvasItemMaterial_qncgo")
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_sbvpr")
 text = "Jugar"
-icon = ExtResource("2_qncgo")
 
 [node name="Salir" type="Button" parent="VBoxContainer" unique_id=1779416015]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-text = "Salir"
-icon = ExtResource("3_bmgc8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ln1d1")
+text = "v"
 
-[node name="Lore" type="Control" parent="." unique_id=829762991]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CargarPartida" type="Button" parent="VBoxContainer" unique_id=818590467]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_o3p61")
+text = "CargarPartida"
 
-[node name="CajaLore" type="PanelContainer" parent="Lore" unique_id=125428731]
-visible = false
-modulate = Color(0.93333334, 1, 1, 0.9411765)
-layout_mode = 0
-offset_left = 351.0
-offset_top = 100.0
-offset_right = 851.0
-offset_bottom = 600.0
+[node name="Lore" type="ScrollContainer" parent="." unique_id=1010501145]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.04)
+mouse_filter = 2
+follow_focus = true
+script = ExtResource("7_orwus")
+
+[node name="CajaLore" type="VBoxContainer" parent="Lore" unique_id=1322980117]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Lore/CajaLore" unique_id=1399830381]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 offset_transform_enabled = true
-text = "\"En los días en que el cielo aún brillaba sobre Cairn, el mundo no era más que un reflejo de la ambición humana. Pero los reyes buscaron el poder eterno en las profundidades de la tierra, profanando el santuario del Primer Fuego. Lo que despertó en la oscuridad no concedió la inmortalidad, sino la ceniza. Ahora, los reinos yacen sepultados bajo el peso del olvido, y solo los valientes —o los condenados— se atreven a descender para avivar la llama o sucumbir ante la sombra del Señor de las Cenizas...\""
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+text = "Prólogo: El Despertar en la Ceniza
+El mundo que pises al cruzar el umbral ya no pertenece a los vivos; es un testimonio silencioso de la soberbia.
+
+Hace eones, bajo el esplendor de los cielos de Cairn, los antiguos reyes buscaron desafiar los límites de la mortalidad. En su ansia por alcanzar el poder eterno, descendieron a las entrañas del mundo y profanaron el Primer Fuego, la chispa primordial de la creación. Pero el fuego sagrado no se dejó dominar: aquello que despertó en las profundidades no otorgó la vida eterna, sino la ruina. Una plaga de ceniza y sombras consumió los reinos, convirtiendo torres otrora gloriosas en mausoleos y a sus habitantes en cascarones huecos al servicio del Señor de las Cenizas.
+
+Tú no despiertas aquí por casualidad. Eres uno de los pocos condenados —o quizás el último de los valientes— que carga con un propósito olvidado en la superficie. Al abrir los ojos en este páramo desolado, con apenas el eco del viento y el peso de tu acero, sabes que no hay vuelta atrás.
+
+Cada rincón de estas ruinas esconde los estragos de aquella ambición: mazmorras laberínticas, bestias corrompidas por la bruma y secretos que aguardan ser descubiertos. Debes avanzar, descender hasta el corazón de la oscuridad, y decidir si tu destino es avivar una última vez la llama agonizante de este mundo o dejar que caiga definitivamente bajo la sombra eterna."
 label_settings = SubResource("LabelSettings_ft1ng")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="BtnSkip" type="Button" parent="Lore/CajaLore" unique_id=1363400152]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Continuar"
+
+[node name="PanelSlots" type="PanelContainer" parent="." unique_id=1616045887]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -102.5
+offset_right = 218.25
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.1736618)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelSlots" unique_id=1808262212]
+layout_mode = 2
+
+[node name="Slot1" type="Button" parent="PanelSlots/VBoxContainer" unique_id=1766943932]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fodb4")
+text = "Slot1"
+
+[node name="Slot2" type="Button" parent="PanelSlots/VBoxContainer" unique_id=1145780855]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_0minr")
+text = "Slot2"
+
+[node name="Slot3" type="Button" parent="PanelSlots/VBoxContainer" unique_id=1502982619]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_uek14")
+text = "Slot3
+"
+
+[node name="Slot4" type="Button" parent="PanelSlots/VBoxContainer" unique_id=1088428685]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_p8jiu")
+text = "Slot4"

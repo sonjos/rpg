@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cdggtxfnvv7nl"]
+
+[ext_resource type="Script" uid="uid://bjsv2jmft6sn6" path="res://Escenas/entonro/interactivos/ObjetoInteractivoUnificado.gd" id="1_4rkpk"]
+[ext_resource type="Resource" uid="uid://dcvxuykorv7pt" path="res://Escenas/Inventario/armas/espada_normal.tres" id="2_itr0q"]
+[ext_resource type="PackedScene" uid="uid://dkhggmpnra1a" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/glTF/Chest_Wood.gltf" id="3_qxqq3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dklp6"]
+size = Vector3(1.0957031, 0.7287903, 0.7850952)
+
+[node name="Cofre" type="StaticBody3D" unique_id=557098826]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_4rkpk")
+tipo_objeto = 1
+esta_bloqueada = true
+item_recompensa = ExtResource("2_itr0q")
+
+[node name="Chest_Wood" parent="." unique_id=1553073781 instance=ExtResource("3_qxqq3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1840869839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047851563, 0.3463781, 0.010650635)
+shape = SubResource("BoxShape3D_dklp6")

@@ -6,17 +6,20 @@ extends Resource
 @export var icono: Texture2D
 @export_multiline var descripcion: String = "Descripción del objeto."
 @export_enum("Arma", "Armadura", "Consumible", "Clave", "Mochila", "Abalorio", "Misiones") var tipo: int
-@export_group ("Comercio")
+
+@export_group("Comercio")
 @export var precio_compra: int = 50
 @export var precio_venta: int = 25
+
 # --- VISUAL EN EL MUNDO ---
 @export_group("Mundo y Apariencia")
-@export var modelo_3d: PackedScene           # El modelo 3D que aparececrá tirado en el suelo o cofre
+@export var modelo_3d: PackedScene           # El modelo 3D que aparecerá tirado en el suelo o cofre
 
 # --- PROPIEDADES DE INVENTARIO ---
 @export_group("Inventario")
 @export var es_acumulable: bool = false       # Si se pueden apilar varios en el mismo hueco
 @export var cantidad_maxima: int = 99         # Máximo de unidades por casilla
+@export var nivel_acceso: int = 1             # Nivel de la llave (1: Común, 2: Hierro, 3: Maestra/Oro)
 
 # --- MODIFICADORES DE ESTADÍSTICAS ---
 @export_group("Modificadores de Estadísticas")

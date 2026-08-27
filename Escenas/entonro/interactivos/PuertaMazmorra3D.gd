@@ -1,17 +1,16 @@
-# res://scripts/entorno/PuertaMazmorra3D.gd
 extends StaticBody3D
 
 @export var esta_bloqueada: bool = false
 var esta_abierta: bool = false
 
 func _ready() -> void:
-	# Conectamos automáticamente el AreaInteraccion si existe en la puerta
 	if has_node("AreaInteraccion"):
 		var area = $AreaInteraccion
 		if not area.body_exited.is_connected(_on_body_exited):
 			area.body_exited.connect(_on_body_exited)
 
-func interactuar() -> void:
+# Añadido el parámetro (player) para evitar errores de argumentos con el RayCast
+func interactuar(_player) -> void:
 	if esta_bloqueada:
 		_mostrar_mensaje("Puerta", "La puerta está sellada. Necesitas activar el mecanismo.")
 		return
@@ -32,7 +31,6 @@ func _mostrar_mensaje(remitente: String, texto: String) -> void:
 	else:
 		get_tree().call_group("HUD", "mostrar_dialogo", remitente, texto)
 
-# Ocultar el diálogo automáticamente al alejarte de la puerta
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player") or body.name == "Player":
 		var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogo")

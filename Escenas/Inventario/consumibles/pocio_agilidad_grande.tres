@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_vjrk6")
-nombre = "PocionAgilidad_Grande"
+nombre = "Pocion Agilidad Grande"
 icono = ExtResource("1_qx7fb")
-descripcion = "aumenta la velocidad +10."
+descripcion = "Aumenta la velocidad considerablemente durante un tiempo."
 tipo = 2
 precio_compra = 90
 precio_venta = 45

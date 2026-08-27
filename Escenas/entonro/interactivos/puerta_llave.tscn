@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://csajmne1pnafg"]
 
-[ext_resource type="Resource" uid="uid://bosagvh0ncteq" path="res://Escenas/Inventario/clave/llave_oro.tres" id="2_kdae4"]
-[ext_resource type="Script" uid="uid://bjsv2jmft6sn6" path="res://Escenas/entonro/interactivos/PuertaConLlave.gd" id="3_4ci5m"]
+[ext_resource type="Script" uid="uid://bjsv2jmft6sn6" path="res://Escenas/entonro/interactivos/ObjetoInteractivoUnificado.gd" id="3_4ci5m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0minr"]
 albedo_color = Color(1, 1, 0.011764706, 1)
@@ -11,19 +10,16 @@ albedo_color = Color(1, 1, 0.011764706, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_p8jiu"]
 size = Vector3(1, 2.8257446, 1)
 
-[node name="PuertaLlave" type="Node3D" unique_id=1273208787]
-
-[node name="PuertaConLlave" type="StaticBody3D" parent="." unique_id=1340878138]
+[node name="PuertaConLlave" type="StaticBody3D" unique_id=1340878138]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("3_4ci5m")
-llave_requerida = ExtResource("2_kdae4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PuertaConLlave" unique_id=1956685731]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1956685731]
 transform = Transform3D(1, 0, 0, 0, 2.7706966, 0, 0, 0, 1, 0, 0, 0)
 layers = 5
 material_override = SubResource("StandardMaterial3D_0minr")
 mesh = SubResource("BoxMesh_fodb4")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PuertaConLlave" unique_id=1286550665]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1286550665]
 shape = SubResource("BoxShape3D_p8jiu")

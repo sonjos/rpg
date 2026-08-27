@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_n38qw")
-nombre = "Mandoble_oro"
+nombre = "Mandoble Oro"
 icono = ExtResource("1_e5nc8")
-descripcion = "reluce mas que el sol"
+descripcion = "Espadón legendario que reluce más que el sol y desgarra armaduras."
 precio_compra = 600
 precio_venta = 300
 bonus_fuerza_poder = 30

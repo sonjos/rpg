@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_bb7wh")
-nombre = "Armadura_nega"
+nombre = "Armadura Nega"
 icono = ExtResource("1_at03m")
+descripcion = "Misteriosa armadura oscura imbuida en sombras que absorbe los impactos."
 tipo = 1
 precio_compra = 750
 precio_venta = 375

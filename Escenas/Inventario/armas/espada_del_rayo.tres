@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dfmw2mh0j27n7"]
+
+[ext_resource type="Texture2D" uid="uid://3ox0vnjr6bmd" path="res://Assets/misiones/Espada del rayo.png" id="1_hjsw4"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_51i31"]
+
+[resource]
+script = ExtResource("2_51i31")
+nombre = "Espada Del Rayo"
+icono = ExtResource("1_hjsw4")
+descripcion = "\"La espada legendaria que canaliza la luz del Cristal del Alba. Su sola presencia debilita las defensas oscuras de Malakor.\""
+bonus_fuerza_poder = 40
+bonus_agilidad_velocidad = 0.1
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

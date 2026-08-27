@@ -7,6 +7,7 @@
 script = ExtResource("1_t6wbw")
 nombre = "Espora Toxica"
 icono = ExtResource("1_xujug")
+descripcion = "Cápsula de esporas venenosas de la jungla. Debe manipularse con sumo cuidado."
 tipo = 6
 precio_compra = 10
 es_acumulable = true

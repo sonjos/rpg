@@ -7,6 +7,7 @@
 script = ExtResource("1_umvqc")
 nombre = "Cristal Térmico"
 icono = ExtResource("1_136ka")
+descripcion = "Gema que emana un calor intenso de manera constante. Útil para templar metales."
 tipo = 6
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

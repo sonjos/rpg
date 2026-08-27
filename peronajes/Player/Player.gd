@@ -5,7 +5,7 @@ signal experiencia_cambiada(nueva_exp: int)
 @export var mouse_sensitivity : float = 0.003
 @onready var animation_player : AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var state_machine = $State_Machine
-@onready var raycast: RayCast3D = $SpringArm3D/Camera3D/DetectorInteraccion3D
+@onready var raycast: RayCast3D = $DetectorInteraccion3D
 @onready var pause_menu: Control
 # Variable para saber si el jugador está congelado (por ejemplo, en un diálogo)
 var esta_congelado: bool = false
@@ -59,6 +59,8 @@ func play_anim(anim_key: String, custom_blend: float = -1.0) -> void:
 		else:
 			print("Aviso: La animación '" + anim_name + "' no existe en el AnimationPlayer.")
 		
+# En tu script Player.gd
+
 func _unhandled_input(event: InputEvent) -> void:
 	# Si está congelado en un diálogo, ignoramos los movimientos de cámara e interacciones
 	if esta_congelado:
@@ -68,11 +70,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		
-		# Opcional: Rotación vertical de la cámara (SpringArm)[cite: 7]
 		var spring_arm = $SpringArm3D
 		if spring_arm:
 			spring_arm.rotate_x(-event.relative.y * mouse_sensitivity)
-			# Limitamos la rotación para que no dé la vuelta completa[cite: 7]
 			spring_arm.rotation.x = clamp(spring_arm.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	
 	if event.is_action_pressed("Pause"):
@@ -82,16 +82,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				pause_menu.abrir_pausa()
 				
-	# Interacción mediante RayCast[cite: 7]
+	# Interacción mediante RayCast usando "Interactuar" con I mayúscula
 	if event.is_action_pressed("Interactuar"):
 		if raycast and raycast.is_colliding():
 			var colisionador = raycast.get_collider()
 		
-			# Sube por la jerarquía (Hijo -> Padre -> Raíz) hasta encontrar el script[cite: 7]
+			# Sube por la jerarquía hasta encontrar la raíz o nodo con script de interacción
 			var objetivo = colisionador
 			while objetivo != null:
 				if objetivo.has_method("interactuar"):
-					objetivo.interactuar()
+					objetivo.interactuar(self) # Le enviamos la referencia del player a la puerta
+					break
+				elif objetivo.has_method("Interactuar"):
+					objetivo.Interactuar()
 					break
 				objetivo = objetivo.get_parent()
 
@@ -116,3 +119,21 @@ func ganar_experiencia(cantidad: int) -> void:
 	experiencia_actual += cantidad
 	print("Experiencia total: ", experiencia_actual)
 	emit_signal("experiencia_cambiada", experiencia_actual) # Avisamos a quien esté escuchando[cite: 7]
+
+# Función puente para que la puerta o cofres comprueben si tienes una llave válida
+func obtener_llave_en_inventario(nivel_requerido: int) -> ItemData:
+	# Recorremos la sección de objetos clave
+	for slot in InventarioManager.objetos_clave:
+		var item = slot["item"] as ItemData
+		if item and item.tipo == 3: # Tipo Clave
+			if "nivel_acceso" in item and item.nivel_acceso >= nivel_requerido:
+				return item
+				
+	# Por compatibilidad, revisamos también la mochila general si hiciera falta
+	for slot in InventarioManager.inventario:
+		var item = slot["item"] as ItemData
+		if item and item.tipo == 3:
+			if "nivel_acceso" in item and item.nivel_acceso >= nivel_requerido:
+				return item
+
+	return null

@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_yfk1g")
-nombre = "Armadura_hierro"
+nombre = "Armadura Hierro"
 icono = ExtResource("1_s4kiq")
+descripcion = "Ligera y flexible, ofrece una protección básica ideal para principiantes."
 tipo = 1
 precio_compra = 200
 precio_venta = 100

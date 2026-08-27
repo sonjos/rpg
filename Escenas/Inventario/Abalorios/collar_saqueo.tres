@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_losov")
-nombre = "Collar_Saqueo"
+nombre = "Collar Saqueo"
 icono = ExtResource("1_yeeph")
-descripcion = "Aumenta el saqueo +2."
+descripcion = "Collar adornado con monedas doradas que atrae la buena fortuna."
+tipo = 5
 precio_compra = 400
 precio_venta = 200
 bonus_saqueo = 0.2

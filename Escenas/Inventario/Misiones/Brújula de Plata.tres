@@ -7,6 +7,7 @@
 script = ExtResource("1_n6jys")
 nombre = "Brújula de Plata"
 icono = ExtResource("1_t3bhb")
+descripcion = "Antiguo instrumento de navegación cuyas agujas apuntan hacia fuentes de energía arcana."
 tipo = 6
 precio_compra = 45
 es_acumulable = true

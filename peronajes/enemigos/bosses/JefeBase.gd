@@ -215,6 +215,32 @@ func _procesar_muerte() -> void:
 	PlayerStats.ganar_experiencia(xp_reward)
 	PlayerStats.ganar_monedas(gold_reward)
 	
+	# Si este jefe en concreto es Malakor (el jefe final)
+	if es_malakor:
+		# 1. Cargamos el recurso del Cristal del Alba
+		var cristal_alba = load("res://Escenas/Inventario/clave/cristal_del_alba.tres")
+		
+		if cristal_alba:
+			# Opción A: Guardarlo directamente en la ranura de clave que tienes en PlayerStats
+			if "clave" in PlayerStats.equipo:
+				PlayerStats.equipo["clave"] = cristal_alba
+				PlayerStats.emit_signal("stats_changed")
+			
+			# Opción B: Si también quieres asegurarte de meterlo en el Inventario general, descomenta la línea de abajo:
+			# InventarioManager.recoger_item(cristal_alba)
+			
+		# 2. Mostramos un mensaje de victoria en la caja de diálogo
+		var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogo")
+		if caja_dialogo and caja_dialogo.has_method("mostrar_dialogo"):
+			caja_dialogo.mostrar_dialogo("Sistema", "¡Has derrotado a Malakor y obtenido el Cristal del Alba!")
+		
+		# 3. Instanciamos y lanzamos los créditos de la victoria
+		var creditos = preload("res://Escenas/Interfaz/creditos_ui.tscn").instantiate()
+		get_tree().root.add_child(creditos)
+	
+	await get_tree().create_timer(3.0).timeout
+	queue_free()
+	
 	await get_tree().create_timer(3.0).timeout
 	queue_free()
 

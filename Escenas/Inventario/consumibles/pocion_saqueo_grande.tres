@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_3nutt")
-nombre = "Pocion_Saqueo_Grande"
+nombre = "Pocion Saqueo Grande"
 icono = ExtResource("1_6d7mf")
-descripcion = "Aumenta el saqueo en + 10."
+descripcion = "Aumenta la probabilidad de obtención de botín considerablemente."
 tipo = 2
 precio_compra = 120
 precio_venta = 69

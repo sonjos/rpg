@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://chlnof0gpeo5l"]
+
+[ext_resource type="Texture2D" uid="uid://ckj2dyv4v4cfb" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Axe_Small.png" id="1_f8k1u"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_hgpmh"]
+
+[resource]
+script = ExtResource("2_hgpmh")
+nombre = "Hacha Hierro"
+icono = ExtResource("1_f8k1u")
+descripcion = "Hacha ligera y equilibrada. Se usa a una mano."
+precio_compra = 170
+precio_venta = 85
+bonus_fuerza_poder = 12
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

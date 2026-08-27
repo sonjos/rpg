@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	velocity.z = 0.0
 	move_and_slide()
 
-func interactuar() -> void:
+func interactuar(_player = null):
 	var jugador = get_tree().get_first_node_in_group("Player")
 	if jugador:
 		_mirar_hacia(jugador.global_position)

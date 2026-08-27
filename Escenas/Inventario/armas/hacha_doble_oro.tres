@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_u5oxy")
-nombre = "Hacha doble oro"
+nombre = "Hacha Doble Oro"
 icono = ExtResource("1_aghug")
-descripcion = "Se usa a 2 mano."
+descripcion = "Imponente hacha ceremonial pesada. Se usa a dos manos."
 precio_compra = 600
 precio_venta = 300
 bonus_fuerza_poder = 30

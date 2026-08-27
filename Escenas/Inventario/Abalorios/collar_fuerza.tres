@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_jb4sf")
-nombre = "Collar_Fuerza"
+nombre = "Collar Fuerza"
 icono = ExtResource("1_r6q5g")
-descripcion = "Aumenta la fuerza +2."
+descripcion = "Amuleto ancestral tallado en piedra de fuego que arde con potencia."
 tipo = 5
 precio_compra = 250
 precio_venta = 125

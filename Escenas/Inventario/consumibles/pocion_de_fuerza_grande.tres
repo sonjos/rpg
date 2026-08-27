@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_3gdkh")
-nombre = "Pocion_fuerza_grande"
+nombre = "Pocion Fuerza Grande"
 icono = ExtResource("1_uk7x7")
-descripcion = "Aumenta la fuerza en +10"
+descripcion = "Aumenta la fuerza de combate de forma notable."
 tipo = 2
 precio_compra = 90
 precio_venta = 45

@@ -7,6 +7,7 @@
 script = ExtResource("1_rhrrh")
 nombre = "Alma Menor Encadenada"
 icono = ExtResource("1_cb38i")
+descripcion = "Un espíritu errante confinado a la fuerza. Emite un leve lamento al tacto."
 tipo = 6
 precio_compra = 35
 es_acumulable = true

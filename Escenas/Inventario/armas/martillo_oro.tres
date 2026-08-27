@@ -5,8 +5,11 @@
 
 [resource]
 script = ExtResource("1_g0wsp")
-nombre = "Martillo_oro"
+nombre = "Martillo Oro"
 icono = ExtResource("1_uk8y3")
-precio_compra = 200
-precio_venta = 100
+descripcion = "Martillo colossal bañado en oro macizo. Devasta con impactos sísmicos."
+precio_compra = 650
+precio_venta = 325
+bonus_fuerza_poder = 35
+duracion_efecto = 0.0
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

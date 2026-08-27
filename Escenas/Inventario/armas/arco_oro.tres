@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm8fiicilr28o"]
 
+[ext_resource type="Texture2D" uid="uid://u6y6un2jiyv2" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Bow_Golden.png" id="1_d3ed1"]
 [ext_resource type="Resource" uid="uid://dlhl4hhdqhu2k" path="res://Escenas/Inventario/armas/flecha_oro.tres" id="1_k11nq"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_kjqoa"]
 
 [resource]
 script = ExtResource("1_kjqoa")
+nombre = "Arco Oro"
+icono = ExtResource("1_d3ed1")
+descripcion = "Arco reforzado con aleación dorada que imprime una fuerza letal a distancia."
 precio_compra = 600
 precio_venta = 300
 bonus_fuerza_poder = 30

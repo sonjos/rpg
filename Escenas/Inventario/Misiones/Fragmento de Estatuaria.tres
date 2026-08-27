@@ -7,6 +7,7 @@
 script = ExtResource("1_ucg7i")
 nombre = "Fragmento de Estatuaria"
 icono = ExtResource("1_tqntb")
+descripcion = "Pedazo tallado de una antigua y misteriosa estatua ceremonial."
 precio_compra = 25
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

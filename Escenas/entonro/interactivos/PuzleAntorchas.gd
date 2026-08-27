@@ -1,4 +1,3 @@
-# res://scripts/entorno/PuzleAntorchcha.gd
 extends Node3D
 
 signal puzle_resuelto
@@ -41,7 +40,7 @@ func desbloquear_paso() -> void:
 		if "esta_bloqueada" in puerta_objetivo:
 			puerta_objetivo.esta_bloqueada = false
 		if puerta_objetivo.has_method("abrir_puerta"):
-			puerta_objetivo.abrir_puerta() # Abre la puerta automáticamente
+			puerta_objetivo.abrir_puerta()
 
 func _mostrar_mensaje(remitente: String, texto: String) -> void:
 	var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogo")

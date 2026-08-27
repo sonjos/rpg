@@ -6,9 +6,11 @@ extends StaticBody3D
 @onready var luz: OmniLight3D = $OmniLight3D
 
 var encendida: bool = false
+
 func _ready() -> void:
 	apagar() # Garantiza que empiece apagada al iniciar la escena
-func interactuar() -> void:
+
+func interactuar(_player) -> void:
 	if encendida:
 		return
 		

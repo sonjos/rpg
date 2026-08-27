@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_8ommu")
-nombre = "Hacha_oro"
+nombre = "Hacha Oro"
 icono = ExtResource("1_jfsj6")
-descripcion = "Se usa a una mano."
-precio_compra = 120
-precio_venta = 60
+descripcion = "Hacha ceremonial dorada de gran filo. Se usa a una mano."
+precio_compra = 550
+precio_venta = 275
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

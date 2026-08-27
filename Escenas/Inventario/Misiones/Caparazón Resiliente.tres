@@ -7,6 +7,7 @@
 script = ExtResource("1_ijjph")
 nombre = "Caparazón Resiliente"
 icono = ExtResource("1_6wue5")
+descripcion = "caparazón blindado extraído de una criatura de las cavernas. Extremadamente duro."
 tipo = 6
 precio_compra = 30
 es_acumulable = true

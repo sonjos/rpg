@@ -7,6 +7,7 @@
 script = ExtResource("1_nfin5")
 nombre = "Martillo"
 icono = ExtResource("1_s2ekf")
+descripcion = "Pesado martillo de doble cabeza capaz de triturar cualquier defensa."
 precio_compra = 280
 precio_venta = 140
 bonus_fuerza_poder = 20

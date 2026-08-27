@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_f41u6")
+nombre = "Anillo Saqueo"
 icono = ExtResource("1_x7lth")
-descripcion = "Aumenta la saqueo en +2."
+descripcion = "Brilla con avaricia, facilitando la localización de tesoros ocultos."
 tipo = 5
 precio_compra = 400
 precio_venta = 200

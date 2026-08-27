@@ -7,6 +7,7 @@
 script = ExtResource("1_iqo2v")
 nombre = "Engranaje Congelado"
 icono = ExtResource("1_0pmtd")
+descripcion = "Pieza mecánica milenaria atrapada en hielo eterno que sigue intacta."
 tipo = 6
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

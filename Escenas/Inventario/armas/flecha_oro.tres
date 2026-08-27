@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("1_sxuax")
+nombre = "Flecha Oro"
 icono = ExtResource("1_c13rs")
+descripcion = "Munición pesada con punta dorada que perfora armaduras."
 precio_compra = 25
 precio_venta = 12
 es_acumulable = true

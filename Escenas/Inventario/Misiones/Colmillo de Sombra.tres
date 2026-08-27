@@ -7,6 +7,8 @@
 script = ExtResource("1_k5rwk")
 nombre = "Colmillo de Sombra"
 icono = ExtResource("1_3mjtp")
+descripcion = "Un colmillo oscuro que parece absorber la luz de su alrededor."
+tipo = 6
 precio_compra = 25
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

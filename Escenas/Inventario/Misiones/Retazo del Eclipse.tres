@@ -7,5 +7,6 @@
 script = ExtResource("1_qsey5")
 nombre = "Retazo del Eclipse"
 icono = ExtResource("1_a6cd2")
+descripcion = "Talismán protector grabado con símbolos sagrados que repelen maleficios."
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

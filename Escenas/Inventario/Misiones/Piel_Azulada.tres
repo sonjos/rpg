@@ -7,7 +7,7 @@
 script = ExtResource("1_asenj")
 nombre = "Piel Azulada"
 icono = ExtResource("1_p5jss")
-descripcion = "Piel azul como el hielo"
+descripcion = "Fragmento textil teñido con la penumbra de un eclipse eterno."
 tipo = 6
 precio_compra = 10
 precio_venta = 5

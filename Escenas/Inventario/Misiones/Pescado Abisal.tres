@@ -7,6 +7,7 @@
 script = ExtResource("1_e6iya")
 nombre = "Pescado Abisal"
 icono = ExtResource("1_qyxxg")
+descripcion = "Extraña criatura marina bioluminiscente de las simas oceánicas."
 precio_compra = 40
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

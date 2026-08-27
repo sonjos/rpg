@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_o1dot")
-nombre = "Daga_oro"
+nombre = "Daga Oro"
 icono = ExtResource("1_1ik3c")
+descripcion = "Estilete lujoso y letal que incrementa drásticamente los reflejos."
 precio_compra = 700
 precio_venta = 350
 bonus_fuerza_poder = 30

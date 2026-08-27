@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_0td06")
-nombre = "Armadura_oro"
+nombre = "Armadura Oro"
 icono = ExtResource("1_btjqb")
+descripcion = "Deslumbrante armadura ceremonial dorada que combina estatus y resistencia."
 tipo = 1
 precio_compra = 450
 precio_venta = 225

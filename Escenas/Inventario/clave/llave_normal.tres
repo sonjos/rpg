@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ccdpkxhdqkicf"]
+
+[ext_resource type="Texture2D" uid="uid://cg176hiulao2b" path="res://Assets/armasObjetos/Icons-20260806T094913Z-1-001/Icons/Key3.png" id="1_0ri2b"]
+[ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="2_ge35k"]
+
+[resource]
+script = ExtResource("2_ge35k")
+nombre = "LLave Hierro"
+icono = ExtResource("1_0ri2b")
+descripcion = "Llave robusta de hierro forjado. Abre puertas y objetos de tipo normal."
+tipo = 3
+metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

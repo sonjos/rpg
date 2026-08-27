@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bj802nnl31g5k"]
 
-[ext_resource type="Script" uid="uid://b48ehfdex707y" path="res://Escenas/entonro/interactivos/AbrirPuerta.gd" id="1_0pbb8"]
+[ext_resource type="Script" uid="uid://b48ehfdex707y" path="res://Escenas/entonro/interactivos/apertura con llave.gd" id="1_0pbb8"]
 [ext_resource type="PackedScene" uid="uid://dtu3502smfug5" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Wall_Plaster_Door_Flat.gltf" id="1_3pbxt"]
 [ext_resource type="PackedScene" uid="uid://301k28lywq8e" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Door_1_Flat.gltf" id="2_aby14"]
 [ext_resource type="PackedScene" uid="uid://s22cfo4nwvt1" path="res://Assets/Medieval Village/Medieval Village MegaKit[Standard]/glTF/Wall_Plaster_Straight.gltf" id="3_0pbb8"]

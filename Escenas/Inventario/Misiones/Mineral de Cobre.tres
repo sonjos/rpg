@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cpxwb8g2hhfug"]
 
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_gwl8u"]
-[ext_resource type="Texture2D" uid="uid://dnkrabeaisc3" path="res://Assets/decoracion/Fantasy Props MegaKit[Standard]/Exports/mineral_cobre.png" id="1_x6g6u"]
+[ext_resource type="Texture2D" uid="uid://dnkrabeaisc3" path="res://Assets/misiones/mineral_cobre.png" id="1_x6g6u"]
 
 [resource]
 script = ExtResource("1_gwl8u")
 nombre = "Mineral de Cobre"
 icono = ExtResource("1_x6g6u")
-descripcion = "Bonito y barato
-"
+descripcion = "Mineral bruto de cobre. Bonito y barato."
 tipo = 6
 precio_compra = 10
 es_acumulable = true

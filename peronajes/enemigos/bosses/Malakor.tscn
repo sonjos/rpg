@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://1mxv7tmkrp17"]
+
+[ext_resource type="Script" uid="uid://bi0ss2puq74m1" path="res://peronajes/enemigos/bosses/JefeBase.gd" id="1_m4ikh"]
+[ext_resource type="PackedScene" uid="uid://djf4jwgcrae4y" path="res://Assets/Enemigos/glTF/Knight_Golden_Male.gltf" id="2_lssb6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dklp6"]
+radius = 0.54833984
+height = 3.3710938
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dklp6"]
+radius = 1.1865643
+
+[node name="Malakor" type="CharacterBody3D" unique_id=521659159]
+collision_layer = 64
+script = ExtResource("1_m4ikh")
+es_malakor = true
+nombre_jefe = "Malakor"
+max_health = 750.0
+attack_power = 50.0
+special_attack_power = 80.0
+move_speed = 4.0
+xp_reward = 1000
+gold_reward = 2500
+
+[node name="Knight_Golden_Male" parent="." unique_id=1054447795 instance=ExtResource("2_lssb6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=487297943]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.1854162, 0)
+shape = SubResource("CapsuleShape3D_dklp6")
+
+[node name="AreaAtaque" type="Area3D" parent="." unique_id=566355638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAtaque" unique_id=998003868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5416503, 0.5732677, 0.69041485)
+shape = SubResource("SphereShape3D_dklp6")
+
+[node name="TimerEspecial" type="Timer" parent="." unique_id=1664529168]

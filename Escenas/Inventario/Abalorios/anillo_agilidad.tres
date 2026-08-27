@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_f41u6")
-nombre = "Anillo_agilidad"
+nombre = "Anillo Agilidad"
 icono = ExtResource("1_x7lth")
-descripcion = "Aumenta la agilidad +2."
+descripcion = "Anillo ligero que dota al portador de unos reflejos sobrehumanos."
 tipo = 5
 precio_compra = 250
 precio_venta = 125

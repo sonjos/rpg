@@ -7,5 +7,6 @@
 script = ExtResource("1_6vxcg")
 nombre = "Núcleo de Sombra Pura"
 icono = ExtResource("1_sjfe1")
+descripcion = "Esfera condensada de oscuridad absoluta que palpita con lentitud."
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

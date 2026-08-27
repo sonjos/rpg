@@ -7,7 +7,7 @@
 script = ExtResource("2_x42jh")
 nombre = "Pocion_Fuerza_Pequeña"
 icono = ExtResource("1_qy2ng")
-descripcion = "Aumenta la fuerza +5"
+descripcion = "Aumenta la fuerza ligeramente."
 tipo = 2
 precio_compra = 40
 precio_venta = 20

@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_4c6jo")
-nombre = "flecha"
+nombre = "Flecha"
 icono = ExtResource("1_v412m")
+descripcion = "Munición estándar de punta afilada para arcos."
 precio_compra = 10
 precio_venta = 5
 es_acumulable = true

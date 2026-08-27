@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_vevkq")
-nombre = "Mochila_pequeña"
+nombre = "Mochila Pequeña"
 icono = ExtResource("1_8grcn")
+descripcion = "Un bolso ligero que permite llevar algunos objetos adicionales."
 tipo = 4
 precio_compra = 500
 precio_venta = 250

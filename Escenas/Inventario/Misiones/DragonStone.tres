@@ -7,6 +7,7 @@
 script = ExtResource("1_t751w")
 nombre = "DragonStone"
 icono = ExtResource("1_dglvx")
+descripcion = "Piedra mítica impregnada con la esencia primigenia de un dragón."
 tipo = 6
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

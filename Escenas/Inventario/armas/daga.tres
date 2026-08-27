@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_j362v")
-nombre = "daga"
+nombre = "Daga"
 icono = ExtResource("1_ioveq")
+descripcion = "Arma corta y silenciosa que prioriza la agilidad y los ataques rápidos."
 precio_compra = 130
 precio_venta = 65
 bonus_fuerza_poder = 8

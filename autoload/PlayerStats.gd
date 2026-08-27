@@ -173,6 +173,6 @@ func obtener_capacidad_inventario_total() -> int:
 			pass 
 	return base_casillas + casillas_extra_inventario
 
-func equipar_mochila(item: ItemData, extra_casillas: int) -> void:
+func equipar_mochila(_item: ItemData, extra_casillas: int) -> void:
 	casillas_extra_inventario += extra_casillas
 	emit_signal("stats_changed")

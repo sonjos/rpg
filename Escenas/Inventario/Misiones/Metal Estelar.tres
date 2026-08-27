@@ -7,6 +7,7 @@
 script = ExtResource("1_4b5bh")
 nombre = "Metal Estelar"
 icono = ExtResource("1_dyofk")
+descripcion = "Aleación ligera y ultrarresistente caída desde el firmamento."
 tipo = 6
 es_acumulable = true
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

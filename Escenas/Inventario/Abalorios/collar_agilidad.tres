@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_72w3c")
-nombre = "Collar_Agilidad"
+nombre = "Collar Agilidad"
 icono = ExtResource("1_3asxe")
-descripcion = "Aumenta la agilidad en + 2"
+descripcion = "Gema aerodinámica que aligera el peso del viajero en combate."
 tipo = 5
 precio_compra = 250
 precio_venta = 125

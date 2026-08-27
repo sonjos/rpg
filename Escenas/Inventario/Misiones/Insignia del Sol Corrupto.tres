@@ -7,6 +7,7 @@
 script = ExtResource("1_pubyl")
 nombre = "Insignia del Sol Corrupto"
 icono = ExtResource("1_gsij8")
+descripcion = "Símbolo heráldico bañado en una energía oscura y fanática."
 tipo = 6
 precio_compra = 20
 metadata/_custom_type_script = "uid://dh7vrwsuqsmfq"

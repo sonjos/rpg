@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_vpcju")
-nombre = "Espada de Hierro"
+nombre = "Espada Hierro"
 icono = ExtResource("1_585ao")
-descripcion = "DesUna espada básica pero fiablecripción del objeto."
+descripcion = "Una espada básica pero fiable para cualquier aventurero."
 precio_compra = 150
 precio_venta = 75
 bonus_fuerza_poder = 10

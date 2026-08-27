@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("2_ui88l")
-nombre = "A.fuerza"
+nombre = "Anillo Fuerza"
 icono = ExtResource("1_oog57")
-descripcion = "Aumenta la fuerza +2."
+descripcion = "Un pesada sortija de hierro forjado que impregna de vigor cada golpe."
 tipo = 5
 precio_compra = 250
 precio_venta = 125

@@ -6,8 +6,9 @@
 
 [resource]
 script = ExtResource("2_16kl8")
-nombre = "arco"
+nombre = "Arco  Madera"
 icono = ExtResource("1_8oqi1")
+descripcion = "Arco ligero de madera flexible. Requiere flechas para disparar."
 precio_compra = 150
 precio_venta = 75
 bonus_fuerza_poder = 8

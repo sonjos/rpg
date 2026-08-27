@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://q4m2bqf3fowq"]
+
+[ext_resource type="Script" uid="uid://c7bghlon46qea" path="res://Escenas/Interfaz/creditos_ui.gd" id="1_sjoql"]
+[ext_resource type="AudioStream" uid="uid://cgsec61e708kd" path="res://Assets/MusicaMedieval/Tracks/mp3/7. Mystic Grove .mp3" id="2_7hul5"]
+[ext_resource type="Texture2D" uid="uid://b7a5imksgryj8" path="res://Assets/Imagenes/ImagenCreditos.jpg" id="2_50p74"]
+
+[node name="CreditosUI" type="Control" unique_id=683712655]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjoql")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1495602430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_50p74")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=585192333]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 7.0
+offset_right = 879.0
+offset_bottom = 630.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=256332520]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1386362100]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9098039)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+text = "EL ECLIPSE HA TERMINADO
+
+Las cenizas de Malakor se disipan en el viento 
+y el cielo de Aethelgard se despoja de su manto de sombras. 
+El Cristal del Alba late de nuevo con fuerza, 
+devolviendo la luz eterna a un mundo que creía perdido.
+
+Has cruzado el Valle, resistido las Criptas del Hielo 
+y conquistado la Fortaleza de Obsidiana empuñando tu destino.
+
+--- CRÉDITOS ---
+
+Dirección y Desarrollo:
+[Pipe_Gaming]
+
+Motor de Juego:
+Godot Engine 4.x
+
+Inspiración y Lore:
+La Leyenda de la Espada del Rayo
+
+Tu nombre quedará grabado en la historia.
+¡Gracias por jugar!"
+
+[node name="BotonMenuPrincipal" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1778576088]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=879701657]
+stream = ExtResource("2_7hul5")
+autoplay = true

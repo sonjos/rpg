@@ -128,15 +128,15 @@ layout_mode = 2
 text = "🥾"
 
 [node name="BoxEquipo" type="HBoxContainer" parent="AreaInventario/ColumnaDerecha" unique_id=1427740500]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(50, 150)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 186.0
-offset_top = -221.0
-offset_right = -221.0
-offset_bottom = -157.0
+offset_left = 9.0
+offset_top = -42.0
+offset_right = 9.0
+offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0

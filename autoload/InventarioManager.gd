@@ -11,9 +11,6 @@ var inventario: Array[Dictionary] = []
 # Variable para almacenar las casillas extra otorgadas por las mochilas
 var casillas_extra: int = 0
 
-# Referencia opcional al menú de inventario abierto si existe
-var menu_inventario_instancia: Control = null
-
 func recoger_item(item: ItemData, cantidad_a_recoger: int = 1) -> bool:
 	if not item:
 		return false
@@ -24,8 +21,6 @@ func recoger_item(item: ItemData, cantidad_a_recoger: int = 1) -> bool:
 			if slot["item"] == item and slot["cantidad"] < item.cantidad_maxima:
 				slot["cantidad"] += cantidad_a_recoger
 				inventario_actualizado.emit()
-				if menu_inventario_instancia and is_instance_valid(menu_inventario_instancia):
-					menu_inventario_instancia.actualizar_interfaz()
 				return true
 				
 	# 2. Si no es acumulable o no hay pilas, buscamos casilla libre (respetando las casillas extra de la mochila)
@@ -36,8 +31,6 @@ func recoger_item(item: ItemData, cantidad_a_recoger: int = 1) -> bool:
 			"cantidad": cantidad_a_recoger
 		})
 		inventario_actualizado.emit()
-		if menu_inventario_instancia and is_instance_valid(menu_inventario_instancia):
-			menu_inventario_instancia.actualizar_interfaz()
 		return true
 		
 	return false

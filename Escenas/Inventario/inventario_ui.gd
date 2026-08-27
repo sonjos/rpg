@@ -1,13 +1,15 @@
+# res://Escenas/Inventario/inventario_ui.gd
 extends Control
 
 @onready var grid_mochila: GridContainer = $AreaInventario/ColumnaIzquierda/GridMochila
-@onready var grid_equipo: GridContainer = $AreaInventario/ColumnaDerecha/GridEquipo
+@onready var grid_equipo: HBoxContainer = $AreaInventario/ColumnaDerecha/BoxEquipo
 
 @onready var lbl_vida: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblVida
 @onready var lbl_fuerza: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblFuerza
 @onready var lbl_defensa: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblDefensa
 @onready var lbl_saqueo: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblSaqueo
 @onready var lbl_agilidad: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblAgilidad
+@onready var inventario_ui: Control = $"."
 
 const COLUMNAS_MOCHILA: int = 3
 const FILAS_MOCHILA: int = 6
@@ -24,7 +26,42 @@ func _ready() -> void:
 	if not InventarioManager.inventario_actualizado.is_connected(actualizar_interfaz):
 		InventarioManager.inventario_actualizado.connect(actualizar_interfaz)
 		
+	if inventario_ui:
+		inventario_ui.visible = false
+		
 	actualizar_interfaz()
+
+# USAMOS _input PARA GESTIONAR EL TAB DIRECTAMENTE AQUÍ
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_TAB:
+			# Alternamos visibilidad
+			visible = not visible
+			
+			if visible:
+				# 1. Liberamos cualquier foco previo para que no navegue por las casillas
+				get_viewport().gui_release_focus()
+				
+				# 2. Liberamos el cursor del ratón (exactamente como lo pediste)
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				
+				# 3. Congelamos al jugador
+				var player = get_tree().get_first_node_in_group("Player")
+				if player and player.has_method("set_congelado"):
+					player.set_congelado(true)
+					
+				actualizar_interfaz()
+			else:
+				# 1. Capturamos de nuevo el ratón para el juego (como lo pediste)
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				
+				# 2. Descongelamos al jugador
+				var player = get_tree().get_first_node_in_group("Player")
+				if player and player.has_method("set_congelado"):
+					player.set_congelado(false)
+			
+			# ¡Importante! Consumimos el evento para que Godot no mueva el foco por las casillas al cerrar
+			get_viewport().set_input_as_handled()
 
 func actualizar_interfaz() -> void:
 	actualizar_stats_visuales()
@@ -45,25 +82,25 @@ func actualizar_stats_visuales() -> void:
 
 func actualizar_mochila() -> void:
 	if not grid_mochila:
-		print("ERROR CRÍTICO: grid_mochila es null en la UI del inventario.")
 		return
+		
+	get_viewport().gui_release_focus()
 		
 	for hijo in grid_mochila.get_children():
 		hijo.queue_free()
 		
-	print("--- ACTUALIZANDO MOCHILA. Total items en manager: ", InventarioManager.inventario.size())
-		
-	# Calculamos el total de casillas base más las ampliaciones de las mochilas
 	var capacidad_total_actual = TOTAL_CASILLAS + InventarioManager.casillas_extra
 		
 	for i in range(capacidad_total_actual):
 		var slot_ui = ESCENA_SLOT.instantiate()
+		slot_ui.mouse_filter = Control.MOUSE_FILTER_STOP
 		
 		if i < InventarioManager.inventario.size():
 			var slot_data = InventarioManager.inventario[i]
-			print("Pintando slot ", i, " con item: ", slot_data["item"].nombre, " cantidad: ", slot_data["cantidad"])
 			slot_ui.actualizar_slot(slot_data["item"], slot_data["cantidad"])
-			slot_ui.pressed.connect(func(): usar_o_equipar_item(i))
+			
+			var index_capturado = i
+			slot_ui.pressed.connect(func(): usar_o_equipar_item(index_capturado))
 		else:
 			slot_ui.actualizar_slot(null, 0)
 			
@@ -80,7 +117,8 @@ func actualizar_equipo() -> void:
 	
 	for tipo in tipos_slots:
 		var slot_btn = Button.new()
-		slot_btn.custom_minimum_size = Vector2(50, 50)
+		slot_btn.custom_minimum_size = Vector2(48, 48)
+		slot_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 		
 		var style = StyleBoxFlat.new()
 		style.bg_color = Color(0.1, 0.1, 0.12, 0.9)
@@ -94,6 +132,7 @@ func actualizar_equipo() -> void:
 			icono_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			icono_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			icono_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+			icono_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			
 			var descripcion_tooltip = item_equipado.nombre + " (" + tipo.capitalize() + " Equipado)\n"
 			if item_equipado.bonus_fuerza_poder > 0: descripcion_tooltip += "+ Fuerza: " + str(item_equipado.bonus_fuerza_poder) + "\n"
@@ -104,7 +143,8 @@ func actualizar_equipo() -> void:
 			icono_rect.tooltip_text = descripcion_tooltip
 			slot_btn.add_child(icono_rect)
 			
-			slot_btn.pressed.connect(func(): desequipar_item(tipo))
+			var tipo_capturado = tipo
+			slot_btn.pressed.connect(func(): desequipar_item(tipo_capturado))
 			
 		grid_equipo.add_child(slot_btn)
 
@@ -116,31 +156,33 @@ func usar_o_equipar_item(indice: int) -> void:
 	var item = slot_data["item"]
 	var slot_destino: String = ""
 	
-	match item.tipo:
-		0: slot_destino = "arma"
-		1: slot_destino = "pechera"
-		2: # Consumible
-			if item.cantidad_curacion > 0:
-				PlayerStats.current_health = min(PlayerStats.max_health, PlayerStats.current_health + item.cantidad_curacion)
-				slot_data["cantidad"] -= 1
-				if slot_data["cantidad"] <= 0:
-					InventarioManager.inventario.remove_at(indice)
-				InventarioManager.inventario_actualizado.emit()
-				PlayerStats.stats_changed.emit()
-				return
-		4: # Mochila (Aumenta las casillas de inventario al usarla)
-			InventarioManager.casillas_extra += 6 # Puedes cambiar este valor según la mochila si lo deseas
+	var tipo_val = item.tipo
+	
+	if tipo_val == 0 or tipo_val == "arma" or tipo_val == "Arma":
+		slot_destino = "arma"
+	elif tipo_val == 1 or tipo_val == "armadura" or tipo_val == "pechera" or tipo_val == "Armadura":
+		slot_destino = "pechera"
+	elif tipo_val == 5 or tipo_val == "anillo" or tipo_val == "abalorio" or tipo_val == "Anillo":
+		slot_destino = "anillo"
+	elif tipo_val == 2 or tipo_val == "consumible":
+		if item.cantidad_curacion > 0:
+			PlayerStats.current_health = min(PlayerStats.max_health, PlayerStats.current_health + item.cantidad_curacion)
 			slot_data["cantidad"] -= 1
 			if slot_data["cantidad"] <= 0:
 				InventarioManager.inventario.remove_at(indice)
+			get_viewport().gui_release_focus()
 			InventarioManager.inventario_actualizado.emit()
 			PlayerStats.stats_changed.emit()
 			return
-		5: slot_destino = "anillo" # Abalorio / Anillo
-		_:
-			# Si es un objeto de misión, material u otro tipo no equipable/consumible, 
-			# simplemente evitamos que crashee o ignore el clic.
-			return
+	elif tipo_val == 4 or tipo_val == "mochila":
+		InventarioManager.casillas_extra += 6
+		slot_data["cantidad"] -= 1
+		if slot_data["cantidad"] <= 0:
+			InventarioManager.inventario.remove_at(indice)
+		get_viewport().gui_release_focus()
+		InventarioManager.inventario_actualizado.emit()
+		PlayerStats.stats_changed.emit()
+		return
 
 	if slot_destino != "":
 		if PlayerStats.equipo[slot_destino] != null:
@@ -151,12 +193,15 @@ func usar_o_equipar_item(indice: int) -> void:
 		if slot_data["cantidad"] <= 0:
 			InventarioManager.inventario.remove_at(indice)
 			
+		get_viewport().gui_release_focus()
+			
 		InventarioManager.inventario_actualizado.emit()
 		PlayerStats.stats_changed.emit()
 
 func desequipar_item(tipo: String) -> void:
 	var item_equipado = PlayerStats.equipo[tipo]
 	if item_equipado != null:
+		get_viewport().gui_release_focus()
 		InventarioManager.recoger_item(item_equipado)
 		PlayerStats.equipo[tipo] = null
 		InventarioManager.inventario_actualizado.emit()

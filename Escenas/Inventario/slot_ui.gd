@@ -1,3 +1,4 @@
+# res://Escenas/Inventario/slot_ui.gd
 extends Button
 
 func actualizar_slot(item: ItemData, cantidad: int) -> void:

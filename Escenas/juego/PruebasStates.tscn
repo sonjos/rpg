@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d2l2v7xja058k" path="res://Escenas/entonro/interactivos/encounter_zone.tscn" id="13_51hg2"]
 [ext_resource type="PackedScene" uid="uid://6c00p4o0glck" path="res://Escenas/entonro/interactivos/zone_trigger.tscn" id="13_m0sv4"]
 [ext_resource type="PackedScene" uid="uid://dyu3romas1tk5" path="res://peronajes/npc/herrero_eldrin.tscn" id="16_go44g"]
+[ext_resource type="Resource" uid="uid://dcvxuykorv7pt" path="res://Escenas/Inventario/armas/espada_normal.tres" id="16_lk2s6"]
 [ext_resource type="PackedScene" uid="uid://c60j2jtwmph6t" path="res://peronajes/npc/capitan_jorah.tscn" id="17_vc82t"]
 [ext_resource type="PackedScene" uid="uid://b5os1edqc03pj" path="res://Escenas/Interfaz/pause_menu_ui.tscn" id="21_n6eq2"]
 
@@ -106,6 +107,7 @@ item_a_recolectar = SubResource("Resource_re6v7")
 
 [node name="HerreroEldrin" parent="." unique_id=640003296 instance=ExtResource("16_go44g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.685897, 2.016244, 0)
+arma_inicial = ExtResource("16_lk2s6")
 
 [node name="CapitanJorah" parent="." unique_id=602743472 instance=ExtResource("17_vc82t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0430346, 1.1424005, 0)

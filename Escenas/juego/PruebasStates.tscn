@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bkn6qht4mn52" path="res://peronajes/Player/PlayerStates/Player.tscn" id="1_pvn7i"]
 [ext_resource type="PackedScene" uid="uid://bfyo3lnlsftwi" path="res://Escenas/Interfaz/juego_ui.tscn" id="2_pvn7i"]
 [ext_resource type="PackedScene" uid="uid://cci5pwayc4wtn" path="res://Escenas/entonro/interactivos/ObjetoRecolectable.tscn" id="4_4wecd"]
-[ext_resource type="PackedScene" uid="uid://vh5kswb1m3wj" path="res://Escenas/entonro/interactivos/fogata..res" id="6_ehe83"]
 [ext_resource type="PackedScene" uid="uid://ywck0tk3xvvf" path="res://Escenas/entonro/interactivos/trampa_caida_daño.tscn" id="7_0dnju"]
 [ext_resource type="PackedScene" uid="uid://csajmne1pnafg" path="res://Escenas/entonro/interactivos/puerta_llave.tscn" id="8_mlboc"]
 [ext_resource type="Resource" uid="uid://bosagvh0ncteq" path="res://Escenas/Inventario/clave/llave_maestra.tres" id="9_8v0ye"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dyu3romas1tk5" path="res://peronajes/npc/herrero_eldrin.tscn" id="16_go44g"]
 [ext_resource type="PackedScene" uid="uid://cdggtxfnvv7nl" path="res://Escenas/entonro/interactivos/cofre.tscn" id="16_vc82t"]
 [ext_resource type="PackedScene" uid="uid://c60j2jtwmph6t" path="res://peronajes/npc/capitan_jorah.tscn" id="17_vc82t"]
+[ext_resource type="PackedScene" uid="uid://dqnpdgryy5i6e" path="res://Escenas/entonro/interactivos/fogata.tscn" id="18_lk2s6"]
 [ext_resource type="PackedScene" uid="uid://b5os1edqc03pj" path="res://Escenas/Interfaz/pause_menu_ui.tscn" id="21_n6eq2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
@@ -69,9 +69,6 @@ shadow_enabled = true
 
 [node name="JuegoUI" parent="." unique_id=302991265 instance=ExtResource("2_pvn7i")]
 
-[node name="Fogata" parent="." unique_id=1175257183 instance=ExtResource("6_ehe83")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.1180046, 14.045094)
-
 [node name="TrampaCaidaDaño" parent="." unique_id=918707074 instance=ExtResource("7_0dnju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7867322, 1.3759271, 0)
 
@@ -104,13 +101,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0430346, 1.1424005, 0)
 [node name="PauseMenuUI" parent="." unique_id=707741525 instance=ExtResource("21_n6eq2")]
 
 [node name="ObjetoRecolectable" parent="." unique_id=1510452573 instance=ExtResource("4_4wecd")]
-transform = Transform3D(0.40458024, 0, 0, 0, 0.2678741, 0, 0, 0, 3, 21.907066, 5.2816687, 7.907938)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 21.907066, 5.2816687, 7.907938)
 item_a_recolectar = ExtResource("9_8v0ye")
 
 [node name="Cofre" parent="." unique_id=557098826 instance=ExtResource("16_vc82t")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5382502, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5382502, 0)
 item_recompensa = ExtResource("12_vc82t")
+
+[node name="Fogata" parent="." unique_id=1175257183 instance=ExtResource("18_lk2s6")]
+
+[node name="Area3D" parent="Fogata" index="0" unique_id=741239649]
+collision_mask = 3
 
 [editable path="Player"]
 [editable path="PuertaLlave"]
 [editable path="PuzleAntorchcha"]
+[editable path="Fogata"]

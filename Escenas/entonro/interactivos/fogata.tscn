@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://4kdellt32xan"]
+[gd_scene format=3 uid="uid://dqnpdgryy5i6e"]
 
+[ext_resource type="Script" uid="uid://vbcs2m51wihk" path="res://Escenas/entonro/interactivos/PuntoDeControl.gd" id="1_hy2r4"]
 [ext_resource type="Texture2D" uid="uid://sqti8f45no8m" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Monk_Monk_Texture.png" id="1_xlo1j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ehe83"]
+radius = 1.4342961
 
 [sub_resource type="Curve" id="Curve_3o3kk"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -53,9 +57,6 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_fodb4"]
 material = SubResource("StandardMaterial3D_p8jiu")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5si1b"]
-radius = 1.6559805
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfxax"]
 albedo_color = Color(0.36078432, 0.22745098, 0.12941177, 1)
 albedo_texture = ExtResource("1_xlo1j")
@@ -106,6 +107,12 @@ data = PackedVector3Array(0, 0.68369997, 0.21339999, 0.0209, 0.68369997, 0.21239
 [node name="Fogata" type="Node3D" unique_id=1175257183]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
+[node name="Area3D" type="Area3D" parent="." unique_id=741239649]
+script = ExtResource("1_hy2r4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1956574115]
+shape = SubResource("SphereShape3D_ehe83")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=41305006]
 light_color = Color(1, 0.46666667, 0, 1)
 light_energy = 16.0
@@ -117,11 +124,6 @@ transform = Transform3D(1, 0, 0, 0, 0.666, 0, 0, 0, 0.936, 0, 0.8, 0)
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_dklp6")
 draw_pass_1 = SubResource("QuadMesh_fodb4")
-
-[node name="Area3D" type="Area3D" parent="GPUParticles3D" unique_id=741239649]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GPUParticles3D/Area3D" unique_id=1956574115]
-shape = SubResource("SphereShape3D_5si1b")
 
 [node name="Troncos" type="Node3D" parent="." unique_id=592531695]
 transform = Transform3D(-3.090862e-08, -0.70710677, -0.70710677, 1, -4.371139e-08, 0, -3.090862e-08, -0.70710677, 0.70710677, -0.4581052, 0.009, -0.46391946)

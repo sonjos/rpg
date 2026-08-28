@@ -100,7 +100,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door_1_Flat2/Area3D" unique_id=478075175]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.5066699, 0.8715577, -0.03325832)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.5066699, 0.8715577, -0.0798707)
 shape = SubResource("SphereShape3D_dklp6")
 debug_color = Color(0.9104244, 0.29288948, 0.13373092, 0.41960785)
 
@@ -251,9 +251,11 @@ shape = SubResource("BoxShape3D_0minr")
 
 [node name="SonidoCerrar" type="AudioStreamPlayer3D" parent="." unique_id=454451560]
 stream = SubResource("AudioStreamOggVorbis_38xrq")
+bus = &"Efectos"
 
 [node name="SonidoAbrir" type="AudioStreamPlayer3D" parent="." unique_id=659706508]
 stream = ExtResource("12_vrprd")
+bus = &"Efectos"
 
 [connection signal="body_entered" from="Door_1_Flat2/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Door_1_Flat2/Area3D" to="." method="_on_area_3d_body_exited"]

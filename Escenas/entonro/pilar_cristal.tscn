@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ds7jck6y4a1xt"]
+
+[ext_resource type="Script" uid="uid://cbwnlj2u8y3r1" path="res://Escenas/entonro/pilar_cristal.gd" id="1_5wadq"]
+[ext_resource type="Texture2D" uid="uid://ca68e26ksbaaa" path="res://Assets/textura fantasia/T_WindowGradient.png" id="2_taj51"]
+[ext_resource type="Material" uid="uid://nbbdrx8vma80" path="res://Assets/textura fantasia/M_rock23_tp.tres" id="3_p8bjo"]
+[ext_resource type="Material" uid="uid://fkhkir6t1hml" path="res://Assets/textura fantasia/M_crystal_blue.tres" id="4_yioem"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nkfe"]
+albedo_color = Color(0.83137256, 0.6862745, 0.21568628, 1)
+metallic = 1.0
+metallic_texture = ExtResource("2_taj51")
+roughness = 0.1
+normal_enabled = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_dklp6"]
+material = SubResource("StandardMaterial3D_3nkfe")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dklp6"]
+material = ExtResource("3_p8bjo")
+top_radius = 1.0
+height = 2.5
+radial_segments = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_dklp6"]
+lightmap_size_hint = Vector2i(17, 17)
+material = ExtResource("4_yioem")
+flip_faces = true
+height = 2.0
+radial_segments = 5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dklp6"]
+radius = 2.0825195
+height = 9.033203
+
+[node name="PilarCristal" type="StaticBody3D" unique_id=626279724]
+script = ExtResource("1_5wadq")
+
+[node name="BaseEsfera" type="MeshInstance3D" parent="." unique_id=2144359891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5086443, 0)
+mesh = SubResource("TorusMesh_dklp6")
+
+[node name="Pilar" type="MeshInstance3D" parent="." unique_id=1290998715]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("CylinderMesh_dklp6")
+
+[node name="Cristal" type="MeshInstance3D" parent="." unique_id=1133519329]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4.306, 0)
+mesh = SubResource("SphereMesh_dklp6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=746741297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.062445, 0)
+light_color = Color(0.14509805, 1, 1, 1)
+light_energy = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=825050387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12240076, 1.6279297, -0.34180498)
+shape = SubResource("CapsuleShape3D_dklp6")

@@ -58,12 +58,10 @@ func play_anim(anim_key: String, custom_blend: float = -1.0) -> void:
 				animation_player.play(anim_name, custom_blend)
 		else:
 			print("Aviso: La animación '" + anim_name + "' no existe en el AnimationPlayer.")
-		
-# En tu script Player.gd
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Si está congelado en un diálogo, ignoramos los movimientos de cámara e interacciones
-	if esta_congelado:
+	# Si el ratón está libre (jugador muerto o menú abierto) o el jugador está congelado, ignorar controles de cámara/interacción
+	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE or esta_congelado:
 		return
 	
 	# Rotación horizontal con el ratón
@@ -99,18 +97,21 @@ func _unhandled_input(event: InputEvent) -> void:
 				objetivo = objetivo.get_parent()
 
 func _input(event: InputEvent) -> void:
-	# Si presionas ESC, liberas el ratón (útil para salir del juego o entrar a menús)[cite: 7]
+	# 1. Si el ratón ya está visible (por estar muerto o en menú), no procesamos entrada de ratón ni cámara
+	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		return
+
+	# 2. Si presionas ESC (ui_cancel), liberas el ratón manualmente
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
-# Función que llamará el enemigo cuando te golpee[cite: 7]
+
 func recibir_dano_jugador(cantidad: float) -> void:
-	# 1. Aplicamos el dano a través del Autoload global PlayerStats[cite: 7]
+	# 1. Aplicamos el dano a través del Autoload global PlayerStats
 	if PlayerStats:
 		PlayerStats.take_damage(cantidad)
 		print("¡Jugador herido! dano recibido: ", cantidad)
 	
-	# 2. Buscamos la máquina de estados de salud y activamos su reacción de golpe[cite: 7]
+	# 2. Buscamos la máquina de estados de salud y activamos su reacción de golpe
 	var health_state_machine = get_node_or_null("HealthStateController") 
 	if health_state_machine and health_state_machine.has_method("take_damage_and_react"):
 		health_state_machine.take_damage_and_react(cantidad)
@@ -118,7 +119,7 @@ func recibir_dano_jugador(cantidad: float) -> void:
 func ganar_experiencia(cantidad: int) -> void:
 	experiencia_actual += cantidad
 	print("Experiencia total: ", experiencia_actual)
-	emit_signal("experiencia_cambiada", experiencia_actual) # Avisamos a quien esté escuchando[cite: 7]
+	emit_signal("experiencia_cambiada", experiencia_actual) # Avisamos a quien esté escuchando
 
 # Función puente para que la puerta o cofres comprueben si tienes una llave válida
 func obtener_llave_en_inventario(nivel_requerido: int) -> ItemData:

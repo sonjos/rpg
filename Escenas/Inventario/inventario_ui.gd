@@ -211,3 +211,8 @@ func actualizar_objetos_clave() -> void:
 			slot_ui.actualizar_slot(null, 0)
 			
 		box_clave.add_child(slot_ui)
+
+func ocultar_hud_por_completo() -> void:
+	visible = false
+	set_process(false)
+	set_physics_process(false)

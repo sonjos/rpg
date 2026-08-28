@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bh8kx6bn2sfs1"]
 
-[ext_resource type="Texture2D" uid="uid://bticphrw2ydx7" path="res://Assets/misiones/colmillo de sombra.jpg" id="1_3mjtp"]
+[ext_resource type="Texture2D" uid="uid://br1sgyclkiw4c" path="res://Assets/Imagenes/colmillo de sombra.png" id="1_3mjtp"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_k5rwk"]
 
 [resource]

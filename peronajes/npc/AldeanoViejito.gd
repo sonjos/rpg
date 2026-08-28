@@ -3,12 +3,17 @@ class_name AldeanoViejito
 
 enum PasoTutorial { 
 	INICIO, 
+	TEXTO_TUTORIAL, 
 	ESPERANDO_MOVIMIENTO, 
+	ESPERANDO_SALTO,
+	ESPERANDO_CORRER,
 	ESPERANDO_CAMARA, 
 	ESPERANDO_ATAQUE, 
 	ESPERANDO_BLOQUEO, 
 	ESPERANDO_RODAR, 
+	ESPERANDO_AGARRAR,
 	ESPERANDO_INVENTARIO, 
+	ESPERANDO_MISIONES,
 	FINALIZADO 
 }
 
@@ -17,21 +22,16 @@ var paso_actual: PasoTutorial = PasoTutorial.INICIO
 @export var nombre_npc: String = "Anciano Mateo"
 @export var recompensa_exp: int = 150
 
-
 @onready var cartel_interaccion: Label3D = $CartelInteraccion
 @onready var anim_player: AnimationPlayer = $Monk2/AnimationPlayer if has_node("Monk2/AnimationPlayer") else null
 
 var jugador_en_rango: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity", 9.8)
 
-# Control para verificar si se movieron en todas las direcciones
-var teclas_movimiento_usadas: Dictionary = {"W": false, "A": false, "S": false, "D": false}
-
 func _ready() -> void:
 	if cartel_interaccion:
 		cartel_interaccion.text = "[Z] Hablar con Mateo"
 		cartel_interaccion.hide()
-
 
 	if anim_player:
 		if not anim_player.animation_finished.is_connected(_on_animation_finished):
@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	_comprobar_progreso_tutorial()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if jugador_en_rango and (event.is_action_pressed("Interactuar") or event.is_action_pressed("ui_accept") or Input.is_key_pressed(KEY_Z)):
+	if jugador_en_rango and event.is_action_pressed("Interactuar"):
 		get_viewport().set_input_as_handled()
 		interactuar()
 
@@ -62,75 +62,113 @@ func interactuar(_player = null):
 
 	match paso_actual:
 		PasoTutorial.INICIO:
+			_mostrar_mensaje("""¡Muchacho, al fin despiertas! Las campanas del templo no han dejado de sonar.
+Los cristales del perímetro se han apagado tras la traición de Malakor... Si vas a salir al bosque,
+al menos aprende a defenderte. No queremos que la última esperanza acabe en el estómago de un lobo.""")
+			paso_actual = PasoTutorial.TEXTO_TUTORIAL
+
+		PasoTutorial.TEXTO_TUTORIAL:
 			_reproducir_animacion("PickUp")
-			_mostrar_mensaje("¡Bienvenido al Valle! Usa [W] para avanzar, [S] para retroceder, [A] para la izquierda y [D] para la derecha. ¡Pruébalos!")
+			_mostrar_mensaje("¡Bienvenido al Valle! Usa [WASD] para moverte por el mapa.")
 			paso_actual = PasoTutorial.ESPERANDO_MOVIMIENTO
 
 		PasoTutorial.ESPERANDO_MOVIMIENTO:
-			_mostrar_mensaje("Para moverte usa: [W] Avanzar, [S] Retroceder, [A] Izquierda, [D] Derecha. Muévete un poco.")
+			_mostrar_mensaje("Muévete usando las teclas [W], [A], [S] o [D].")
+
+		PasoTutorial.ESPERANDO_SALTO:
+			_mostrar_mensaje("Presiona [ESPACIO] para SALTAR.")
+
+		PasoTutorial.ESPERANDO_CORRER:
+			_mostrar_mensaje("Mantén presionado [SHIFT] mientras te mueves para CORRER.")
 
 		PasoTutorial.ESPERANDO_CAMARA:
-			_mostrar_mensaje("Mueve la cámara arrastrando o moviendo el RATÓN para observar a tu alrededor.")
+			_mostrar_mensaje("Mueve el RATÓN para orientar la CÁMARA a tu alrededor.")
 
 		PasoTutorial.ESPERANDO_ATAQUE:
 			_reproducir_animacion("Attack")
-			_mostrar_mensaje("Aprende a combatir: Presiona el CLICK IZQUIERDO del ratón para realizar un ataque.")
+			_mostrar_mensaje("Presiona el [CLICK IZQUIERDO] del ratón para realizar un ATAQUE.")
 
 		PasoTutorial.ESPERANDO_BLOQUEO:
-			_mostrar_mensaje("Para defenderte de los golpes enemigos, mantén presionada la tecla [E] para BLOQUEAR.")
+			_mostrar_mensaje("Mantén presionada la tecla [E] para BLOQUEAR.")
 
 		PasoTutorial.ESPERANDO_RODAR:
-			_mostrar_mensaje("Si necesitas esquivar un ataque rápido, presiona [Q] para RODAR por el suelo.")
+			_mostrar_mensaje("Presiona [Q] para RODAR y esquivar un golpe.")
+
+		PasoTutorial.ESPERANDO_AGARRAR:
+			_mostrar_mensaje("Presiona la tecla [F] para AGARRAR u interactuar con objetos cercanos.")
 
 		PasoTutorial.ESPERANDO_INVENTARIO:
-			_mostrar_mensaje("Para revisar tus objetos y equipamiento, presiona la tecla [SHIFT] para abrir el INVENTARIO.")
+			_mostrar_mensaje("Presiona la tecla [TAB] para abrir tu INVENTARIO.")
+
+		PasoTutorial.ESPERANDO_MISIONES:
+			_mostrar_mensaje("Presiona la tecla [M] para revisar tu Cuaderno de MISIONES.")
 
 		PasoTutorial.FINALIZADO:
 			_reproducir_animacion("PickUp")
-			_mostrar_mensaje("¡Ya dominas los controles! Recuerda usar [Z] para hablar con los aldeanos. Ve con el Herrero Eldrin.")
+			_mostrar_mensaje("Las campanas han cesado... Ve al cristal del perímetro y reactívalo antes de que las sombras rodeen el poblado.")
 
 func _comprobar_progreso_tutorial() -> void:
 	match paso_actual:
 		PasoTutorial.ESPERANDO_MOVIMIENTO:
-			if Input.is_key_pressed(KEY_W): teclas_movimiento_usadas["W"] = true
-			if Input.is_key_pressed(KEY_A): teclas_movimiento_usadas["A"] = true
-			if Input.is_key_pressed(KEY_S): teclas_movimiento_usadas["S"] = true
-			if Input.is_key_pressed(KEY_D): teclas_movimiento_usadas["D"] = true
+			if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+				paso_actual = PasoTutorial.ESPERANDO_SALTO
+				_mostrar_mensaje("¡Bien! Ahora prueba a SALTAR presionando [ESPACIO].")
 
-			# Comprueba si ha pulsado las direcciones principales
-			if teclas_movimiento_usadas["W"] or teclas_movimiento_usadas["A"] or teclas_movimiento_usadas["S"] or teclas_movimiento_usadas["D"]:
+		PasoTutorial.ESPERANDO_SALTO:
+			if Input.is_action_just_pressed("jump"):
+				paso_actual = PasoTutorial.ESPERANDO_CORRER
+				_mostrar_mensaje("¡Buen salto! Ahora mantén [SHIFT] para CORRER unos pasos.")
+
+		PasoTutorial.ESPERANDO_CORRER:
+			if Input.is_action_pressed("Correr") and (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")):
 				paso_actual = PasoTutorial.ESPERANDO_CAMARA
-				_mostrar_mensaje("¡Bien hecho! Ahora mueve el RATÓN para orientar la CÁMARA a tu alrededor.")
+				_mostrar_mensaje("¡Agilidad impecable! Mueve el RATÓN para controlar la CÁMARA.")
 
 		PasoTutorial.ESPERANDO_CAMARA:
 			var event_mouse = Input.get_last_mouse_velocity()
 			if event_mouse.length() > 100.0:
 				paso_actual = PasoTutorial.ESPERANDO_ATAQUE
 				_reproducir_animacion("Attack")
-				_mostrar_mensaje("¡Excelente control visual! Ahora realiza un ATAQUE pulsando el CLICK IZQUIERDO del ratón.")
+				_mostrar_mensaje("¡Excelente! Ahora realiza un ATAQUE pulsando el [CLICK IZQUIERDO].")
 
 		PasoTutorial.ESPERANDO_ATAQUE:
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or Input.is_action_just_pressed("ataque"):
+			if Input.is_action_just_pressed("ataque"):
 				paso_actual = PasoTutorial.ESPERANDO_BLOQUEO
-				_mostrar_mensaje("¡Buen golpe! Ahora mantén presionada la tecla [E] para BLOQUEAR los ataques.")
+				_mostrar_mensaje("¡Buen golpe! Mantén presionada la tecla [E] para BLOQUEAR.")
 
 		PasoTutorial.ESPERANDO_BLOQUEO:
-			if Input.is_key_pressed(KEY_E) or Input.is_action_just_pressed("bloqueo"):
+			if Input.is_action_pressed("Bloqueo"):
 				paso_actual = PasoTutorial.ESPERANDO_RODAR
-				_mostrar_mensaje("¡Buena defensa! Ahora pulsa la tecla [Q] para RODAR y esquivar rápidamente.")
+				_mostrar_mensaje("¡Defensa lista! Presiona [Q] para RODAR y esquivar.")
 
 		PasoTutorial.ESPERANDO_RODAR:
-			if Input.is_key_pressed(KEY_Q) or Input.is_action_just_pressed("rodar"):
+			if Input.is_action_just_pressed("Rodar"):
+				paso_actual = PasoTutorial.ESPERANDO_AGARRAR
+				_mostrar_mensaje("¡Gran esquiva! Presiona la tecla [F] para AGARRAR objetos.")
+
+		PasoTutorial.ESPERANDO_AGARRAR:
+			if Input.is_action_just_pressed("Agarrar"):
 				paso_actual = PasoTutorial.ESPERANDO_INVENTARIO
 				_reproducir_animacion("PickUp")
-				_mostrar_mensaje("¡Gran maniobra! Por último, presiona la tecla [SHIFT] para abrir tu INVENTARIO.")
+				_mostrar_mensaje("¡Perfecto! Ahora presiona [TAB] para abrir el INVENTARIO.")
 
 		PasoTutorial.ESPERANDO_INVENTARIO:
-			if Input.is_key_pressed(KEY_SHIFT) or Input.is_action_just_pressed("inventario"):
+			if Input.is_action_just_pressed("Inventario"):
+				paso_actual = PasoTutorial.ESPERANDO_MISIONES
+				_mostrar_mensaje("¡Bien hecho! Por último, presiona [M] para abrir el panel de MISIONES.")
+
+		PasoTutorial.ESPERANDO_MISIONES:
+			if Input.is_action_just_pressed("Misiones"):
 				paso_actual = PasoTutorial.FINALIZADO
 				PlayerStats.ganar_experiencia(recompensa_exp)
 				_reproducir_animacion("PickUp")
-				_mostrar_mensaje("¡Tutorial completado! Has aprendido: WASD (mover), RATÓN (cámara), CLICK IZQ (atacar), E (bloquear), Q (rodar), SHIFT (inventario) y Z (interactuar). Has ganado %d EXP." % recompensa_exp)
+				
+				# Notifica al gestor del evento para detener el sonido de las campanas
+				var valle = get_tree().get_first_node_in_group("ValleManager")
+				if valle and valle.has_method("detener_campanas"):
+					valle.detener_campanas()
+
+				_mostrar_mensaje("¡Entrenamiento completado! Has ganado %d EXP. Las campanas han parado, pero el peligro sigue. Ve al Cristal del Perímetro." % recompensa_exp)
 
 func _reproducir_animacion(nombre_anim: String) -> void:
 	if anim_player and anim_player.has_animation(nombre_anim):
@@ -147,9 +185,7 @@ func _on_animation_finished(_anim_name: StringName) -> void:
 	_reproducir_animacion_loop("Idle")
 
 func _mostrar_mensaje(texto: String) -> void:
-	# Busca primero si existe la nueva UI instanciada
 	var ui_nueva = get_tree().get_first_node_in_group("HUD")
-	
 	if ui_nueva and ui_nueva.has_method("mostrar_dialogo"):
 		ui_nueva.mostrar_dialogo(nombre_npc, texto)
 	else:

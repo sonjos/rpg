@@ -40,6 +40,11 @@ var equipo : Dictionary = {
 	"clave": null
 }
 
+var jefes_derrotados: Dictionary = {
+	"guardian_caido": false,
+	"sariel": false,
+	"malakor": false
+}
 func _ready() -> void:
 	pass
 

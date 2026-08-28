@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bgqma0i6l3gsn"]
 
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_4b5bh"]
-[ext_resource type="Texture2D" uid="uid://6h5gvt1c1cab" path="res://Assets/misiones/Metal Estelar.jpg" id="1_dyofk"]
+[ext_resource type="Texture2D" uid="uid://bkbgckq0rfrsg" path="res://Assets/Imagenes/Metal Estelar.png" id="1_dyofk"]
 
 [resource]
 script = ExtResource("1_4b5bh")

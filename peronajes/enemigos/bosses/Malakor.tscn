@@ -13,14 +13,19 @@ radius = 1.1865643
 [node name="Malakor" type="CharacterBody3D" unique_id=521659159]
 collision_layer = 64
 script = ExtResource("1_m4ikh")
-es_malakor = true
-nombre_jefe = "Malakor"
+es_guardian_caido = null
+es_malakor = null
+es_sariel = null
+nombre_jefe = null
 max_health = 750.0
 attack_power = 50.0
-special_attack_power = 80.0
-move_speed = 4.0
-xp_reward = 1000
-gold_reward = 2500
+special_attack_power = null
+move_speed = null
+xp_reward = null
+gold_reward = null
+chase_range = null
+attack_range = null
+special_attack_cooldown = null
 
 [node name="Knight_Golden_Male" parent="." unique_id=1054447795 instance=ExtResource("2_lssb6")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

@@ -44,7 +44,11 @@ func _ready() -> void:
 			
 	_actualizar_interfaz()
 	_actualizar_interfaz_mision()
-			
+	
+	if "creditos" in get_tree().current_scene.scene_file_path.to_lower():
+		visible = false
+		set_process(false)
+		set_physics_process(false)
 func _on_btn_rechazar_pressed() -> void:
 	ocultar_dialogo()
 	if _callback_opcion_secundaria.is_valid():

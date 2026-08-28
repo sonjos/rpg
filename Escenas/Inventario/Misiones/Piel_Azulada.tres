@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c0tbv2mkxmwxk"]
 
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_asenj"]
-[ext_resource type="Texture2D" uid="uid://bpf8xgm30ta13" path="res://Assets/misiones/piel azulada.jpg" id="1_p5jss"]
+[ext_resource type="Texture2D" uid="uid://hq0mbejvwjvc" path="res://Assets/Imagenes/piel azulada.png" id="1_p5jss"]
 
 [resource]
 script = ExtResource("1_asenj")

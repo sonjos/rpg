@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c5yjtm1wohjdh"]
 
-[ext_resource type="Texture2D" uid="uid://blldkhs0soaig" path="res://Assets/misiones/Runa Anti-Embrujo.jpg" id="1_bic2u"]
+[ext_resource type="Texture2D" uid="uid://brd1jmyroagw2" path="res://Assets/Imagenes/Runa Anti-Embrujo.png" id="1_bic2u"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_fhyi0"]
 
 [resource]

@@ -1,77 +1,40 @@
-extends Enemigo_state_machine
+# res://states/Muerte.gd
+extends State
 
-@export_group("Recompensas")
-@export var experiencia_otorgada: int = 50
-@export var monedas_otorgadas: int = 10
-@export var tabla_botin: Array[LootEntry] = []
-@export_range(0.0, 1.0) var probabilidad_drop_general: float = 0.8
-@export var escena_item_drop: PackedScene
-
-func enter(_msg: Dictionary = {}) -> void:
-	if character:
-		character.velocity = Vector3.ZERO
-		state_machine.play_anim("Death")
-		
-		if PlayerStats.has_method("ganar_experiencia"):
-			PlayerStats.ganar_experiencia(experiencia_otorgada)
-		
-		var bono_saqueo = PlayerStats.saqueo if "saqueo" in PlayerStats else 0.0
-		var monedas_finales = int(monedas_otorgadas * (1.0 + (bono_saqueo * 0.05)))
-		
-		if PlayerStats.has_method("ganar_monedas"):
-			PlayerStats.ganar_monedas(monedas_finales)
-		
-		generar_loot_con_saqueo()
-		PlayerStats.reportar_enemigo_muerto()
-		
-		# Espera 1.2 segundos para reproducir la animación de muerte completa antes de borrar el nodo
-		await get_tree().create_timer(1.2).timeout
-		if is_instance_valid(character):
-			character.queue_free()
-
-func generar_loot_con_saqueo() -> void:
-	var saqueo_jugador: float = PlayerStats.saqueo if "saqueo" in PlayerStats else 0.0
-	var prob_efectiva: float = clamp(probabilidad_drop_general + (saqueo_jugador * 0.02), 0.0, 1.0)
+func enter() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.set_use_accumulated_input(false)
+	character.velocity = Vector3.ZERO
+	character.play_anim("death")
 	
-	if tabla_botin.size() == 0 or randf() > prob_efectiva:
-		return
+	var ui = get_tree().root.find_child("JuegoUI", true, false)
+	if ui and ui.has_node("BtnRevivir"):
+		ui.get_node("BtnRevivir").show()
 	
-	var peso_total: float = 0.0
-	var pesos_modificados: Array[float] = []
+	if not PlayerStats.is_connected("revive_player", _on_revive):
+		PlayerStats.connect("revive_player", _on_revive)
+
+func _on_revive(nueva_posicion: Vector3) -> void:
+	if character is Node3D:
+		character.global_position = nueva_posicion
+	elif owner is Node3D:
+		owner.global_position = nueva_posicion
 	
-	for entrada in tabla_botin:
-		if not entrada or not entrada.objeto:
-			continue
-			
-		var peso_base: float = entrada.peso
-		var factor_rareza: float = 100.0 / max(peso_base, 1.0)
-		var peso_final: float = peso_base + (saqueo_jugador * factor_rareza * 0.5)
+	var ui = get_tree().root.find_child("JuegoUI", true, false)
+	if ui and ui.has_node("BtnRevivir"):
+		ui.get_node("BtnRevivir").hide()
 		
-		pesos_modificados.append(peso_final)
-		peso_total += peso_final
-			
-	if peso_total <= 0.0:
-		return
+	if state_machine:
+		state_machine.transition_to("Quieto")
 
-	var numero_azar: float = randf_range(0.0, peso_total)
-	var peso_acumulado: float = 0.0
-	var item_elegido: Resource = null
+func exit() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	var indice_valido: int = 0
-	for entrada in tabla_botin:
-		if not entrada or not entrada.objeto:
-			continue
-			
-		peso_acumulado += pesos_modificados[indice_valido]
-		if numero_azar <= peso_acumulado:
-			item_elegido = entrada.objeto
-			break
-		indice_valido += 1
+	if PlayerStats.is_connected("revive_player", _on_revive):
+		PlayerStats.disconnect("revive_player", _on_revive)
 
-	if item_elegido:
-		# Forzamos que vaya directo al inventario siempre
-		if InventarioManager and InventarioManager.has_method("recoger_item"):
-			InventarioManager.recoger_item(item_elegido)
-			print("¡Item añadido al inventario: ", item_elegido.nombre, "!")
-		else:
-			print("Error: InventarioManager no encontrado.")
+func physics_update(_delta: float) -> void:
+	character.move_and_slide()
+
+func handle_input(_event: InputEvent) -> void:
+	pass

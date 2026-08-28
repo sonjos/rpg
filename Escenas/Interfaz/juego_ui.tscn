@@ -27,7 +27,7 @@ bg_color = Color(0.09803922, 0.043137256, 0.14901961, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0minr"]
 bg_color = Color(0.09803922, 0.043137256, 0.14901961, 1)
 
-[node name="JuegoUI" type="CanvasLayer" unique_id=302991265]
+[node name="JuegoUI" type="CanvasLayer" unique_id=302991265 groups=["HUD"]]
 script = ExtResource("1_jh6d4")
 
 [node name="BarraVida" type="TextureProgressBar" parent="." unique_id=294806784]

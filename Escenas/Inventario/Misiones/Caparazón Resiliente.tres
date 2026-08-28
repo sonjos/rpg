@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dblaxlccsaukr"]
 
-[ext_resource type="Texture2D" uid="uid://namvexqs3xns" path="res://Assets/misiones/Caparazón Resiliente.jpg" id="1_6wue5"]
+[ext_resource type="Texture2D" uid="uid://cgg7riao8vaeh" path="res://Assets/Imagenes/Caparazon Resilente.png" id="1_6wue5"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_ijjph"]
 
 [resource]

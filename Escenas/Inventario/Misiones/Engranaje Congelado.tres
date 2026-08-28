@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dsplbpj8e1g2n"]
 
-[ext_resource type="Texture2D" uid="uid://baf81fagotb4h" path="res://Assets/misiones/Engranaje Congelado.jpg" id="1_0pmtd"]
+[ext_resource type="Texture2D" uid="uid://b3xt4g3a8d31x" path="res://Assets/Imagenes/Engranaje Congelado.png" id="1_0pmtd"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_iqo2v"]
 
 [resource]

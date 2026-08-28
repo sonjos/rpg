@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b2r7h33o5onpb"]
 
-[ext_resource type="Texture2D" uid="uid://c35xphttu2epa" path="res://Assets/misiones/DragonStone.jpg" id="1_dglvx"]
+[ext_resource type="Texture2D" uid="uid://bk0ypo04xh1xi" path="res://Assets/Imagenes/DragonStone.png" id="1_dglvx"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_t751w"]
 
 [resource]

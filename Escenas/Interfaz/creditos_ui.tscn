@@ -67,9 +67,6 @@ La Leyenda de la Espada del Rayo
 Tu nombre quedará grabado en la historia.
 ¡Gracias por jugar!"
 
-[node name="BotonMenuPrincipal" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1778576088]
-layout_mode = 2
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=879701657]
 stream = ExtResource("2_7hul5")
 autoplay = true

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c5byjmfth4ega"]
 
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_kgxpa"]
-[ext_resource type="Texture2D" uid="uid://dkywg72n2kjev" path="res://Assets/misiones/Escama de Magma.jpg" id="1_uy4hn"]
+[ext_resource type="Texture2D" uid="uid://bm62bn3q5s2dk" path="res://Assets/Imagenes/Escama de Magma.png" id="1_uy4hn"]
 
 [resource]
 script = ExtResource("1_kgxpa")

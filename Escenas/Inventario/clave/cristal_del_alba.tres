@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d0eh27xhclgu4"]
 
-[ext_resource type="Texture2D" uid="uid://blq7j2nmyf2jr" path="res://Assets/misiones/Cristal del alba.jpg" id="1_1hsw0"]
+[ext_resource type="Texture2D" uid="uid://dctb2manoesmb" path="res://Assets/Imagenes/Cristal del alba.png" id="1_1hsw0"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_wbqxn"]
 
 [resource]

@@ -7,8 +7,10 @@ var current_state: EstadoJefe = EstadoJefe.IDLE
 
 # --- CONFIGURACIÓN DE PARÁMETROS DEL JEFE ---
 @export_group("Tipo de Jefe")
+@export var es_guardian_caido: bool = false
 @export var es_malakor: bool = false
 @export var es_sariel: bool = false
+
 
 @export_group("Estadísticas")
 @export var nombre_jefe: String = "Guardián Caído"
@@ -39,6 +41,18 @@ var posicion_inicial: Vector3
 var rotacion_inicial: Vector3
 
 func _ready() -> void:
+	# 0. COMPROBACIÓN DIRECTA DE GUARDADO AL INSTANCIAR
+	if "jefes_derrotados" in PlayerStats:
+		if es_guardian_caido and PlayerStats.jefes_derrotados.get("guardian_caido", false):
+			queue_free()
+			return
+		elif es_sariel and PlayerStats.jefes_derrotados.get("sariel", false):
+			queue_free()
+			return
+		elif es_malakor and PlayerStats.jefes_derrotados.get("malakor", false):
+			queue_free()
+			return
+
 	current_health = max_health
 	posicion_inicial = global_position
 	rotacion_inicial = global_rotation
@@ -215,34 +229,51 @@ func _procesar_muerte() -> void:
 	PlayerStats.ganar_experiencia(xp_reward)
 	PlayerStats.ganar_monedas(gold_reward)
 	
-	# Si este jefe en concreto es Malakor (el jefe final)
+	# REGISTRAR DERROTA EN PLAYERSTATS
+	if "jefes_derrotados" in PlayerStats:
+		if es_guardian_caido:
+			PlayerStats.jefes_derrotados["guardian_caido"] = true
+		elif es_sariel:
+			PlayerStats.jefes_derrotados["sariel"] = true
+		elif es_malakor:
+			PlayerStats.jefes_derrotados["malakor"] = true
+
+	# Encendido de pilares
+	if es_guardian_caido:
+		get_tree().call_group("pilar_guardian", "encender")
+	elif es_sariel:
+		get_tree().call_group("pilar_sariel", "encender")
+	elif es_malakor:
+		get_tree().call_group("pilar_malakor", "encender")
+	
 	if es_malakor:
-		# 1. Cargamos el recurso del Cristal del Alba
 		var cristal_alba = load("res://Escenas/Inventario/clave/cristal_del_alba.tres")
-		
 		if cristal_alba:
-			# Opción A: Guardarlo directamente en la ranura de clave que tienes en PlayerStats
-			if "clave" in PlayerStats.equipo:
-				PlayerStats.equipo["clave"] = cristal_alba
-				PlayerStats.emit_signal("stats_changed")
+			# Guardar directamente en la sección de objetos clave del inventario
+			InventarioManager.recoger_item(cristal_alba, 1)
 			
-			# Opción B: Si también quieres asegurarte de meterlo en el Inventario general, descomenta la línea de abajo:
-			# InventarioManager.recoger_item(cristal_alba)
-			
-		# 2. Mostramos un mensaje de victoria en la caja de diálogo
 		var caja_dialogo = get_tree().get_first_node_in_group("CajaDialogo")
 		if caja_dialogo and caja_dialogo.has_method("mostrar_dialogo"):
 			caja_dialogo.mostrar_dialogo("Sistema", "¡Has derrotado a Malakor y obtenido el Cristal del Alba!")
 		
-		# 3. Instanciamos y lanzamos los créditos de la victoria
+		# Esperar 2 segundos antes de registrar el archivo de guardado
+		await get_tree().create_timer(2.0).timeout
+		
+		if has_node("/root/SaveManager"):
+			SaveManager.guardar_partida(1)
+			print("Partida guardada con Malakor derrotado.")
+		
+		# Esperar 2 segundos más para desplegar créditos
+		await get_tree().create_timer(2.0).timeout
+		
 		var creditos = preload("res://Escenas/Interfaz/creditos_ui.tscn").instantiate()
 		get_tree().root.add_child(creditos)
-	
-	await get_tree().create_timer(3.0).timeout
-	queue_free()
-	
-	await get_tree().create_timer(3.0).timeout
-	queue_free()
+		
+		# Eliminar únicamente al finalizar toda la secuencia
+		queue_free()
+	else:
+		await get_tree().create_timer(1.0).timeout
+		queue_free()
 
 func _ejecutar_golpe_melee() -> void:
 	if player_target and global_position.distance_to(player_target.global_position) <= attack_range:
@@ -286,12 +317,17 @@ func _mirar_hacia(pos: Vector3) -> void:
 		rotate_object_local(Vector3.UP, PI)
 
 func _jugador_tiene_espada_rayo() -> bool:
-	for item in PlayerStats.inventario:
-		if item and item.nombre == "Espada_del_Rayo":
+	# 1. Comprobar en la mochila (InventarioManager)
+	for slot_data in InventarioManager.inventario:
+		if slot_data.has("item") and slot_data["item"] is ItemData and slot_data["item"].nombre == "Espada_del_Rayo":
 			return true
+			
+	# 2. Comprobar en el equipamiento (PlayerStats)
 	for slot in PlayerStats.equipo:
-		if PlayerStats.equipo[slot] and PlayerStats.equipo[slot].nombre == "Espada_del_Rayo":
+		var item_equipado = PlayerStats.equipo[slot]
+		if item_equipado is ItemData and item_equipado.nombre == "Espada_del_Rayo":
 			return true
+			
 	return false
 
 func _on_timer_especial_timeout() -> void:

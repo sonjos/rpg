@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://44qklgl0rd81"]
 
-[ext_resource type="Texture2D" uid="uid://buncid7ult7x7" path="res://Assets/misiones/Fragmento de Estatuaria.jpg" id="1_tqntb"]
+[ext_resource type="Texture2D" uid="uid://dse6y84k0o1dg" path="res://Assets/Imagenes/Fragmento de Estatuaria.png" id="1_tqntb"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_ucg7i"]
 
 [resource]

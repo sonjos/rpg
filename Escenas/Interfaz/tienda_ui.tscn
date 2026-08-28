@@ -35,7 +35,7 @@
 [ext_resource type="Resource" uid="uid://bni8oraskrvni" path="res://Escenas/Inventario/consumibles/pocion_fuerza_pequeña.tres" id="33_lnwbp"]
 [ext_resource type="Resource" uid="uid://4makipk2samt" path="res://Escenas/Inventario/consumibles/pocion_saqueo_grande.tres" id="34_p3w73"]
 [ext_resource type="Resource" uid="uid://brx7nijoeyeur" path="res://Escenas/Inventario/consumibles/pocion_saqueo_pequeña.tres" id="35_rjb3w"]
-[ext_resource type="Resource" uid="uid://bsufb3mxlvief" path="res://Escenas/Inventario/consumibles/pocio_agilidad_grande.tres" id="36_cupcf"]
+[ext_resource type="Resource" uid="uid://bsufb3mxlvief" path="res://Escenas/Inventario/consumibles/pocion_agilidad_grande.tres" id="36_cupcf"]
 [ext_resource type="Texture2D" uid="uid://bdj1waij5dcot" path="res://Assets/ui-pack-adventure/PNG/Default/button_grey_close.png" id="37_p3w73"]
 [ext_resource type="Texture2D" uid="uid://beq71omt5j2q8" path="res://Assets/ui-pack-adventure/PNG/Default/panel_border_grey.png" id="38_rjb3w"]
 [ext_resource type="Texture2D" uid="uid://cxuflckgx0j03" path="res://Assets/Botones/PNG/Double/Border/panel-border-017.png" id="39_cupcf"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b6ijllji32wrc"]
 
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_6vxcg"]
-[ext_resource type="Texture2D" uid="uid://6e44pnuudrse" path="res://Assets/misiones/Núcleo de Sombra Pura.jpg" id="1_sjfe1"]
+[ext_resource type="Texture2D" uid="uid://cdo0q32c8q0rb" path="res://Assets/Imagenes/Núcleo de Sombra Pura.png" id="1_sjfe1"]
 
 [resource]
 script = ExtResource("1_6vxcg")

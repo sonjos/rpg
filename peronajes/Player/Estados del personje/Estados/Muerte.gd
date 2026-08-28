@@ -2,6 +2,9 @@
 extends State
 
 func enter() -> void:
+	# Liberar el cursor al morir para interactuar con la UI
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	character.velocity = Vector3.ZERO
 	character.play_anim("death")
 	
@@ -26,6 +29,9 @@ func _on_revive(nueva_posicion: Vector3) -> void:
 		state_machine.transition_to("Quieto")
 
 func exit() -> void:
+	# Volver a capturar el cursor al salir del estado de muerte
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	if PlayerStats.is_connected("revive_player", _on_revive):
 		PlayerStats.disconnect("revive_player", _on_revive)
 

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://broda56kxcsku"]
 
-[ext_resource type="Texture2D" uid="uid://5swl7faqnrxt" path="res://Assets/misiones/Cristal Térmico.jpg" id="1_136ka"]
+[ext_resource type="Texture2D" uid="uid://c72q7jnj82od5" path="res://Assets/Imagenes/Cristal Térmico.png" id="1_136ka"]
 [ext_resource type="Script" uid="uid://dh7vrwsuqsmfq" path="res://Escenas/Inventario/item_data.gd" id="1_umvqc"]
 
 [resource]

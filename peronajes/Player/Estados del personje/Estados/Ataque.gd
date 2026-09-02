@@ -1,16 +1,18 @@
 extends State
 
-# --- EXPORT PARA CONFIGURAR EL DAÑO DESDE EL INSPECTOR ---
-@export var dano_base: float = 15.0 # Cambia este valor directamente en el Inspector
-
 @onready var espada_colision: CollisionShape3D = $"../../HitboxAtaque/CollisionShape3D"
 
 var combo_step : int = 1
 var can_queue_next : bool = false
+var enemigos_golpeados_ataque1: Array = []  # Rastrear enemigos golpeados en attack_1
+var enemigos_golpeados_ataque2: Array = []  # Rastrear enemigos golpeados en attack_2
 
 func enter() -> void:
 	combo_step = 1
 	can_queue_next = false
+	enemigos_golpeados_ataque1.clear()  # Limpiar enemigos del ataque anterior
+	enemigos_golpeados_ataque2.clear()
+	
 	character.velocity.x = 0.0
 	character.velocity.z = 0.0
 	
@@ -48,6 +50,8 @@ func exit() -> void:
 		
 	combo_step = 1
 	can_queue_next = false
+	enemigos_golpeados_ataque1.clear()
+	enemigos_golpeados_ataque2.clear()
 
 func physics_update(delta: float) -> void:
 	if not character.is_on_floor():
@@ -79,6 +83,7 @@ func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ataque") and combo_step == 1 and can_queue_next:
 		combo_step = 2
 		can_queue_next = false
+		enemigos_golpeados_ataque2.clear()  # Limpiar para el segundo ataque
 		character.play_anim("attack_2")
 		
 		if espada_colision:
@@ -88,14 +93,28 @@ func handle_input(event: InputEvent) -> void:
 			hitbox.monitoring = true
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
+	# Determinar cuál lista de enemigos golpeados usar según el ataque actual
+	var enemigos_golpeados = enemigos_golpeados_ataque1 if combo_step == 1 else enemigos_golpeados_ataque2
+	
+	# Evitar aplicar daño múltiples veces al mismo enemigo en el mismo ataque
+	if body in enemigos_golpeados:
+		return
+	
 	# 1. Comprobación para enemigos normales con nodo Vida
 	var nodo_vida = body.get_node_or_null("Enemigo_state_machine/Vida")
-	var dano_total = dano_base + (PlayerStats.obtener_fuerza_total() if PlayerStats.has_method("obtener_fuerza_total") else 0.0)
+	var fuerza_total = PlayerStats.obtener_fuerza_total() if PlayerStats.has_method("obtener_fuerza_total") else 0.0
+	var dano_total = state_machine.attack_damage_base + fuerza_total
+	
+	print("ATAQUE CONECTADO - Daño Base: ", state_machine.attack_damage_base, " + Fuerza: ", fuerza_total, " = Total: ", dano_total)
 
 	if nodo_vida and nodo_vida.has_method("recibir_dano"):
+		enemigos_golpeados.append(body)  # Marcar como golpeado
 		nodo_vida.recibir_dano(dano_total)
-		PlayerStats.actualizar_vida_enemigo(nodo_vida.vida_actual, nodo_vida.vida_maxima)
+		var state_machine = body.get_node_or_null("Enemigo_state_machine")
+		if state_machine:
+			PlayerStats.actualizar_vida_enemigo(nodo_vida.vida_actual, state_machine.vida_maxima)
 	
 	# 2. Comprobación directa para Jefes (JefeBase)
 	elif body.has_method("take_damage"):
+		enemigos_golpeados.append(body)  # Marcar como golpeado
 		body.take_damage(dano_total)

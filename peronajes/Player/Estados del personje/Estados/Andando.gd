@@ -1,8 +1,6 @@
 # res://states/Andando.gd
 extends State
 
-@export var walk_speed : float = 5.0
-
 func enter() -> void: 
 	character.play_anim("walk")
 
@@ -11,7 +9,7 @@ func exit() -> void:
 
 func physics_update(_delta: float) -> void:
 	if not character.is_on_floor():
-		character.velocity.y -= 9.8 * _delta
+		character.velocity.y -= state_machine.gravity * _delta
 		
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	
@@ -24,15 +22,15 @@ func physics_update(_delta: float) -> void:
 		return
 
 	var direction = (character.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	character.velocity.x = direction.x * walk_speed
-	character.velocity.z = direction.z * walk_speed
+	character.velocity.x = direction.x * state_machine.walk_speed
+	character.velocity.z = direction.z * state_machine.walk_speed
 		
 	character.move_and_slide()
 
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and character.is_on_floor(): 
 		state_machine.transition_to("Saltar")
-	elif event.is_action_pressed("Rodar") and PlayerStats.current_stamina >= 20.0:
+	elif event.is_action_pressed("Rodar") and PlayerStats.current_stamina >= state_machine.roll_stamina_cost:
 		state_machine.transition_to("Rodar")
 	elif event.is_action_pressed("Agarrar"):
 		state_machine.transition_to("Agarrar")

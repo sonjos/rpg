@@ -128,7 +128,7 @@ func _mostrar_mensaje(texto: String) -> void:
 func _mirar_hacia(pos: Vector3) -> void:
 	var target = Vector3(pos.x, global_position.y, pos.z)
 	if global_position.distance_squared_to(target) > 0.001:
-		super.look_at(target, Vector3.UP) if "super" in self else look_at(target, Vector3.UP)
+		look_at(target, Vector3.UP)
 		rotate_object_local(Vector3.UP, PI)
 
 func _on_body_entered(body: Node3D) -> void:

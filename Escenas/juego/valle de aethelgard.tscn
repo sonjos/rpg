@@ -55,28 +55,39 @@ script = ExtResource("1_x53l8")
 audio_musica_valle = NodePath("AudioStreamPlayer")
 audio_campanas = NodePath("AudioStreamPlayer2")
 
+[node name="ValleAethelgard" parent="." unique_id=365648346 instance=ExtResource("1_p64u5")]
+
 [node name="Pilares" type="Node3D" parent="." unique_id=296402068]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 80.05824, 21.656065, -61.75307)
 
 [node name="PilarCristal" parent="Pilares" unique_id=626279724 instance=ExtResource("1_fidog")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.0664063, 0.10231304)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.4442148, 0.10231304)
+
+[node name="Pilar" parent="Pilares/PilarCristal" index="1" unique_id=1290998715]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.01215744, 0)
 
 [node name="CollisionShape3D" parent="Pilares/PilarCristal" index="4" unique_id=825050387]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.1328125, -0.20462608)
 shape = SubResource("CapsuleShape3D_0kpn1")
 
 [node name="PilarCristal2" parent="Pilares" unique_id=1052534308 instance=ExtResource("1_fidog")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -33.545223, 0.4576702, 34.68935)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -33.545223, -2.1000648, 34.68935)
 identificador_pilar = "pilar_malakor"
 color_magia = Color(0.96862745, 0.09803922, 1, 1)
 color_apagado = Color(0.40392157, 0.09803922, 1, 1)
+
+[node name="BaseEsfera" parent="Pilares/PilarCristal2" index="0" unique_id=2144359891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5580902, 0)
+
+[node name="Pilar" parent="Pilares/PilarCristal2" index="1" unique_id=1290998715]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.23047066, 0)
 
 [node name="CollisionShape3D" parent="Pilares/PilarCristal2" index="4" unique_id=825050387]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.1328125, -0.20462608)
 shape = SubResource("CapsuleShape3D_0kpn1")
 
 [node name="PilarCristal3" parent="Pilares" unique_id=334950007 instance=ExtResource("1_fidog")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.051791668, 36.848644)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2.4933372, 36.848644)
 identificador_pilar = "pilar_sariel"
 color_magia = Color(0, 0.83137256, 0.06666667, 1)
 color_apagado = Color(0, 0.1764706, 0.06666667, 1)
@@ -86,16 +97,16 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.1328125, -0.20462608)
 shape = SubResource("CapsuleShape3D_0kpn1")
 
 [node name="PilarCristal4" parent="Pilares" unique_id=473792175 instance=ExtResource("1_fidog")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -36.416553, 1.360733, -3.8626757)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -36.416553, -1.7783742, -3.8626757)
 color_magia = Color(0.92156863, 0.3019608, 0.078431375, 1)
 color_apagado = Color(0.92156863, 0.14901961, 0.078431375, 1)
+
+[node name="Pilar" parent="Pilares/PilarCristal4" index="1" unique_id=1290998715]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.025180817, 0)
 
 [node name="CollisionShape3D" parent="Pilares/PilarCristal4" index="4" unique_id=825050387]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.1328125, -0.20462608)
 shape = SubResource("CapsuleShape3D_0kpn1")
-
-[node name="ValleAethelgard" parent="." unique_id=1134904297 instance=ExtResource("1_p64u5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28341722, 0, 0)
 
 [node name="Player" parent="." unique_id=1756599763 instance=ExtResource("4_ayyaw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -13.121124, 5.2411947, 0)
@@ -115,7 +126,14 @@ shadow_enabled = true
 transform = Transform3D(-0.59602565, 0, 0.8029657, 0, 1, 0, -0.8029657, 0, -0.59602565, -20.376019, 0, 16.970879)
 
 [node name="CasaMedieval2" parent="Aldea" unique_id=1376324435 instance=ExtResource("3_cmnx8")]
-transform = Transform3D(0.6951229, 0, 0.7188915, 0, 1, 0, -0.7188915, 0, 0.6951229, -26.165226, 0, -20.853058)
+transform = Transform3D(0.6951229, 0, 0.7188915, 0, 1, 0, -0.7188915, 0, 0.6951229, -38.189762, 7.8896685, -33.074757)
+
+[node name="Lantern_Wall3" parent="Aldea/CasaMedieval2" unique_id=766128539 instance=ExtResource("21_wca4l")]
+transform = Transform3D(1.907156, 0, -0.6022897, 0, 2, 0, 0.6022897, 0, 1.907156, 0.8876753, 4.499562, 0.36068726)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Aldea/CasaMedieval2/Lantern_Wall3" unique_id=849152590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.071502686, 0.29766297, 0.80427)
+light_color = Color(1, 0.8392157, 0.08627451, 1)
 
 [node name="CasaMedieval3" parent="Aldea" unique_id=14598487 instance=ExtResource("3_cmnx8")]
 transform = Transform3D(0.6043769, 0, -0.7966988, 0, 1, 0, 0.7966988, 0, 0.6043769, 18.01366, 0, -17.311302)
@@ -206,13 +224,6 @@ transform = Transform3D(0.096900254, 1.9928977, 0.13772875, -0.16802871, -0.1292
 
 [node name="Shield_Wooden3" parent="Dcoracion" unique_id=2099259809 instance=ExtResource("20_0404w")]
 transform = Transform3D(0.096900254, 1.9928977, 0.13772875, -0.16802871, -0.12927075, 1.9887323, 1.990572, -0.107925534, 0.1611687, 13.2335, 1.7113838, -18.11684)
-
-[node name="Lantern_Wall3" parent="Dcoracion" unique_id=766128539 instance=ExtResource("21_wca4l")]
-transform = Transform3D(1.7586888, 0, 0.9523729, 0, 2, 0, -0.9523729, 0, 1.7586888, -25.288885, 4.499562, -21.240477)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Dcoracion/Lantern_Wall3" unique_id=849152590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.071502686, 0.29766297, 0.80427)
-light_color = Color(1, 0.8392157, 0.08627451, 1)
 
 [node name="Lantern_Wall4" parent="Dcoracion" unique_id=1754774522 instance=ExtResource("21_wca4l")]
 transform = Transform3D(-0.9888417, 0, 1.7384454, 0, 2, 0, -1.7384454, 0, -0.9888417, -20.65333, 4.962324, 16.218271)

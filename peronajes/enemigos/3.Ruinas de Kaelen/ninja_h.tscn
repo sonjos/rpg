@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cp6amwdok7rhu"]
+
+[ext_resource type="PackedScene" uid="uid://bk462tr3oysl4" path="res://Assets/Enemigos/glTF/Ninja_Male.gltf" id="1_nb3th"]
+[ext_resource type="PackedScene" uid="uid://btri38otx0th0" path="res://peronajes/enemigos/Enemigo_state_machine.tscn" id="2_hptuy"]
+[ext_resource type="Script" uid="uid://c8ogqx0vpb5hi" path="res://peronajes/enemigos/LootEntry.gd" id="3_i234g"]
+[ext_resource type="Resource" uid="uid://bh8kx6bn2sfs1" path="res://Escenas/Inventario/Misiones/Colmillo de Sombra.tres" id="4_kb4so"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p8jiu"]
+radius = 0.64697266
+height = 3.6168213
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fodb4"]
+radius = 2.2995744
+
+[sub_resource type="Resource" id="Resource_sahky"]
+script = ExtResource("3_i234g")
+objeto = ExtResource("4_kb4so")
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
+
+[node name="NinjaH" type="CharacterBody3D" unique_id=571827207 groups=["enemigo"]]
+collision_layer = 64
+collision_mask = 3
+
+[node name="Ninja_Male" parent="." unique_id=1233894925 instance=ExtResource("1_nb3th")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=805332442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0834012, 1.7019708, 0.049945995)
+shape = SubResource("CapsuleShape3D_p8jiu")
+
+[node name="HitboxAtaque" type="Area3D" parent="." unique_id=176417384]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxAtaque" unique_id=1600428411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5537304, 1.3025801, -0.043743372)
+shape = SubResource("SphereShape3D_fodb4")
+debug_color = Color(0.92156863, 0.27450982, 0.16078432, 0.9411765)
+
+[node name="Enemigo_state_machine" parent="." unique_id=759901339 instance=ExtResource("2_hptuy")]
+
+[node name="Morir" parent="Enemigo_state_machine" index="3" unique_id=1279998895]
+experiencia_otorgada = 130
+monedas_otorgadas = 340
+tabla_botin = Array[ExtResource("3_i234g")]([SubResource("Resource_sahky")])
+probabilidad_drop_general = 0.182
+
+[node name="Mele" parent="Enemigo_state_machine" index="4" unique_id=1903212392]
+fuerza_ataque = 25.0
+
+[node name="Vida" parent="Enemigo_state_machine" index="5" unique_id=1915132868]
+vida_maxima = 140.0
+
+[editable path="Enemigo_state_machine"]

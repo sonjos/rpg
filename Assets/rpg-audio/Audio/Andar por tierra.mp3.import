@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deate54wrhdx8"
+path="res://.godot/imported/Andar por tierra.mp3-0a13ed23893ff5add9876d6beaa330ef.mp3str"
+
+[deps]
+
+source_file="res://Assets/rpg-audio/Audio/Andar por tierra.mp3"
+dest_files=["res://.godot/imported/Andar por tierra.mp3-0a13ed23893ff5add9876d6beaa330ef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

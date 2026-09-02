@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://c60j2jtwmph6t" path="res://peronajes/npc/capitan_jorah.tscn" id="17_vc82t"]
 [ext_resource type="PackedScene" uid="uid://dqnpdgryy5i6e" path="res://Escenas/entonro/interactivos/fogata.tscn" id="18_lk2s6"]
 [ext_resource type="PackedScene" uid="uid://ds7jck6y4a1xt" path="res://Escenas/entonro/pilar_cristal.tscn" id="20_l1h1s"]
+[ext_resource type="PackedScene" uid="uid://d0dbqb7b5nmyv" path="res://peronajes/enemigos/Fortaleza de obsidina/trajeado.tscn" id="21_l1h1s"]
 [ext_resource type="PackedScene" uid="uid://b5os1edqc03pj" path="res://Escenas/Interfaz/pause_menu_ui.tscn" id="21_n6eq2"]
+[ext_resource type="Resource" uid="uid://cqj0r10kpgj5r" path="res://Escenas/Inventario/armas/daga.tres" id="22_i8ojl"]
+[ext_resource type="Script" uid="uid://c8ogqx0vpb5hi" path="res://peronajes/enemigos/EnemigoStateMachine/LootEntry.gd" id="23_de1dq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fodb4"]
 size = Vector3(100, 1, 100)
@@ -37,6 +40,12 @@ sky_material = SubResource("ProceduralSkyMaterial_k0thu")
 [sub_resource type="Environment" id="Environment_dh3y6"]
 background_mode = 2
 sky = SubResource("Sky_qg0bv")
+
+[sub_resource type="Resource" id="Resource_oktai"]
+script = ExtResource("23_de1dq")
+objeto = ExtResource("22_i8ojl")
+peso = 100.0
+metadata/_custom_type_script = "uid://c8ogqx0vpb5hi"
 
 [node name="Node3D" type="Node3D" unique_id=1604517919]
 
@@ -75,9 +84,6 @@ mouse_sensitivity = 0.02
 [node name="DetectorInteraccion3D" parent="Player" index="0" unique_id=1901215906]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.5910065, 0.5308771, -0.3105259)
 target_position = Vector3(0, 0, -2)
-
-[node name="Ataque" parent="Player/State_Machine" parent_id_path=PackedInt32Array(1756599763, 166052325) index="4" unique_id=1659009777]
-dano_base = 1000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=279701749]
 environment = SubResource("Environment_dh3y6")
@@ -137,8 +143,19 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.106297, 6.983657, 0)
 identificador_pilar = "pilar_malakor"
 
+[node name="Enemigos" type="Node3D" parent="." unique_id=221055537]
+
+[node name="Trajeado" parent="Enemigos" unique_id=571827207 instance=ExtResource("21_l1h1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.951101, 0, 0)
+
+[node name="Enemigo_state_machine" parent="Enemigos/Trajeado" index="3" unique_id=759901339]
+tabla_botin = Array[Resource]([SubResource("Resource_oktai")])
+probabilidad_drop_general = 100.0
+
 [editable path="Player"]
 [editable path="Player/State_Machine"]
 [editable path="PuertaLlave"]
 [editable path="PuzleAntorchcha"]
 [editable path="Fogata"]
+[editable path="Enemigos/Trajeado"]
+[editable path="Enemigos/Trajeado/Enemigo_state_machine"]

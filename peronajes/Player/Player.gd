@@ -1,6 +1,9 @@
 # res://Scripts/Player.gd
 extends CharacterBody3D
 
+func play_step_sound():
+	$AudioStreamPlayer3D.play()
+
 signal experiencia_cambiada(nueva_exp: int)
 @export var mouse_sensitivity : float = 0.003
 @onready var animation_player : AnimationPlayer = find_child("AnimationPlayer", true, false)

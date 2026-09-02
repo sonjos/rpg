@@ -1,10 +1,8 @@
 # res://states/Saltar.gd
 extends State
 
-@export var jump_velocity : float = 4.5
-
 func enter() -> void:
-	character.velocity.y = jump_velocity
+	character.velocity.y = state_machine.jump_velocity
 	
 	var anim_player = character.find_child("AnimationPlayer", true, false)
 	if anim_player and anim_player.has_animation("Jump"):
@@ -15,7 +13,7 @@ func exit() -> void:
 
 func physics_update(delta: float) -> void:
 	if not character.is_on_floor():
-		character.velocity.y -= 9.8 * delta
+		character.velocity.y -= state_machine.gravity * delta
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (character.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

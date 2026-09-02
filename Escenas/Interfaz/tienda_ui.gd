@@ -164,7 +164,7 @@ func actualizar_lista_vender() -> void:
 			texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			h_box.add_child(texture_rect)
 
-		var precio_vender = int(item.precio_compra / 2)
+		var precio_vender = int(item.precio_compra / 2.0)
 
 		var lbl = Label.new()
 		lbl.text = "%s (x%d) - %d🪙" % [item.nombre, cantidad, precio_vender]

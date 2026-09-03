@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ZoneAtmosphere" format=3 uid="uid://d3hp5j2f36hwe"]
+
+[ext_resource type="Script" uid="uid://bme7nqvrwcfb8" path="res://ZoneAtmosphere.gd" id="1_x5u6k"]
+
+[resource]
+script = ExtResource("1_x5u6k")
+zone_name = "cripta_viento_helado"
+fog_density = 0.08
+fog_light_color = Color(0.3019608, 0.5019608, 0.8, 1)
+ambient_light_color = Color(0.2, 0.34901962, 0.6, 1)
+sun_color = Color(0.5019608, 0.7490196, 1, 1)
+sun_energy = 0.9
+sky_top_color = Color(0.050980393, 0.101960786, 0.2509804, 1)
+sky_horizon_color = Color(0.14901961, 0.3019608, 0.54901963, 1)
+metadata/_custom_type_script = "uid://bme7nqvrwcfb8"

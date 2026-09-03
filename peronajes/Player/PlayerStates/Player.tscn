@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bkn6qht4mn52"]
 
-[ext_resource type="PackedScene" uid="uid://gfhidfim3vu1" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Warrior.gltf" id="1_betah"]
 [ext_resource type="Script" uid="uid://dy326a4evskpj" path="res://peronajes/Player/Player.gd" id="1_skfn6"]
+[ext_resource type="PackedScene" uid="uid://gfhidfim3vu1" path="res://Assets/perosonajes/drive-download-20260806T095809Z-1-001/glTF/Warrior.gltf" id="2_2xh21"]
 [ext_resource type="PackedScene" uid="uid://dk5im6e0nr18n" path="res://peronajes/Player/PlayerStates/state/state_machine.tscn" id="2_skfn6"]
 [ext_resource type="PackedScene" uid="uid://cogqv5xwsufbk" path="res://peronajes/Player/PlayerStates/state/health_state_machine.tscn" id="3_po6p1"]
 
@@ -14,7 +14,6 @@ radius = 1.1713867
 height = 2.409443
 
 [node name="Player" type="CharacterBody3D" unique_id=1756599763 groups=["Player"]]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2046
 script = ExtResource("1_skfn6")
@@ -25,13 +24,14 @@ target_position = Vector3(0, -1, -2)
 collision_mask = 2045
 collide_with_areas = true
 
-[node name="Player" parent="." unique_id=608360380 instance=ExtResource("1_betah")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.5570915, 0, 0.16625094)
+[node name="Warrior" parent="." unique_id=334958160 instance=ExtResource("2_2xh21")]
+transform = Transform3D(-0.9993404, 0, -0.036314044, 0, 1, 0, 0.036314044, 0, -0.9993404, 0, 0, 0)
 
 [node name="State_Machine" parent="." unique_id=166052325 instance=ExtResource("2_skfn6")]
+run_speed = 9.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1837950179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5986953, 1.3904648, 0.1198129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07026434, 1.3904648, 0.1198129)
 shape = SubResource("CapsuleShape3D_dklp6")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=2137016947]
@@ -53,6 +53,12 @@ transform = Transform3D(1, 8.135865e-08, 5.543039e-08, -8.135865e-08, 0.36595023
 shape = SubResource("CapsuleShape3D_fodb4")
 disabled = true
 debug_color = Color(0.9755458, 0, 0.21540254, 1)
+
+[node name="RayCastSuelo" type="RayCast3D" parent="." unique_id=501321103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+target_position = Vector3(0, 0.5, 0)
+
+[node name="AudioPasos" type="AudioStreamPlayer3D" parent="RayCastSuelo" unique_id=1883258599]
 
 [connection signal="body_entered" from="HitboxAtaque" to="." method="_on_hitbox_ataque_body_entered"]
 [connection signal="body_entered" from="HitboxAtaque" to="State_Machine" method="_on_hitbox_ataque_body_entered"]

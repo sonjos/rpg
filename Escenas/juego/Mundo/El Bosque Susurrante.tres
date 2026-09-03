@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ZoneAtmosphere" format=3 uid="uid://cs71ef7i2ajyb"]
+
+[ext_resource type="Script" uid="uid://bme7nqvrwcfb8" path="res://ZoneAtmosphere.gd" id="1_xetw4"]
+
+[resource]
+script = ExtResource("1_xetw4")
+zone_name = "El Bosque Susurrante"
+fog_density = 0.04
+fog_light_color = Color(0.4, 0.6, 0.5019608, 1)
+ambient_light_color = Color(0.3019608, 0.4509804, 0.4, 1)
+sun_color = Color(0.5882353, 1, 1, 1)
+sky_top_color = Color(0.14901961, 0.3019608, 0.34901962, 1)
+sky_horizon_color = Color(0.3019608, 0.5019608, 0.4509804, 1)
+metadata/_custom_type_script = "uid://bme7nqvrwcfb8"

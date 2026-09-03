@@ -26,6 +26,7 @@ QuestManager="*uid://b7pilr5aaoddx"
 MapManager="*uid://dvq48jbwqbbqb"
 SaveManager="*uid://dco6t7jbpjiul"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+AudioManager="*uid://cef681g44thot"
 
 [display]
 
@@ -164,6 +165,7 @@ Pause={
 3d_physics/layer_9="tutorial"
 3d_physics/layer_10="esceario"
 3d_physics/layer_11="npc"
+3d_physics/layer_12="clima"
 
 [physics]
 

@@ -141,3 +141,46 @@ func obtener_llave_en_inventario(nivel_requerido: int) -> ItemData:
 				return item
 
 	return null
+
+
+# --- SISTEMA DE PISADAS POR SUPERFICIE ---
+@onready var raycast_suelo: RayCast3D = $RayCastSuelo # Asegúrate de tener este RayCast3D como hijo en la escena del Player apuntando hacia abajo
+
+@export var distancia_por_paso: float = 1.5
+var distancia_recorrida: float = 0.0
+
+# Precarga de los sonidos asociados a cada grupo de nodos
+var sonidos_por_grupo = {
+	"hierba": preload("res://Assets/rpg-audio/Audio/Andar_por_hierva.mp3"),
+	"piedra": preload("res://Assets/rpg-audio/Audio/Andar_por_piedra.mp3"),
+	"tierra": preload("res://Assets/rpg-audio/Audio/Andar_por_tierra.mp3"),
+}
+
+var sonido_default = preload("res://Assets/rpg-audio/Audio/Sonido_error.mp3")
+
+# Si procesas el movimiento físicamente, puedes llamar o integrar esto en tu física, 
+# o llamarlo desde tus estados de movimiento. Aquí tienes la función lista para ser invocada:
+func comprobar_y_reproducir_paso(delta: float) -> void:
+	if is_on_floor() and velocity.length() > 0.1:
+		var velocidad_horizontal = Vector3(velocity.x, 0, velocity.z)
+		distancia_recorrida += velocidad_horizontal.length() * delta
+		
+		if distancia_recorrida >= distancia_por_paso:
+			detectar_suelo_y_sonar()
+			distancia_recorrida = 0.0
+
+func detectar_suelo_y_sonar() -> void:
+	if raycast_suelo and raycast_suelo.is_colliding():
+		var collider = raycast_suelo.get_collider()
+		
+		if collider:
+			var audio_elegido = sonido_default
+			
+			for grupo in sonidos_por_grupo.keys():
+				if collider.is_in_group(grupo):
+					audio_elegido = sonidos_por_grupo[grupo]
+					break
+			
+			$AudioStreamPlayer3D.stream = audio_elegido
+			$AudioStreamPlayer3D.pitch_scale = randf_range(0.9, 1.1)
+			$AudioStreamPlayer3D.play()

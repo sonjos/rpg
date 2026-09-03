@@ -4,13 +4,16 @@ extends Control
 @onready var grid_mochila: GridContainer = $AreaInventario/ColumnaIzquierda/GridMochila
 @onready var grid_equipo: HBoxContainer = $AreaInventario/ColumnaDerecha/BoxEquipo
 @onready var box_clave: HBoxContainer = $AreaInventario/ColumnaDerecha/HBoxClave
-
 @onready var lbl_vida: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblVida
 @onready var lbl_fuerza: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblFuerza
 @onready var lbl_defensa: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblDefensa
 @onready var lbl_saqueo: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblSaqueo
 @onready var lbl_agilidad: Label = $AreaInventario/ColumnaDerecha/PanelStatsUI/LblAgilidad
 @onready var inventario_ui: Control = $"."
+
+# Precarga opcional de sonidos de interfaz (asegúrate de ajustar las rutas si usas tus propios archivos .wav o .ogg)
+var sonido_menu: AudioStream = preload("res://Assets/rpg-audio/Audio/bookOpen.ogg") 
+var sonido_clic: AudioStream = preload("res://Assets/rpg-audio/Audio/cloth3.ogg") 
 
 # Capacidad base del inventario y límite máximo
 const CASILLAS_BASE: int = 18
@@ -33,6 +36,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_TAB:
 			visible = not visible
+			
+			# Reproducir sonido global de interfaz al abrir/cerrar menú
+			if sonido_menu:
+				AudioManager.reproducir_ui(sonido_menu)
 			
 			if visible:
 				get_viewport().gui_release_focus()
@@ -123,6 +130,10 @@ func usar_o_equipar_item(indice: int) -> void:
 	if indice >= InventarioManager.inventario.size():
 		return
 		
+	# Reproducir sonido general de clic en objeto
+	if sonido_clic:
+		AudioManager.reproducir_ui(sonido_clic)
+		
 	var slot_data = InventarioManager.inventario[indice]
 	var item = slot_data["item"]
 	var slot_destino: String = ""
@@ -146,7 +157,7 @@ func usar_o_equipar_item(indice: int) -> void:
 
 	elif item.tipo == 2 or tipo_str in ["2", "consumible"]:
 		if "cantidad_curacion" in item and item.cantidad_curacion > 0:
-			PlayerStats.current_health = min(PlayerStats.max_health, PlayerStats.current_health + item.cantidad_curacion)
+			PlayerStats.curar(item.cantidad_curacion)
 			_consumir_item_del_slot(slot_data, indice)
 		return
 
@@ -176,6 +187,8 @@ func _consumir_item_del_slot(slot_data: Dictionary, indice: int) -> void:
 func desequipar_item(tipo: String) -> void:
 	var item_equipado = PlayerStats.equipo[tipo]
 	if item_equipado != null:
+		if sonido_clic:
+			AudioManager.reproducir_ui(sonido_clic)
 		get_viewport().gui_release_focus()
 		InventarioManager.recoger_item(item_equipado)
 		PlayerStats.equipo[tipo] = null

@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://c2b8s845tlvu5"]
+
+[ext_resource type="Script" uid="uid://cdms7g0flcx24" path="res://Escenas/juego/Mundo/ZoneTransitionArea.gd" id="1_ibyv2"]
+[ext_resource type="Resource" uid="uid://bwpf3jwja2eov" path="res://Escenas/juego/Mundo/valle_aethelgard.tres" id="2_aqxkn"]
+[ext_resource type="Resource" uid="uid://cs71ef7i2ajyb" path="res://Escenas/juego/Mundo/El Bosque Susurrante.tres" id="3_o2dmn"]
+[ext_resource type="Resource" uid="uid://cbqo757fb8xa" path="res://Escenas/juego/Mundo/ruinas_kaelen.tres" id="4_usrxi"]
+[ext_resource type="Resource" uid="uid://cuwfkgy8f21mx" path="res://Escenas/juego/Mundo/puerto_bruma.tres" id="5_w3uh6"]
+[ext_resource type="Resource" uid="uid://d3hp5j2f36hwe" path="res://Escenas/juego/Mundo/cripta_viento_helado.tres" id="6_3f4io"]
+[ext_resource type="Resource" uid="uid://crkpa4larkprf" path="res://Escenas/juego/Mundo/fortaleza_obsidiana.tres" id="7_q3lt6"]
+[ext_resource type="PackedScene" uid="uid://bkn6qht4mn52" path="res://peronajes/Player/PlayerStates/Player.tscn" id="8_lcrf6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23v1h"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ioi80"]
+sky_material = SubResource("ProceduralSkyMaterial_23v1h")
+
+[sub_resource type="Environment" id="Environment_8u1bt"]
+background_mode = 2
+sky = SubResource("Sky_ioi80")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xv2uf"]
+radius = 1.8795393
+
+[node name="PruebasClima" type="Node3D" unique_id=33308007]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1478329854]
+environment = SubResource("Environment_8u1bt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=619253444]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ZoneTransitionArea" type="Area3D" parent="." unique_id=160671201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8236969, -20.12732)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_ibyv2")
+target_atmosphere = ExtResource("2_aqxkn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneTransitionArea" unique_id=1313658306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099374294, 0, -0.29799557)
+shape = SubResource("SphereShape3D_xv2uf")
+debug_color = Color(0.8862745, 0.32941177, 0.09019608, 1)
+
+[node name="Label3D" type="Label3D" parent="ZoneTransitionArea" unique_id=1175779656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5022728, 0)
+pixel_size = 0.025
+text = "A
+ethgarld"
+
+[node name="ZoneTransitionArea2" type="Area3D" parent="." unique_id=1944570086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.44557, 1.8236969, -20.12732)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_ibyv2")
+target_atmosphere = ExtResource("3_o2dmn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneTransitionArea2" unique_id=1787523866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099374294, 0, -0.29799557)
+shape = SubResource("SphereShape3D_xv2uf")
+debug_color = Color(0.8862745, 0.32941177, 0.09019608, 1)
+
+[node name="Label3D" type="Label3D" parent="ZoneTransitionArea2" unique_id=925087444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5022728, 0)
+pixel_size = 0.025
+text = "El Bosque Susurrante"
+
+[node name="ZoneTransitionArea3" type="Area3D" parent="." unique_id=723671215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.44557, 1.8236969, -14.479493)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_ibyv2")
+target_atmosphere = ExtResource("4_usrxi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneTransitionArea3" unique_id=312096587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.112387, 0, 8.821924)
+shape = SubResource("SphereShape3D_xv2uf")
+debug_color = Color(0.8862745, 0.32941177, 0.09019608, 1)
+
+[node name="Label3D" type="Label3D" parent="ZoneTransitionArea3" unique_id=1668191600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.730019, 2.5022728, 8.505633)
+pixel_size = 0.025
+billboard = 1
+text = "Las Ruinas de Kaelen"
+
+[node name="ZoneTransitionArea4" type="Area3D" parent="." unique_id=1079424911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.112833, 1.8236969, 6.1260605)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_ibyv2")
+target_atmosphere = ExtResource("5_w3uh6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneTransitionArea4" unique_id=2070892857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.112387, 0, 8.821924)
+shape = SubResource("SphereShape3D_xv2uf")
+debug_color = Color(0.8862745, 0.32941177, 0.09019608, 1)
+
+[node name="Label3D" type="Label3D" parent="ZoneTransitionArea4" unique_id=1850256881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.295393, 2.5022728, 7.6653996)
+pixel_size = 0.025
+billboard = 1
+text = "Puerto Bruma"
+
+[node name="ZoneTransitionArea5" type="Area3D" parent="." unique_id=855408970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.989233, 1.8236969, 24.603355)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_ibyv2")
+target_atmosphere = ExtResource("6_3f4io")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneTransitionArea5" unique_id=976612128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.112387, 0, 8.821924)
+shape = SubResource("SphereShape3D_xv2uf")
+debug_color = Color(0.8862745, 0.32941177, 0.09019608, 1)
+
+[node name="Label3D" type="Label3D" parent="ZoneTransitionArea5" unique_id=1377543713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.295393, 2.5022728, 7.6653996)
+pixel_size = 0.025
+billboard = 1
+text = "La Cripta del Viento Helado"
+
+[node name="ZoneTransitionArea6" type="Area3D" parent="." unique_id=2028283409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.995153, 1.8236969, 24.603355)
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_ibyv2")
+target_atmosphere = ExtResource("7_q3lt6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZoneTransitionArea6" unique_id=1374347447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.112387, 0, 8.821924)
+shape = SubResource("SphereShape3D_xv2uf")
+debug_color = Color(0.8862745, 0.32941177, 0.09019608, 1)
+
+[node name="Label3D" type="Label3D" parent="ZoneTransitionArea6" unique_id=1977000663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.295393, 2.5022728, 7.6653996)
+pixel_size = 0.025
+billboard = 1
+text = "La Fortaleza de Obsidiana"
+
+[node name="Player" parent="." unique_id=1756599763 instance=ExtResource("8_lcrf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1063848, 0)
+collision_mask = 4095
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1092469800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22603369, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(100, 1, 100)
+
+[connection signal="body_entered" from="ZoneTransitionArea" to="ZoneTransitionArea" method="_on_body_entered"]
+[connection signal="body_entered" from="ZoneTransitionArea2" to="ZoneTransitionArea2" method="_on_body_entered"]
+[connection signal="body_entered" from="ZoneTransitionArea3" to="ZoneTransitionArea3" method="_on_body_entered"]
+[connection signal="body_entered" from="ZoneTransitionArea4" to="ZoneTransitionArea4" method="_on_body_entered"]
+[connection signal="body_entered" from="ZoneTransitionArea5" to="ZoneTransitionArea5" method="_on_body_entered"]
+[connection signal="body_entered" from="ZoneTransitionArea6" to="ZoneTransitionArea6" method="_on_body_entered"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://i3xbsyun5v2i"]
+
+[ext_resource type="Script" uid="uid://cdms7g0flcx24" path="res://Escenas/juego/Mundo/ZoneTransitionArea.gd" id="1_w4u1g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dklp6"]
+
+[node name="ZoneTransitionArea" type="Area3D" unique_id=2118527575]
+script = ExtResource("1_w4u1g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1910887404]
+shape = SubResource("SphereShape3D_dklp6")
+debug_color = Color(0.8862308, 0.32920325, 0.09097885, 0.41960785)

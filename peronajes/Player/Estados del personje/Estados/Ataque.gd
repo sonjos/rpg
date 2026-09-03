@@ -110,9 +110,9 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 	if nodo_vida and nodo_vida.has_method("recibir_dano"):
 		enemigos_golpeados.append(body)  # Marcar como golpeado
 		nodo_vida.recibir_dano(dano_total)
-		var state_machine = body.get_node_or_null("Enemigo_state_machine")
-		if state_machine:
-			PlayerStats.actualizar_vida_enemigo(nodo_vida.vida_actual, state_machine.vida_maxima)
+		var enemy_state_machine = body.get_node_or_null("Enemigo_state_machine")
+		if enemy_state_machine:
+			PlayerStats.actualizar_vida_enemigo(nodo_vida.vida_actual, enemy_state_machine.vida_maxima)
 	
 	# 2. Comprobación directa para Jefes (JefeBase)
 	elif body.has_method("take_damage"):
